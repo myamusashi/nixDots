@@ -1,0 +1,531 @@
+{ inputs, pkgs, ... }:
+
+{
+  imports = [ ./hyprlock.nix ./hypridle.nix ];
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    extraConfig = ''
+      plugin = ${inputs.hy3.packages.${pkgs.system}.hy3}/lib/libhy3.so
+      plugin = ${
+        inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
+      }/lib/libhypr-dynamic-cursors.so
+      plugin = ${
+        inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      }/lib/libHyprspace.so
+    '';
+    settings = {
+      env = [
+        "GTK_THEME, Nordic"
+        "AQ_DRM_DEVICES, /dev/dri/card1:/dev/dri/card0"
+        "AQ_WLR_DEVICES, /dev/dri/card1:/dev/dri/card0"
+        "GDK_BACKEND, wayland,x11"
+        "XDG_CURRENT_DESKTOP, Hyprland"
+        "XDG_SESSION_TYPE, wayland"
+        "XDG_SESSION_DESKTOP, Hyprland"
+        "QT_QPA_PLATFORM, wayland;xcb"
+        "QT_QPA_PLATFORMTHEME, qt6ct"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 0"
+        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
+        "QT_STYLE_OVERRIDE, kvantum"
+        "SDL_VIDEODRIVER, wayland"
+        "_JAVA_AWT_WM_NONREPARENTING, 1"
+        "WLR_NO_HARDWARE_CURSORS, 0"
+        "CLUTTER_BACKEND, wayland"
+        "MOZ_DISABLE_RDD_SANDBOX, 1"
+        "MOZ_ENABLE_WAYLAND, 1 firefox"
+        "OZONE_PLATFORM, wayland"
+      ];
+      exec-once = [
+        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        # "hyprctl plugin load ${inputs.hy3.packages.${pkgs.system}.hy3}/lib/libhy3.so"
+        # "hyprctl plugin load ${inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so"
+        # "hyprctl plugin load ${inputs.Hyprspace.packages.${pkgs.system}.Hyprspace}/lib/libHyprspace.so"
+        "hyprpanel"
+        "swayosd-server"
+        "hyprpm reload"
+        "hypridle"
+        "hyprctl setcursor Bibata-Modern-Classic 30"
+        "$HOME/.config/home-manager/modules/hyprland/config/scripts/pipewire-services --start"
+        "$HOME/.config/home-manager/modules/hyprland/config/scripts/start_boot"
+        "$HOME/.local/bin/pacman_updates"
+        "brightnessctl set 60%"
+        "udiskie -t -a --appindicator -f yazi"
+        "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+        "$HOME/.local/bin/github_notify"
+        "$HOME/.local/bin/cache_wall"
+      ];
+
+      monitor =
+        [ "eDP-1,1366x768@60,0x0,1" "HDMI-A-1,1920x1080@74.97,0x768,1" ];
+
+      input = {
+        kb_file = "";
+        kb_layout = "us";
+        kb_variant = "";
+        kb_model = "";
+        kb_options = "";
+        kb_rules = "";
+
+        numlock_by_default = true;
+
+        follow_mouse = true;
+        mouse_refocus = true;
+
+        sensitivity = -0.30000000000000016;
+        accel_profile = "adaptive";
+
+        touchpad = {
+          natural_scroll = true;
+          disable_while_typing = true;
+          clickfinger_behavior = false;
+          drag_lock = true;
+          tap-and-drag = true;
+        };
+      };
+      general = {
+        gaps_in = 2;
+        gaps_out = 5;
+        border_size = 1;
+        "col.active_border" = "rgba(fff5c2e7) rgba(c293a3ff) 45deg";
+        "col.inactive_border" = "0xff382D2E";
+        no_border_on_floating = false;
+        layout = "hy3";
+        snap = {
+          enabled = true;
+          "window_gap" = 35;
+          "monitor_gap" = 35;
+        };
+      };
+
+      decoration = {
+        rounding = 1;
+        active_opacity = 1;
+        inactive_opacity = 0.9;
+
+        blur = {
+          enabled = true;
+          size = 2;
+          passes = 2;
+          new_optimizations = true;
+          input_methods = 1;
+          xray = false;
+          ignore_opacity = false;
+        };
+      };
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+        disable_autoreload = false;
+        mouse_move_enables_dpms = true;
+        vfr = true;
+        font_family = "Jetbrains Nerd Font";
+        vrr = 0;
+        render_ahead_of_time = false;
+        animate_manual_resizes = true;
+        mouse_move_focuses_monitor = true;
+        enable_swallow = true;
+        animate_mouse_windowdragging = true;
+        middle_click_paste = true;
+      };
+      experimental = {
+        wide_color_gamut = true;
+        hdr = true;
+        xx_color_management_v4 = true;
+      };
+
+      cursor = {
+        default_monitor = "LG Electronics";
+        sync_gsettings_theme = true;
+        no_hardware_cursors = false;
+        use_cpu_buffer = true;
+      };
+
+      opengl = { force_introspection = 1; };
+
+      render = {
+        explicit_sync = true;
+        explicit_sync_kms = false;
+        direct_scanout = false;
+      };
+
+      xwayland = {
+        enabled = true;
+        use_nearest_neighbor = true;
+        force_zero_scaling = true;
+      };
+
+      animations = {
+        enabled = true;
+        bezier = [
+          "linear, 0, 0, 1, 1"
+          "md3_standard, 0.2, 0, 0, 1"
+          "md3_decel, 0.05, 0.7, 0.1, 1"
+          "md3_accel, 0.3, 0, 0.8, 0.15"
+          "overshot, 0.05, 0.9, 0.1, 1.1"
+          "crazyshot, 0.1, 1.5, 0.76, 0.92"
+          "hyprnostretch, 0.05, 0.9, 0.1, 1.0"
+          "menu_decel, 0.1, 1, 0, 1"
+          "menu_accel, 0.38, 0.04, 1, 0.07"
+          "easeInOutCirc, 0.85, 0, 0.15, 1"
+          "easeOutCirc, 0, 0.55, 0.45, 1"
+          "easeOutExpo, 0.16, 1, 0.3, 1;"
+          "softAcDecel, 0.26, 0.26, 0.15, 1"
+          "md2, 0.4, 0, 0.2, 1"
+
+        ];
+        animation = [
+          "windows, 1, 3, md3_decel, popin 60%"
+          "windowsIn, 1, 3, md3_decel, popin 60%"
+          "windowsOut, 1, 3, md3_accel, popin 60%"
+          "border, 1, 10, default"
+          "fade, 1, 3, md3_decel"
+          "workspaces, 1, 7, menu_decel, slide"
+          "specialWorkspace, 1, 3, md3_decel, slidevert"
+        ];
+      };
+
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+      };
+
+      "$term" = "kitty";
+      "$screencapture" =
+        "$HOME/.config/home-manager/modules/hyprland/scripts/screen-capture.sh";
+      "$files" = "kitty --single-instance yazi";
+      "$zen-browser" = "$HOME/.nix-profile/bin/zen";
+      "$vm" = "vmware";
+      "$launcher" = "$HOME/.config/rofi/launchers/type-5/launcher.sh";
+      "$powermenu" = "$HOME/.config/rofi/powermenu/type-5/powermenu.sh";
+      "$colorpick" =
+        "$HOME/.config/home-manager/modules/hyprland/scripts/picker.sh";
+      "$notifhistory" = "astal -i hyprpanel -t notificationsmenu";
+      "$calendar" = "astal -i hyprpanel -t calendarmenu";
+      "$dashboard" = "astal -i hyprpanel -t dashboardmenu";
+      "$spotify" = "LD_PRELOAD=/usr/lib/spotify-adblock.so spotify";
+      "$discord" = "legcord";
+      "$clipmanager" =
+        "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold| cliphist decode | wl-copy";
+      "$wipeclip" =
+        "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold | cliphist delete";
+      "$modalt" = "ALT";
+      "$mod" = "SUPER";
+
+      bind = [
+        "$modalt, RETURN, exec, $term"
+        "$modalt, F, exec, $zen-browser"
+        "$modalt, E, exec, $files"
+        "SHIFT $modalt, C, exec, $clipmanager"
+        "SHIFT $modalt, E, exec, $HOME/.config/home-manager/modules/hyprland/scripts/ags_connect"
+        "SHIFT $modalt, D, exec, $discord"
+        "$modalt, SPACE, exec, $launcher"
+        "$modalt, C, exec, $wipeclip"
+        "$modalt, S, exec, $spotify"
+        "$mod, P, exec, $dashboard"
+        "SuperShift, C, exec, $calendar"
+        "$modalt, D, exec, $powermenu"
+        "$modalt, T, exec, telegram-desktop"
+        "SHIFT $modalt, P, exec, $colorpick"
+        "$mod, S, exec, $screencapture"
+        "$mod, W, exec, $notifhistory"
+
+        "SHIFT $modalt, TAB, togglefloating"
+        "$modalt, Q, killactive"
+        "$modalt, P, pseudo"
+        "SHIFT $modalt, RETURN, fullscreen"
+        "SuperShift, S, layoutmsg, togglesplit"
+
+        # Change Workspace Mode
+        "SuperShift, F, workspaceopt, allfloat"
+        "SuperShift, P, workspaceopt, allpseudo"
+
+        "$mod, Tab, cyclenext"
+        "$mod, Tab, bringactivetotop"
+        "$modalt, left, movefocus, l"
+        "$modalt, right, movefocus, r"
+        "$modalt, up, movefocus, u"
+        "$modalt, down, movefocus, d"
+
+        # Alternative Movefocus
+        "$mod CTRL, left, exec, hyprctl dispatch hy3:movefocus l"
+        "$mod CTRL, right, exec, hyprctl dispatch hy3:movefocus r"
+        "$mod CTRL, up, exec, hyprctl dispatch hy3:movefocus u"
+        "$mod CTRL, down, exec, hyprctl dispatch hy3:movefocus d"
+
+        "SHIFT $modalt, G, exec, hyprctl dispatch hy3:makegroup tab"
+
+        "$mod, left, exec, hyprctl dispatch hy3:movewindow l, once"
+        "$mod, right, exec, hyprctl dispatch hy3:movewindow r, once"
+        "$mod, up, exec, hyprctl dispatch hy3:movewindow u, once"
+        "$mod, down, exec, hyprctl dispatch hy3:movewindow d, once"
+        "$modalt CTRL, left, resizeactive, -20 0"
+        "$modalt CTRL, right, resizeactive, 20 0"
+        "$modalt CTRL, up, resizeactive, 0 -20"
+        "$modalt CTRL, down, resizeactive, 0 20"
+        "SHIFT $modalt, up, workspace, e+1"
+        "SHIFT $modalt, down, workspace, e-1"
+        "SHIFT $modalt, right, workspace, r+1"
+        "SHIFT $modalt, left, workspace, r-1"
+        "$modalt, mouse_down, workspace, e+1"
+        "$modalt, mouse_up, workspace, e-1"
+
+        ", XF86AudioStop, exec, playerctl play-pause"
+        ", XF86AudioStop, exec, playerctl previous"
+        ", XF86AudioStop, exec, playerctl next"
+
+        ", XF86AudioLowerVolume,exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioRaiseVolume,exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+
+        "$modalt, TAB, exec, hyprctl dispatch overview:toggle"
+
+      ] ++ (
+        # workspaces
+        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+        builtins.concatLists (builtins.genList (i:
+          let ws = i + 1;
+          in [ "$mod, ${toString ws}, movetoworkspace, ${toString ws}" ]) 9));
+      bindm =
+        [ "$modalt, mouse:272, movewindow" "$modalt, mouse:273, resizewindow" ];
+      bindr = [
+        "CAPS, Caps_Lock, exec, swayosd-client --caps-lock"
+        ", toggle_numlock, exec, swayosd-client --num-lock"
+      ];
+
+      windowrulev2 = [
+        "float,class:^(pavucontrol)$"
+        "float,title:^(Media viewer)$"
+        "float,title:^(Volume Control)$"
+        "float,title:^(Picture-in-Picture)$"
+        "float,class:^(file_progress)$"
+        "float,class:^(confirm)$"
+        "float,class:^(dialog)$"
+        "float,class:^(download)$"
+        "float,class:^(notification)$"
+        "float,class:^(error)$"
+        "float,class:^(confirmreset)$"
+        "float,title:^(Open File)$"
+        "float,title:^(branchdialog)$"
+        "float,title:^(Confirm to replace files)"
+        "float,title:^(File Operation Progress)"
+        "float,class:^(org.twosheds.iwgtk)$"
+        "float,title:^(iwgtk)$"
+        "float,class:^(blueman-manager)$"
+        "float,title:^(Bluetooth Devices)$"
+        "float,class:^(Rofi)$"
+        "float,title:^(yazi)$"
+        "move 40 44%,title:^(iwgtk)$"
+        "move 40 44%,title:^(Volume Control)$"
+        "move 40 58%,title:^(Bluetooth Devices)$"
+        "center,title:^(rofi - )$"
+        "center,title:^(rofi -  gilang@artix)$"
+        "center,title:^(rofi - APPS)$"
+        "size 800 600,class:^(download)$"
+        "size 800 600,title:^(Volume Control)$"
+        "size 505 600,title:^(iwgtk)$"
+        "size 652 310,title:^(Bluetooth Devices)$"
+        "idleinhibit focus,class:^(mpv)$"
+        "idleinhibit fullscreen,class:^(firefox)$"
+        "opacity 0.90,title:^(Spotify)$"
+        "opacity 1 override,class:^(zen|zen-twilight)$"
+        "opacity 0.95,class:^(nemo)$"
+        "noblur,class:^(Code)$"
+      ];
+
+      plugin = {
+
+        overview = {
+          # Color workspaces window
+          dragAlpha = 0.5;
+          panelColor = "rgba(46, 52, 64, 1)";
+          panelBorderColor = "rgb(243, 139, 168)";
+
+          # Layout
+          disableBlur = false;
+          workspaceMargin = 20;
+          panelHeight = 180;
+          panelBorderWidth = 5;
+          workspaceBorderSize = 5;
+          hideBackgroundLayers = false;
+          hideTopLayers = false;
+          hideOverlayLayers = false;
+          hideRealLayers = false;
+          onBottom = true;
+          overrideGaps = true;
+          adaptiveHeight = true;
+          centerAligned = true;
+
+          # Event 
+          affectStrut = true;
+          autoDrag = true;
+          autoScroll = false;
+          drawActiveWorkspace = true;
+          showNewWorkspace = true;
+          showEmptyWorkspace = true;
+          showSpecialWorkspace = false;
+          exitOnClick = false;
+
+          # Animation 
+          overrideAnimSpeed = 0;
+        };
+
+        hy3 = {
+          # 0 - always show gaps
+          # 1 - hide gaps with a single window onscreen
+          # 2 - 1 but also show the window border
+          no_gaps_when_only = 0; # default: 0
+
+          # 0 = remove the nested group
+          # 1 = keep the nested group
+          # 2 = keep the nested group only if its parent is a tab group
+          node_collapse_policy = 0; # default: 2
+
+          # offset from group split direction when only one window is in a group
+          group_inset = 10; # default: 10
+
+          # if a tab group will automatically be created for the first window spawned in a workspace
+          tab_first_window = true;
+
+          tabs = {
+            height = 5; # default: 15
+            padding = 5; # default: 5
+
+            # the tab bar should animate in/out from the top instead of below the window
+            from_top = false; # default: false
+            rounding = 3; # default: 3
+            render_text = false; # default: true
+            text_center = false; # default: false
+            text_font = "Sans"; # default: Sans
+            text_height = 5; # default: 8
+            text_padding = 1; # default: 3
+            "col.active" = "0xf38ba8ff"; # default: 0xff32b4ff
+            "col.urgent" = "0xffff4f4f"; # default: 0xffff4f4f
+            "col.inactive" = "0x80808080"; # default: 0x80808080
+            "col.text.active" = "0xff000000"; # default: 0xff000000
+            "col.text.urgent" = "0xff000000"; # default: 0xff000000
+            "col.text.inactive" = "0xff000000"; # default: 0xff000000
+          };
+
+          autotile = {
+            enable = true; # default: false;
+            # make autotile-created groups ephemeral
+            ephemeral_groups = true; # default: true
+
+            # if a window would be squished smaller than this width, a vertical split will be created
+            # -1 = never automatically split vertically
+            # 0 = always automatically split vertically
+            # <number> = pixel height to split at
+            trigger_width = 0; # default: 0
+
+            # if a window would be squished smaller than this height, a horizontal split will be created
+            # -1 = never automatically split horizontally
+            # 0 = always automatically split horizontally
+            # <number> = pixel height to split at
+            trigger_height = 0; # default: 0
+
+            # a space or comma separated list of workspace ids where autotile should be enabled
+            # it's possible to create an exception rule by prefixing the definition with "not:"
+            # workspaces = 1,2 # autotiling will only be enabled on workspaces 1 and 2
+            # workspaces = not:1,2 # autotiling will be enabled on all workspaces except 1 and 2
+            "workspaces" = "all"; # default: all
+          };
+        };
+        dynamic-cursors = {
+
+          # enables the plugin
+          enabled = true;
+
+          # sets the cursor behaviour, supports these values:
+          # tilt    - tilt the cursor based on x-velocity
+          # rotate  - rotate the cursor based on movement direction
+          # stretch - stretch the cursor shape based on direction and velocity
+          # none    - do not change the cursors behaviour
+          mode = "stretch";
+
+          # minimum angle difference in degrees after which the shape is changed
+          # smaller values are smoother, but more expensive for hw cursors
+          threshold = 1;
+
+          # for mode = rotate
+          rotate = {
+
+            # length in px of the simulated stick used to rotate the cursor
+            # most realistic if this is your actual cursor size
+            length = 20;
+
+            # clockwise offset applied to the angle in degrees
+            # this will apply to ALL shapes
+            offset = 0.0;
+          };
+
+          # for mode = tilt
+          tilt = {
+
+            # controls how powerful the tilt is, the lower, the more power
+            # this value controls at which speed (px/s) the full tilt is reached
+            limit = 5000;
+
+            # relationship between speed and tilt, supports these values:
+            # linear             - a linear function is used
+            # quadratic          - a quadratic function is used (most realistic to actual air drag)
+            # negative_quadratic - negative version of the quadratic one, feels more aggressive
+            function = "negative_quadratic";
+          };
+
+          # for mode = stretch
+          stretch = {
+
+            # controls how much the cursor is stretched
+            # this value controls at which speed (px/s) the full stretch is reached
+            limit = 3000;
+
+            # relationship between speed and stretch amount, supports these values:
+            # linear             - a linear function is used
+            # quadratic          - a quadratic function is used
+            # negative_quadratic - negative version of the quadratic one, feels more aggressive
+            function = "negative_quadratic";
+          };
+
+          # configure shake to find
+          # magnifies the cursor if its is being shaken
+          shake = {
+
+            # enables shake to find
+            enabled = false;
+
+            # use nearest-neighbour (pixelated) scaling when shaking
+            # may look weird when effects are enabled
+            nearest = true;
+
+            # controls how soon a shake is detected
+            # lower values mean sooner
+            threshold = 6.0;
+
+            # magnification level immediately after shake start
+            base = 4.0;
+            # magnification increase per second when continuing to shake
+            speed = 4.0;
+            # how much the speed is influenced by the current shake intensitiy
+            influence = 0.0;
+
+            # maximal magnification the cursor can reach
+            # values below 1 disable the limit (e.g. 0)
+            limit = 0.0;
+
+            # time in millseconds the cursor will stay magnified after a shake has ended
+            timeout = 2000;
+
+            # show cursor behaviour `tilt`, `rotate`, etc. while shaking
+            effects = false;
+
+            # enable ipc events for shake
+            # see the `ipc` section below
+            ipc = false;
+          };
+        };
+      };
+    };
+  };
+}

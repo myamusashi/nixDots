@@ -1,0 +1,54 @@
+#!/bin/sh
+
+is_running() {
+    pgrep "$1" > /dev/null 2>&1
+}
+
+start_services() {
+    echo "Starting PipeWire services..."
+    /usr/bin/pipewire &
+    /usr/bin/pipewire-pulse &
+    /usr/bin/wireplumber &
+    sleep 1  
+
+    if is_running "pipewire" && is_running "pipewire-pulse" && is_running "wireplumber"; then
+        echo "PipeWire services started successfully."
+    else
+        echo "Error: Failed to start PipeWire services."
+    fi
+}
+
+stop_services() {
+    echo "Stopping PipeWire services..."
+    pkill -f /usr/bin/pipewire
+    pkill -f /usr/bin/pipewire-pulse
+    pkill -f /usr/bin/wireplumber
+    sleep 1
+
+    if ! is_running "pipewire" && ! is_running "pipewire-pulse" && ! is_running "wireplumber"; then
+        echo "PipeWire services stopped successfully."
+    else
+        echo "Error: Failed to stop PipeWire services."
+    fi
+}
+
+restart_services() {
+    stop_services
+    start_services
+}
+
+case "$1" in
+    --start)
+        start_services
+        ;;
+    --stop)
+        stop_services
+        ;;
+    --restart)
+        restart_services
+        ;;
+    *)
+        echo "Usage: $0 {--start|--stop|--restart}"
+        exit 1
+        ;;
+esac
