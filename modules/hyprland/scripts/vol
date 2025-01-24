@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cur_sound=$(amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }')
+
+LOW=$(XF86AudioLowerVolume)
+HIGH=$(XF86AudioRaiseVolume)
+
+while true; do
+
+done

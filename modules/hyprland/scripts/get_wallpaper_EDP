@@ -1,0 +1,5 @@
+#!/bin/sh
+
+q=$(swww query | grep "eDP" | awk '{print $8}')
+
+cp -f $q ~/.config/hypr/scripts/wall/edp.png
