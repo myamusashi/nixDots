@@ -1,24 +1,18 @@
 { pkgs, ... }:
 
 {
- systemd.user.timers.adzan = {
-    Unit = {
-      Description = "Timer adzan harian";
-    };
+  systemd.user.timers.adzan = {
+    Unit = { Description = "Timer adzan harian"; };
     Timer = {
       OnCalendar = "*:*:00";
       Persistent = true;
       Unit = "adzan";
     };
-    Install = {
-      WantedBy = [ "timers.target" ];
-    };
+    Install = { WantedBy = [ "timers.target" ]; };
   };
 
- systemd.user.services.adzan = {
-    Unit = {
-      Description = "Service notify adzan harian";
-    };
+  systemd.user.services.adzan = {
+    Unit = { Description = "Service notify adzan harian"; };
     Service = {
       Type = "oneshot";
       ExecStart = "${pkgs.writeShellScript "adzan-notify" ''

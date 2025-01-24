@@ -7,9 +7,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland?submodules=1";
-    };
+    hyprland = { url = "github:hyprwm/Hyprland?submodules=1"; };
     # where {version} is the hyprland release version
     # or "github:hyprwm/Hyprland?submodules=1" to follow the development branch
 
@@ -19,7 +17,8 @@
     };
 
     hy3 = {
-      url = "github:outfoxxed/hy3"; # where {version} is the hyprland release version
+      url =
+        "github:outfoxxed/hy3"; # where {version} is the hyprland release version
       # or "github:outfoxxed/hy3" to follow the development branch.
       inputs.hyprland.follows = "hyprland";
     };
@@ -40,31 +39,34 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... } @inputs:
-    let system = "x86_64-linux"; in {
-      homeConfigurations."myamusashi@nixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [
-            inputs.hyprpanel.overlay
+  outputs = { nixpkgs, home-manager, ... }@inputs:
+    let system = "x86_64-linux";
+    in {
+      homeConfigurations."myamusashi@nixos" =
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ inputs.hyprpanel.overlay ];
+          };
+
+          extraSpecialArgs = {
+            inherit system;
+            inherit inputs;
+          };
+
+          modules = [
+            ./home.nix
+
+            # hyprland.homeManagerModules.default
+            #
+            # {
+            #   wayland.windowManager.hyprland = {
+            #     enable = true;
+            #     plugins = [ hy3.packages.x86_64-linux.hy3 ];
+            #   };
+            #   home.packages = [ zen-browser.packages.x86_64-linux.default ];
+            # }
           ];
         };
-
-        extraSpecialArgs = { inherit system; inherit inputs; };
-
-        modules = [
-          ./home.nix
-
-          # hyprland.homeManagerModules.default
-          #
-          # {
-          #   wayland.windowManager.hyprland = {
-          #     enable = true;
-          #     plugins = [ hy3.packages.x86_64-linux.hy3 ];
-          #   };
-          #   home.packages = [ zen-browser.packages.x86_64-linux.default ];
-          # }
-        ];
-      };
     };
 }

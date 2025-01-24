@@ -1,15 +1,13 @@
 { inputs, pkgs, ... }:
 
 {
-  imports = [
-    ./hyprlock.nix
-    ./hypridle.nix
-  ];
+  imports = [ ./hyprlock.nix ./hypridle.nix ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     extraConfig = ''
-        plugin =  ${inputs.hy3.packages.${pkgs.system}.hy3}/lib/libhy3.so
+      plugin =  ${inputs.hy3.packages.${pkgs.system}.hy3}/lib/libhy3.so
     '';
     settings = {
       env = [
@@ -53,10 +51,8 @@
         "$HOME/.local/bin/cache_wall"
       ];
 
-      monitor = [
-        "eDP-1,1366x768@60,0x0,1"
-        "HDMI-A-1,1920x1080@74.97,0x768,1"
-      ];
+      monitor =
+        [ "eDP-1,1366x768@60,0x0,1" "HDMI-A-1,1920x1080@74.97,0x768,1" ];
 
       input = {
         kb_file = "";
@@ -100,7 +96,7 @@
       decoration = {
         rounding = 1;
         active_opacity = 1;
-        inactive_opacity = .9;
+        inactive_opacity = 0.9;
 
         blur = {
           enabled = true;
@@ -133,7 +129,6 @@
         xx_color_management_v4 = true;
       };
 
-
       cursor = {
         default_monitor = "LG Electronics";
         sync_gsettings_theme = true;
@@ -141,9 +136,7 @@
         use_cpu_buffer = true;
       };
 
-      opengl = {
-        force_introspection = 1;
-      };
+      opengl = { force_introspection = 1; };
 
       render = {
         explicit_sync = true;
@@ -193,20 +186,24 @@
       };
 
       "$term" = "kitty";
-      "$screencapture" = "$HOME/.config/home-manager/modules/hyprland/scripts/screen-capture.sh";
+      "$screencapture" =
+        "$HOME/.config/home-manager/modules/hyprland/scripts/screen-capture.sh";
       "$files" = "kitty --single-instance yazi";
       "$zen-browser" = "$HOME/.nix-profile/bin/zen";
       "$vm" = "vmware";
       "$launcher" = "$HOME/.config/rofi/launchers/type-5/launcher.sh";
       "$powermenu" = "$HOME/.config/rofi/powermenu/type-5/powermenu.sh";
-      "$colorpick" = "$HOME/.config/home-manager/modules/hyprland/scripts/picker.sh";
+      "$colorpick" =
+        "$HOME/.config/home-manager/modules/hyprland/scripts/picker.sh";
       "$notifhistory" = "astal -i hyprpanel -t notificationsmenu";
       "$calendar" = "astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "astal -i hyprpanel -t dashboardmenu";
       "$spotify" = "LD_PRELOAD=/usr/lib/spotify-adblock.so spotify";
       "$discord" = "legcord";
-      "$clipmanager" = "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold| cliphist decode | wl-copy";
-      "$wipeclip" = "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold | cliphist delete";
+      "$clipmanager" =
+        "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold| cliphist decode | wl-copy";
+      "$wipeclip" =
+        "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold | cliphist delete";
       "$modalt" = "ALT";
       "$mod" = "SUPER";
 
@@ -279,19 +276,11 @@
       ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-        builtins.concatLists (builtins.genList
-          (i:
-            let ws = i + 1;
-            in [
-              "$mod, ${toString ws}, movetoworkspace, ${toString ws}"
-            ]
-          )
-          9)
-      );
-      bindm = [
-        "$modalt, mouse:272, movewindow"
-        "$modalt, mouse:273, resizewindow"
-      ];
+        builtins.concatLists (builtins.genList (i:
+          let ws = i + 1;
+          in [ "$mod, ${toString ws}, movetoworkspace, ${toString ws}" ]) 9));
+      bindm =
+        [ "$modalt, mouse:272, movewindow" "$modalt, mouse:273, resizewindow" ];
       bindr = [
         "CAPS, Caps_Lock, exec, swayosd-client --caps-lock"
         ", toggle_numlock, exec, swayosd-client --num-lock"
@@ -338,7 +327,7 @@
       ];
 
       plugin = {
-                
+
         hy3 = {
           # 0 - always show gaps
           # 1 - hide gaps with a single window onscreen
@@ -417,17 +406,16 @@
           threshold = 1;
 
           # for mode = rotate
-          rotate =
-            {
+          rotate = {
 
-              # length in px of the simulated stick used to rotate the cursor
-              # most realistic if this is your actual cursor size
-              length = 20;
+            # length in px of the simulated stick used to rotate the cursor
+            # most realistic if this is your actual cursor size
+            length = 20;
 
-              # clockwise offset applied to the angle in degrees
-              # this will apply to ALL shapes
-              offset = 0.0;
-            };
+            # clockwise offset applied to the angle in degrees
+            # this will apply to ALL shapes
+            offset = 0.0;
+          };
 
           # for mode = tilt
           tilt = {

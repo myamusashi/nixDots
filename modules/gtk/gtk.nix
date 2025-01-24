@@ -1,10 +1,8 @@
 { config, pkgs, ... }:
 
-let
-  Nordic = pkgs.callPackage ./themes/nordic/package.nix { theme = "nordic"; };
-in
+let Nordic = pkgs.callPackage ./themes/nordic/package.nix { theme = "nordic"; };
 
-{
+in {
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
@@ -54,9 +52,7 @@ in
     };
     gtk4 = {
       #configLocation = "${config.xdg.configHome}/gtk-4.0/settings.ini";
-      extraConfig = {
-        "gtk-application-prefer-dark-theme" = 1;
-      };
+      extraConfig = { "gtk-application-prefer-dark-theme" = 1; };
     };
     theme = {
       name = "Nordic";

@@ -1,6 +1,1 @@
-{
-  imports = [
-        ./hardware-configuration.nix
-        ./modules/core/core.nix
-  ];
-}
+{ imports = [ ./hardware-configuration.nix ./modules/core/core.nix ]; }

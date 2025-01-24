@@ -5,9 +5,8 @@ let
   fontFamily = "ProggyClean Nerd Font";
   accent = "${mochaColors.mauve}";
   accentAlpha = "${mochaColors.mauveAlpha}";
-in
 
-{
+in {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -208,7 +207,7 @@ in
       placeholder_text = <i><span foreground='##${oneDarkColors.color10}'>󰌾 Aduh </span> <span foreground='##${accentAlpha}'><b>gantengnya</b></span></i>
       hide_input = false
       fail_text = <i>Tolol, Coba lagi<b>($ATTEMPTS)</b></i>
-      capslock_color = ${oneDarkColors.color3 }
+      capslock_color = ${oneDarkColors.color3}
       position = 0, -185
       halign = center
       valign = center
@@ -229,7 +228,7 @@ in
       placeholder_text = <i><span foreground='##${oneDarkColors.color10}'>󰌾 Aduh </span> <span foreground='##${accentAlpha}'><b>gantengnya</b></span></i>
       hide_input = false
       fail_text = <i>Tolol, Coba lagi<b>($ATTEMPTS)</b></i>
-      capslock_color = ${oneDarkColors.color3 }
+      capslock_color = ${oneDarkColors.color3}
       position = 0, -285
       halign = center
       valign = center

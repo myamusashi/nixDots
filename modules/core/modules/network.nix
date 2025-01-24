@@ -1,12 +1,12 @@
 {
-    networking.hostName = "nixos";
-    # networking.wireless.enable = true;
-    networking.networkmanager.enable = true;
+  networking.hostName = "nixos";
+  # networking.wireless.enable = true;
+  networking.networkmanager.enable = true;
 
-    networking = {
-        firewall = {
-            enable = true;
-            allowedTCPPorts = [ 80 ];
-        };
+  networking = {
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 80 ];
     };
+  };
 }

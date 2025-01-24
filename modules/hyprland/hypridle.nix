@@ -11,7 +11,8 @@
       listener = [
         {
           timeout = 200;
-          on-timeout = "notify-send -a 'Hypridle' 'Idle' 'Bangun woy, gua kunci nih' -i $HOME/.config/home-manager/modules/hyprland/scripts/User-idle.png";
+          on-timeout =
+            "notify-send -a 'Hypridle' 'Idle' 'Bangun woy, gua kunci nih' -i $HOME/.config/home-manager/modules/hyprland/scripts/User-idle.png";
         }
 
         {
