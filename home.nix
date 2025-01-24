@@ -9,5 +9,6 @@
     ./modules/pkgs/pkgs.nix
     ./modules/neovim/neovim.nix
     ./modules/config/config.nix
+    ./modules/yazi/yazi.nix
   ];
 }
