@@ -1,6 +1,28 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = [
+    pkgs.gtk-engine-murrine
+    # pkgs.gtk2
+    pkgs.gtk3
+    pkgs.gtk4
+    pkgs.morewaita-icon-theme
+    pkgs.vimix-icon-theme
+    (pkgs.nightfox-gtk-theme.override {
+      colorVariants = [ "dark" ];
+      sizeVariants = [ "compact" ];
+      themeVariants = [ "default" ];
+      tweakVariants = [ "carbon" ];
+    })
+    pkgs.numix-icon-theme
+    (pkgs.vimix-gtk-themes.override {
+      themeVariants = [ "ruby" ];
+      colorVariants = [ "dark" ];
+      sizeVariants = [ "compact" ];
+      tweaks = [ "flat" ];
+    })
+  ];
+
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
@@ -11,7 +33,8 @@
   gtk = {
     enable = true;
 
-    iconTheme = { name = "Vimix-dark"; };
+    iconTheme = { name = "MoreWaita"; };
+    theme = { name = "Vimix-dark-doder"; };
 
     gtk2 = {
       #configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";
@@ -48,10 +71,6 @@
     gtk4 = {
       #configLocation = "${config.xdg.configHome}/gtk-4.0/settings.ini";
       extraConfig = { "gtk-application-prefer-dark-theme" = 1; };
-    };
-    theme = {
-      name = "Nightfox-Dark";
-      package = pkgs.nightfox-gtk-theme;
     };
   };
 }

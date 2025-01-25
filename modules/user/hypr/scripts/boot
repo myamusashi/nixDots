@@ -1,0 +1,8 @@
+#!/bin/sh
+
+NAMA=${USER}
+WAKTU=$(date +%c)
+
+mpg123 Downloads/Microsoft\ Windows\ XP\ Startup\ Sound.mp3
+sleep 5
+notify-send "Hai Gilang" "$WAKTU" -i /home/gilang/.local/share/icons/Papirus/48x48/apps/org.kde.archUpdate.svg

@@ -8,7 +8,7 @@
     settings = {
       vsync = false;
       srgb = true;
-      neovim-bin = "${pkgs.neovim}";
+      neovim-bin = "${pkgs.neovim}/bin/nvim";
     };
   };
 }

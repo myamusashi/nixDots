@@ -4,17 +4,6 @@
   home.packages = [
     pkgs.brightnessctl
     pkgs.wl-clipboard
-    pkgs.gtk-engine-murrine
-    # pkgs.gtk2
-    pkgs.gtk3
-    pkgs.gtk4
-    pkgs.vimix-icon-theme
-    (pkgs.nightfox-gtk-theme.override {
-      colorVariants = [ "dark" ];
-      sizeVariants = [ "compact" ];
-      themeVariants = [ "default" ];
-      tweakVariants = [ "carbon" ];
-    })
     pkgs.nwg-look
     pkgs.sassc
     pkgs.sass
@@ -50,12 +39,16 @@
     pkgs.rquickshare
     pkgs.enlightenment.ephoto
     pkgs.mpv
+    pkgs.udiskie
+    pkgs.udisks
+    pkgs.python313Packages.pygithub
     pkgs.lazygit
     pkgs.wf-recorder
     pkgs.waypaper
     pkgs.nautilus
     pkgs.power-profiles-daemon
     pkgs.polkit_gnome
-    pkgs.hyprsunset
+    inputs.hyprsunset.packages.${pkgs.system}.hyprsunset
+    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
   ];
 }

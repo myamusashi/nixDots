@@ -5,7 +5,7 @@
     ./fonts/fonts.nix
     ./fish/fish.nix
     ./gtk/gtk.nix
-    ./hyprland/hyprland.nix
+    ./hypr/hyprland.nix
     ./kitty/kitty.nix
     ./neovim/neovim.nix
     ./pkgs/pkgs.nix

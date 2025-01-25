@@ -17,8 +17,7 @@
     };
 
     hy3 = {
-      url =
-        "github:outfoxxed/hy3"; # where {version} is the hyprland release version
+      url = "github:outfoxxed/hy3"; # where {version} is the hyprland release version
       # or "github:outfoxxed/hy3" to follow the development branch.
       inputs.hyprland.follows = "hyprland";
     };
@@ -37,36 +36,55 @@
       url = "github:Jas-SinghFSU/HyprPanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hypridle = {
+      url = "github:hyprwm/hypridle";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprsunset = {
+      url = "github:hyprwm/hyprsunset";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
     let system = "x86_64-linux";
     in {
-      homeConfigurations."myamusashi@nixos" =
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            inherit system;
-            overlays = [ inputs.hyprpanel.overlay ];
-          };
-
-          extraSpecialArgs = {
-            inherit system;
-            inherit inputs;
-          };
-
-          modules = [
-            ./home.nix
-
-            # hyprland.homeManagerModules.default
-            #
-            # {
-            #   wayland.windowManager.hyprland = {
-            #     enable = true;
-            #     plugins = [ hy3.packages.x86_64-linux.hy3 ];
-            #   };
-            #   home.packages = [ zen-browser.packages.x86_64-linux.default ];
-            # }
-          ];
+      homeConfigurations."myamusashi@nixos" = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ inputs.hyprpanel.overlay ];
         };
+
+        extraSpecialArgs = {
+          inherit system;
+          inherit inputs;
+        };
+
+        modules = [
+          ./home.nix
+
+          # hyprland.homeManagerModules.default
+          #
+          # {
+          #   wayland.windowManager.hyprland = {
+          #     enable = true;
+          #     plugins = [ hy3.packages.x86_64-linux.hy3 ];
+          #   };
+          #   home.packages = [ zen-browser.packages.x86_64-linux.default ];
+          # }
+        ];
+      };
     };
 }

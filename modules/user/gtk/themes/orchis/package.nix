@@ -1,17 +1,13 @@
-{ lib, stdenvNoCC, fetchFromGitHub, gtk3, gnome-themes-extra, gtk-engine-murrine
-, sassc, border-radius ? null, # Suggested: 2 < value < 16
-themeVariant ? [ ], colorVariant ? [ ], tweaks ? [ ]
-, # can be "solid" "compact" "black" "primary" "macos" "submenu" "nord|dracula"
+{ lib, stdenvNoCC, fetchFromGitHub, gtk3, gnome-themes-extra, gtk-engine-murrine, sassc, border-radius ? null, # Suggested: 2 < value < 16
+themeVariant ? [ ], colorVariant ? [ ], tweaks ? [ ], # can be "solid" "compact" "black" "primary" "macos" "submenu" "nord|dracula"
 withWallpapers ? false, }:
 
 let
   pname = "orchis-theme";
 
-  validTweaks =
-    [ "solid" "compact" "black" "primary" "macos" "submenu" "nord" "dracula" ];
+  validTweaks = [ "solid" "compact" "black" "primary" "macos" "submenu" "nord" "dracula" ];
 
-  validThemes =
-    [ "default" "purple" "pink" "red" "orange" "yellow" "green" "teal" "grey" ];
+  validThemes = [ "default" "purple" "pink" "red" "orange" "yellow" "green" "teal" "grey" ];
 
   validColor = [ "standard" "light" "dark" ];
 
@@ -47,22 +43,10 @@ stdenvNoCC.mkDerivation rec {
   installPhase = ''
     runHook preInstall
     bash install.sh -d $out/share/themes -t all \
-      ${
-        lib.optionalString (colorVariant != [ ]) "--color "
-        + builtins.toString colorVariant
-      } \
-      ${
-        lib.optionalString (themeVariant != [ ]) "--theme "
-        + builtins.toString themeVariant
-      } \
-      ${
-        lib.optionalString (tweaks != [ ]) "--tweaks "
-        + builtins.toString tweaks
-      } \
-      ${
-        lib.optionalString (border-radius != null)
-        ("--round " + builtins.toString border-radius + "px")
-      }
+      ${lib.optionalString (colorVariant != [ ]) "--color " + builtins.toString colorVariant} \
+      ${lib.optionalString (themeVariant != [ ]) "--theme " + builtins.toString themeVariant} \
+      ${lib.optionalString (tweaks != [ ]) "--tweaks " + builtins.toString tweaks} \
+      ${lib.optionalString (border-radius != null) ("--round " + builtins.toString border-radius + "px")}
     ${lib.optionalString withWallpapers ''
       mkdir -p $out/share/backgrounds
       cp src/wallpaper/{1080p,2k,4k}.jpg $out/share/backgrounds
@@ -71,8 +55,7 @@ stdenvNoCC.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description =
-      "Material Design theme for GNOME/GTK based desktop environments";
+    description = "Material Design theme for GNOME/GTK based desktop environments";
     homepage = "https://github.com/vinceliuice/Orchis-theme";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;

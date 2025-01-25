@@ -20,4 +20,6 @@
   services.upower.enable = true;
   services.power-profiles-daemon.enable = true;
   services.openssh.enable = true;
+
+  services.udisks2.enable = true;
 }
