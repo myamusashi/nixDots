@@ -17,7 +17,7 @@
     };
 
     hy3 = {
-      url = "github:outfoxxed/hy3"; # where {version} is the hyprland release version
+      url = "github:myamusashi/hy3"; # where {version} is the hyprland release version
       # or "github:outfoxxed/hy3" to follow the development branch.
       inputs.hyprland.follows = "hyprland";
     };
@@ -27,10 +27,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    Hyprspace = {
-      url = "github:myamusashi/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # Hyprspace = {
+    #   url = "github:myamusashi/Hyprspace";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     hyprpanel = {
       url = "github:Jas-SinghFSU/HyprPanel";

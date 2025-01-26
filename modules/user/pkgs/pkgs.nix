@@ -28,6 +28,7 @@
     pkgs.telegram-desktop
     pkgs.libnotify
     pkgs.jq
+    pkgs.ollama
     inputs.zen-browser.packages.${pkgs.system}.default
     pkgs.hyprpanel
     pkgs.fastfetch

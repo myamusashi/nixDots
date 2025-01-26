@@ -10,7 +10,7 @@ in {
     plugins = [
       "${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so"
       "${inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so"
-      "${inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace}/lib/libHyprspace.so"
+      # "${inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace}/lib/libHyprspace.so"
     ];
     settings = {
       exec-once = [
@@ -27,7 +27,7 @@ in {
         "${CWD}/scripts/start_boot"
         # "$HOME/.local/bin/pacman_updates"
         "brightnessctl set 60%"
-        "udiskie -t -a --appindicator -f yazi"
+        "udiskie -t -a --appindicator --file-manager nautilus"
         "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
         "$HOME/.local/bin/github_notify"
         "$HOME/.local/bin/cache_wall"
@@ -174,9 +174,9 @@ in {
       "$launcher" = "$HOME/.config/rofi/launchers/type-5/launcher.sh";
       "$powermenu" = "$HOME/.config/rofi/powermenu/type-5/powermenu.sh";
       "$colorpick" = "${CWD}/scripts/picker.sh";
-      "$notifhistory" = "astal -i hyprpanel -t notificationsmenu";
-      "$calendar" = "astal -i hyprpanel -t calendarmenu";
-      "$dashboard" = "astal -i hyprpanel -t dashboardmenu";
+      "$notifhistory" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t notificationsmenu";
+      "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
+      "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
       "$spotify" = "LD_PRELOAD=/usr/lib/spotify-adblock.so spotify";
       "$discord" = "legcord";
       "$clipmanager" = "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold| cliphist decode | wl-copy";
@@ -304,18 +304,18 @@ in {
         overview = {
           # Color workspaces window
           dragAlpha = 0.5;
-          # panelColor = "rgba(46, 52, 64, 1)";
-          # panelBorderColor = "rgb(243, 139, 168)";
+          panelColor = "rgba(46, 52, 64, 0.5)";
+          panelBorderColor = "rgb(243, 139, 168)";
 
           # Layout
-          disableBlur = false;
+          disableBlur = true;
           workspaceMargin = 20;
           panelHeight = 250;
           panelBorderWidth = 5;
           workspaceBorderSize = 5;
           hideBackgroundLayers = false;
-          hideTopLayers = false;
-          hideOverlayLayers = false;
+          hideTopLayers = true;
+          hideOverlayLayers = true;
           hideRealLayers = false;
           onBottom = true;
           overrideGaps = true;
@@ -323,9 +323,9 @@ in {
           centerAligned = true;
 
           # Event 
-          affectStrut = false;
+          affectStrut = true;
           autoDrag = true;
-          autoScroll = true;
+          autoScroll = false;
           drawActiveWorkspace = true;
           showNewWorkspace = true;
           showEmptyWorkspace = true;

@@ -7,6 +7,6 @@
     isNormalUser = true;
     shell = pkgs.fish;
     description = "Gilang Ramadhan";
-    extraGroups = [ "networkmanager" "wheel" "mlocate" ];
+    extraGroups = [ "networkmanager" "wheel" "mlocate" "gns3" ];
   };
 }

@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }:
 
-{
+let CWD = "$HOME/.config/home-manager/modules/user/hypr";
+in {
   services.hypridle = {
     enable = true;
     package = inputs.hypridle.packages.${pkgs.stdenv.hostPlatform.system}.hypridle;
@@ -14,7 +15,7 @@
       listener = [
         {
           timeout = 200;
-          on-timeout = "notify-send -a 'Hypridle' 'Idle' 'Bangun woy, gua kunci nih' -i $HOME/.config/home-manager/modules/user/hyprland/scripts/User-idle.png";
+          on-timeout = "notify-send -a 'Hypridle' 'Idle' 'Bangun woy, gua kunci nih' -i ${CWD}/scripts/User-idle.png";
         }
 
         {

@@ -8,6 +8,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  nixpkgs.config.packageOverrides = pkgs: { intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; }; };
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -16,15 +17,4 @@
       vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
     ];
   };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-  #fileSystems."/home/myamusashi/external_drive" = { 
-  #    device = "/dev/disk/by-label/apalah";
-  #    fsType = "ntfs-3g"; 
-  #    options = [ "defaults" "uid=022" ];
-  #};
 }

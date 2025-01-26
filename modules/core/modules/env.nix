@@ -18,6 +18,8 @@
     CLUTTER_BACKEND = "wayland";
     MOZ_DISABLE_RDD_SANDBOX = 1;
     MOZ_ENABLE_WAYLAND = "1 firefox";
+    MOZ_DRM_DEVICE = "/dev/dri/card1";
     OZONE_PLATFORM = "wayland";
+    LIBVA_DRIVE_NAME = "i915";
   };
 }

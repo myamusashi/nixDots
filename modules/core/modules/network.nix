@@ -6,7 +6,7 @@
   networking = {
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 80 ];
+      allowedTCPPorts = [ 80 3080 ];
     };
   };
 }

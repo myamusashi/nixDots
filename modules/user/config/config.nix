@@ -15,7 +15,6 @@
       common.default = "gtk";
       pantheon.default = "gtk";
       gtk.default = "gtk";
-      hyprland.default = "hyprland";
     };
   };
 
