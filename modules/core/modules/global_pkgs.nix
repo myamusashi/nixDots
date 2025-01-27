@@ -20,6 +20,13 @@
     pkgs.mlocate
     pkgs.gns3-gui
     pkgs.gns3-server
+    pkgs.dynamips
+    pkgs.wireshark
+    pkgs.ubridge
+    pkgs.vpcs
+    pkgs.docker
+    pkgs.libvirt
+    pkgs.python3
     pkgs.upower
     pkgs.upower-notify
   ];

@@ -3,7 +3,7 @@
 {
   virtualisation.vmware.host.enable = true;
   virtualisation.vmware.guest.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio = false;
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -17,4 +17,7 @@
       vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
     ];
   };
+
+  virtualisation.docker.enable = true;
+  virtualisation.libvirtd.enable = true;
 }
