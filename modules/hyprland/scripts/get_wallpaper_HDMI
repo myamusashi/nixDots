@@ -1,5 +1,0 @@
-#!/bin/sh
-
-q=$(swww query | grep "HDMI" | awk '{print $8}')
-
-cp -f $q ~/.config/hypr/scripts/wall/hdmi.png
