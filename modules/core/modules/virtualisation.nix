@@ -3,7 +3,6 @@
 {
   virtualisation.vmware.host.enable = true;
   virtualisation.vmware.guest.enable = true;
-  services.pulseaudio = false;
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;

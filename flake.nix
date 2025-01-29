@@ -17,7 +17,7 @@
     };
 
     hy3 = {
-      url = "github:myamusashi/hy3"; # where {version} is the hyprland release version
+      url = "github:outfoxxed/hy3"; # where {version} is the hyprland release version
       # or "github:outfoxxed/hy3" to follow the development branch.
       inputs.hyprland.follows = "hyprland";
     };
@@ -56,6 +56,9 @@
       url = "github:hyprwm/hyprpicker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim.url = "github:nix-community/nixvim";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
@@ -69,21 +72,11 @@
 
         extraSpecialArgs = {
           inherit system;
-          inherit inputs;
+	  inherit inputs;
         };
 
         modules = [
           ./home.nix
-
-          # hyprland.homeManagerModules.default
-          #
-          # {
-          #   wayland.windowManager.hyprland = {
-          #     enable = true;
-          #     plugins = [ hy3.packages.x86_64-linux.hy3 ];
-          #   };
-          #   home.packages = [ zen-browser.packages.x86_64-linux.default ];
-          # }
         ];
       };
     };

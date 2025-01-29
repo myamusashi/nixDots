@@ -6,7 +6,7 @@
     ./modules/env.nix
     ./modules/global_pkgs.nix
     ./modules/network.nix
-    # ./modules/security.nix
+    ./modules/security.nix
     ./modules/services.nix
     ./modules/timezone.nix
     ./modules/users.nix

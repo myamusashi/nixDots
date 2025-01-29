@@ -8,6 +8,7 @@
     ./hypr/hyprland.nix
     ./kitty/kitty.nix
     ./neovim/neovim.nix
+    # ./nixvim/nixvim.nix
     ./pkgs/pkgs.nix
   ];
 }

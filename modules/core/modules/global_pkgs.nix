@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = [
-    pkgs.neovim
+    pkgs.vim
     pkgs.wget
     pkgs.ntfs3g
     pkgs.gccgo14
@@ -23,11 +23,17 @@
     pkgs.dynamips
     pkgs.wireshark
     pkgs.ubridge
+    pkgs.busybox
+    pkgs.inetutils
     pkgs.vpcs
     pkgs.docker
     pkgs.libvirt
     pkgs.python3
     pkgs.upower
     pkgs.upower-notify
+    ## For deepseek LLM stuff
+    pkgs.libjpeg
+    ## For gns3
+    pkgs.virt-viewer
   ];
 }
