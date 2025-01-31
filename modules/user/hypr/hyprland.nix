@@ -176,8 +176,7 @@ in {
       "$discord" = "legcord";
       "$clipmanager" =
         "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold| cliphist decode | wl-copy";
-      "$wipeclip" =
-        "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold | cliphist delete";
+      "$wipeclip" = "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold | cliphist delete";
       "$modalt" = "ALT";
       "$mod" = "SUPER";
 
@@ -252,13 +251,11 @@ in {
       ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-        builtins.concatLists (builtins.genList
-          (i: let ws = i + 1; in [ "$mod, ${toString ws}, movetoworkspace, ${toString ws}" ]) 9));
+        builtins.concatLists
+        (builtins.genList (i: let ws = i + 1; in [ "$mod, ${toString ws}, movetoworkspace, ${toString ws}" ]) 9));
       bindm = [ "$modalt, mouse:272, movewindow" "$modalt, mouse:273, resizewindow" ];
-      bindr = [
-        "CAPS, Caps_Lock, exec, swayosd-client --caps-lock"
-        ", toggle_numlock, exec, swayosd-client --num-lock"
-      ];
+      bindr =
+        [ "CAPS, Caps_Lock, exec, swayosd-client --caps-lock" ", toggle_numlock, exec, swayosd-client --num-lock" ];
 
       windowrulev2 = [
         "float,class:^(pavucontrol)$"

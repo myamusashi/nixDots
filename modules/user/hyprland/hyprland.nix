@@ -4,16 +4,13 @@
   imports = [ ./hyprlock.nix ./hypridle.nix ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     extraConfig = ''
       plugin = ${inputs.hy3.packages.${pkgs.system}.hy3}/lib/libhy3.so
       plugin = ${
         inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors
       }/lib/libhypr-dynamic-cursors.so
-      plugin = ${
-        inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      }/lib/libHyprspace.so
+      plugin = ${inputs.Hyprspace.packages.${pkgs.system}.Hyprspace}/lib/libHyprspace.so
     '';
     settings = {
       env = [
@@ -57,8 +54,7 @@
         "$HOME/.local/bin/cache_wall"
       ];
 
-      monitor =
-        [ "eDP-1,1366x768@60,0x0,1" "HDMI-A-1,1920x1080@74.97,0x768,1" ];
+      monitor = [ "eDP-1,1366x768@60,0x0,1" "HDMI-A-1,1920x1080@74.97,0x768,1" ];
 
       input = {
         kb_file = "";
@@ -192,15 +188,13 @@
       };
 
       "$term" = "kitty";
-      "$screencapture" =
-        "$HOME/.config/home-manager/modules/hyprland/scripts/screen-capture.sh";
+      "$screencapture" = "$HOME/.config/home-manager/modules/hyprland/scripts/screen-capture.sh";
       "$files" = "kitty --single-instance yazi";
       "$zen-browser" = "$HOME/.nix-profile/bin/zen";
       "$vm" = "vmware";
       "$launcher" = "$HOME/.config/rofi/launchers/type-5/launcher.sh";
       "$powermenu" = "$HOME/.config/rofi/powermenu/type-5/powermenu.sh";
-      "$colorpick" =
-        "$HOME/.config/home-manager/modules/hyprland/scripts/picker.sh";
+      "$colorpick" = "$HOME/.config/home-manager/modules/hyprland/scripts/picker.sh";
       "$notifhistory" = "astal -i hyprpanel -t notificationsmenu";
       "$calendar" = "astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "astal -i hyprpanel -t dashboardmenu";
@@ -208,8 +202,7 @@
       "$discord" = "legcord";
       "$clipmanager" =
         "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold| cliphist decode | wl-copy";
-      "$wipeclip" =
-        "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold | cliphist delete";
+      "$wipeclip" = "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold | cliphist delete";
       "$modalt" = "ALT";
       "$mod" = "SUPER";
 
@@ -284,15 +277,11 @@
       ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-        builtins.concatLists (builtins.genList (i:
-          let ws = i + 1;
-          in [ "$mod, ${toString ws}, movetoworkspace, ${toString ws}" ]) 9));
-      bindm =
-        [ "$modalt, mouse:272, movewindow" "$modalt, mouse:273, resizewindow" ];
-      bindr = [
-        "CAPS, Caps_Lock, exec, swayosd-client --caps-lock"
-        ", toggle_numlock, exec, swayosd-client --num-lock"
-      ];
+        builtins.concatLists
+        (builtins.genList (i: let ws = i + 1; in [ "$mod, ${toString ws}, movetoworkspace, ${toString ws}" ]) 9));
+      bindm = [ "$modalt, mouse:272, movewindow" "$modalt, mouse:273, resizewindow" ];
+      bindr =
+        [ "CAPS, Caps_Lock, exec, swayosd-client --caps-lock" ", toggle_numlock, exec, swayosd-client --num-lock" ];
 
       windowrulev2 = [
         "float,class:^(pavucontrol)$"

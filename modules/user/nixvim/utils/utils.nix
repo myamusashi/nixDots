@@ -45,13 +45,13 @@
     ## Codesnap
     codesnap.enable = true;
     codesnap.settings = {
-        breadcrumbs_separator = "/";
-        has_breadcrumbs = true;
-        has_line_number = false;
-        mac_window_bar = true;
-        save_path = "~/Pictures/screenshot/";
-        title = "CodeSnap.nvim";
-        watermark = "";
+      breadcrumbs_separator = "/";
+      has_breadcrumbs = true;
+      has_line_number = false;
+      mac_window_bar = true;
+      save_path = "~/Pictures/screenshot/";
+      title = "CodeSnap.nvim";
+      watermark = "";
     };
   };
 }

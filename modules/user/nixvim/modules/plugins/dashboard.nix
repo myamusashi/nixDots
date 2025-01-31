@@ -42,14 +42,20 @@ in {
           key = "x";
         }
         {
-          action = { __raw = "function(path) vim.cmd('Telescope find_files cwd=/home/myamusashi/.config/home-manager/modules/user/nixvim') end"; };
+          action = {
+            __raw =
+              "function(path) vim.cmd('Telescope find_files cwd=/home/myamusashi/.config/home-manager/modules/user/nixvim') end";
+          };
           desc = "Nixvim configuration";
           group = "config";
           icon = " ";
           key = "c";
         }
         {
-          action = { __raw = "function(path) vim.cmd('Telescope find_files cwd=/home/myamusashi/.config/home-manager/modules/user/hypr') end"; };
+          action = {
+            __raw =
+              "function(path) vim.cmd('Telescope find_files cwd=/home/myamusashi/.config/home-manager/modules/user/hypr') end";
+          };
           desc = "Hyprland configuration";
           group = "config";
           icon = " ";

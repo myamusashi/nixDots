@@ -128,8 +128,7 @@
     spec = [
       {
         __unkeyed-1 = "<leader>t";
-        __unkeyed-2 =
-          "<cmd>FloatermNew --height=0.8 --width=0.8 --wintype=float<cr>";
+        __unkeyed-2 = "<cmd>FloatermNew --height=0.8 --width=0.8 --wintype=float<cr>";
         group = "Terminal";
         icon = " ";
       }

@@ -25,15 +25,13 @@
     enable = true;
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     clipboard.providers.wl-copy.enable = true;
-    globals = {
-        mapleader = " ";
-    };
+    globals = { mapleader = " "; };
 
     extraConfigLua = ''
-	require("config.core")
-	require("config.keymaps")
-	require("config.neovide")
-	require("config.options")
+      require("config.core")
+      require("config.keymaps")
+      require("config.neovide")
+      require("config.options")
     '';
   };
 }
