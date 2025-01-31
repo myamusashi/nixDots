@@ -9,26 +9,20 @@ in {
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     plugins = [
       "${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so"
-      "${inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so"
+      "${
+        inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors
+      }/lib/libhypr-dynamic-cursors.so"
       # "${inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace}/lib/libHyprspace.so"
     ];
     settings = {
       exec-once = [
-        # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        # "hyprctl plugin load ${inputs.hy3.packages.${pkgs.system}.hy3}/lib/libhy3.so"
-        # "hyprctl plugin load ${inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so"
-        # "hyprctl plugin load ${inputs.Hyprspace.packages.${pkgs.system}.Hyprspace}/lib/libHyprspace.so"
         "hyprpanel"
         "swayosd-server"
-        # "hyprpm reload"
-        # "hypridle"
-        "hyprctl setcursor Bibata-Modern-Classic 32"
-        # "${CWD}/scripts/pipewire-services --start"
         "${CWD}/scripts/start_boot"
-        # "$HOME/.local/bin/pacman_updates"
         "brightnessctl set 60%"
         "udiskie -t -a --appindicator --file-manager nautilus"
-        "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+        # "hyprctl setcursor Future-Cyan-Hyprcursor_Theme 40"
+        "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
         "$HOME/.local/bin/github_notify"
         "$HOME/.local/bin/cache_wall"
       ];
@@ -104,6 +98,7 @@ in {
         animate_mouse_windowdragging = true;
         middle_click_paste = true;
       };
+
       experimental = {
         wide_color_gamut = true;
         hdr = true;
@@ -127,8 +122,8 @@ in {
 
       xwayland = {
         enabled = true;
-        use_nearest_neighbor = true;
-        force_zero_scaling = true;
+        use_nearest_neighbor = false;
+        force_zero_scaling = false;
       };
 
       animations = {
@@ -179,8 +174,10 @@ in {
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
       "$spotify" = "LD_PRELOAD=/usr/lib/spotify-adblock.so spotify";
       "$discord" = "legcord";
-      "$clipmanager" = "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold| cliphist decode | wl-copy";
-      "$wipeclip" = "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold | cliphist delete";
+      "$clipmanager" =
+        "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold| cliphist decode | wl-copy";
+      "$wipeclip" =
+        "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold | cliphist delete";
       "$modalt" = "ALT";
       "$mod" = "SUPER";
 
@@ -255,9 +252,13 @@ in {
       ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-        builtins.concatLists (builtins.genList (i: let ws = i + 1; in [ "$mod, ${toString ws}, movetoworkspace, ${toString ws}" ]) 9));
+        builtins.concatLists (builtins.genList
+          (i: let ws = i + 1; in [ "$mod, ${toString ws}, movetoworkspace, ${toString ws}" ]) 9));
       bindm = [ "$modalt, mouse:272, movewindow" "$modalt, mouse:273, resizewindow" ];
-      bindr = [ "CAPS, Caps_Lock, exec, swayosd-client --caps-lock" ", toggle_numlock, exec, swayosd-client --num-lock" ];
+      bindr = [
+        "CAPS, Caps_Lock, exec, swayosd-client --caps-lock"
+        ", toggle_numlock, exec, swayosd-client --num-lock"
+      ];
 
       windowrulev2 = [
         "float,class:^(pavucontrol)$"
@@ -281,14 +282,17 @@ in {
         "float,title:^(Bluetooth Devices)$"
         "float,class:^(Rofi)$"
         "float,title:^(yazi)$"
+        "float,title:^(Image Properties)$"
         "move 40 44%,title:^(iwgtk)$"
         "move 40 44%,title:^(Volume Control)$"
         "move 40 58%,title:^(Bluetooth Devices)$"
         "center,title:^(rofi - )$"
         "center,title:^(rofi -  myamusashi@nixos)$"
         "center,title:^(rofi - APPS)$"
+        "center,title:^(Image Properties)$"
         "size 800 600,class:^(download)$"
         "size 800 600,title:^(Volume Control)$"
+        "size 493 254,title:^(Image Properties)$"
         "size 505 600,title:^(iwgtk)$"
         "size 652 310,title:^(Bluetooth Devices)$"
         "idleinhibit focus,class:^(mpv)$"

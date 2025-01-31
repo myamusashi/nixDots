@@ -7,12 +7,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = { url = "github:hyprwm/Hyprland?submodules=1"; };
+    hyprland = {
+      url = "github:hyprwm/Hyprland?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # where {version} is the hyprland release version
     # or "github:hyprwm/Hyprland?submodules=1" to follow the development branch
 
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+      url = "github:myamusashi/zen-twilight-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -59,6 +62,11 @@
 
     nixvim.url = "github:nix-community/nixvim";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
@@ -72,12 +80,10 @@
 
         extraSpecialArgs = {
           inherit system;
-	  inherit inputs;
+          inherit inputs;
         };
 
-        modules = [
-          ./home.nix
-        ];
+        modules = [ ./home.nix ];
       };
     };
 }

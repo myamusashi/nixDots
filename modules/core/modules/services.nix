@@ -28,7 +28,7 @@
   services.udisks2.enable = true;
 
   services.gns3-server = {
-    enable = true;
+    enable = false;
     settings = {
       Server = {
         appliances_path = "/home/myamusashi/GNS3/appliances";

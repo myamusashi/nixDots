@@ -1,9 +1,17 @@
-{ config, pkgs, ... }:
+{ pkgs, lib, ... }:
 
-{
+let
+  future-cyan-hyprcursor = pkgs.callPackage ./themes/cursors/Future-cyan-hyprcursor/package.nix { };
+  future-cursor = pkgs.callPackage ./themes/cursors/future-cursor/package.nix { };
+in {
+
+  home.activation.createSymlink = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    ln -sf ${future-cyan-hyprcursor}/share/icons/Future-Cyan-Hyprcursor_Theme $HOME/.icons/
+    ln -sf ${future-cyan-hyprcursor}/share/icons/Future-Cyan-Hyprcursor_Theme $HOME/.local/share/icons
+  '';
+
   home.packages = [
     pkgs.gtk-engine-murrine
-    # pkgs.gtk2
     pkgs.gtk3
     pkgs.gtk4
     pkgs.morewaita-icon-theme
@@ -24,9 +32,9 @@
   ];
 
   home.pointerCursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 32;
+    package = future-cursor;
+    name = "Future-cursors";
+    size = 40;
     gtk.enable = true;
     x11.enable = true;
   };

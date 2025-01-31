@@ -5,7 +5,7 @@
 
   programs.neovim = {
     enable = true;
-    # package = inputs.neovim-nightly.${pkgs.system}.neovim-nightly;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     extraPackages = with pkgs; [
       # coding
       vimPlugins.lazydev-nvim
@@ -32,6 +32,8 @@
       vimPlugins.nvim-treesitter
       vimPlugins.nvim-treesitter-textobjects
       vimPlugins.nvim-ts-autotag
+      vimPlugins.nvim-treesitter-parsers.qmljs
+      vimPlugins.vim-qml
       ## ui
       vimPlugins.bufferline-nvim
       vimPlugins.lualine-nvim
@@ -39,6 +41,7 @@
       vimPlugins.mini-icons
       vimPlugins.nui-nvim
       vimPlugins.snacks-nvim
+      vimPlugins.multicursors-nvim
       ## util
       vimPlugins.persistence-nvim
       vimPlugins.plenary-nvim

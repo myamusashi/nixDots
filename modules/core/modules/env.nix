@@ -1,8 +1,11 @@
 {
   environment.sessionVariables = {
     GTK_THEME = "Vimix-dark-doder";
+    HYPRCURSOR_THEME = "Future-Cyan-Hyprcursor_Theme";
+    HYPRCURSOR_SIZE = "50";
     AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
     AQ_WLR_DEVICES = "/dev/dri/card1:/dev/dri/card0";
+    AQ_MGPU_NO_EXPLICIT = 0;
     GDK_BACKEND = "wayland,x11";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";

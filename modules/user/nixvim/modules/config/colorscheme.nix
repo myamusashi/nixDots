@@ -3,7 +3,7 @@
     colorschemes = {
       nightfox = {
         enable = true;
-        flavor = "nordfox";
+        flavor = "carbonfox";
       };
     };
   };

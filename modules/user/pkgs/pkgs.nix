@@ -29,8 +29,19 @@
     pkgs.libnotify
     pkgs.jq
     pkgs.ollama
+    pkgs.viewnior
+    pkgs.kdePackages.qt6ct
+    pkgs.libsForQt5.qt5ct
+    pkgs.kdePackages.dolphin
+    pkgs.hicolor-icon-theme
+    pkgs.adwaita-icon-theme
+    pkgs.adwaita-qt6
     inputs.zen-browser.packages.${pkgs.system}.default
     pkgs.hyprpanel
+    pkgs.spotify-qt
+    pkgs.themix-gui
+    pkgs.nushell
+    pkgs.vscodium
     pkgs.fastfetch
     pkgs.neovide
     pkgs.swayosd
@@ -51,5 +62,6 @@
     pkgs.polkit_gnome
     inputs.hyprsunset.packages.${pkgs.system}.hyprsunset
     inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    inputs.quickshell.packages.${pkgs.system}.default
   ];
 }

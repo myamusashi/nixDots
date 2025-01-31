@@ -1,5 +1,7 @@
-{ lib, stdenvNoCC, fetchFromGitHub, gtk3, gnome-themes-extra, gtk-engine-murrine, sassc, border-radius ? null, # Suggested: 2 < value < 16
-themeVariant ? [ ], colorVariant ? [ ], tweaks ? [ ], # can be "solid" "compact" "black" "primary" "macos" "submenu" "nord|dracula"
+{ lib, stdenvNoCC, fetchFromGitHub, gtk3, gnome-themes-extra, gtk-engine-murrine, sassc, border-radius ? null
+, # Suggested: 2 < value < 16
+themeVariant ? [ ], colorVariant ? [ ], tweaks ? [ ]
+, # can be "solid" "compact" "black" "primary" "macos" "submenu" "nord|dracula"
 withWallpapers ? false, }:
 
 let
