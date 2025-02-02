@@ -7,7 +7,7 @@
 
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-nightly-overlay;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     extraPackages = with pkgs; [
       luajit
       llvmPackages_19.clang-unwrapped # C stuff

@@ -7,7 +7,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
-		portalPackage = pkgs.xdg-desktop-portal-hyprland;
     plugins = [
       "${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so"
       "${
