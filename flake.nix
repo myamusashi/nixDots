@@ -11,8 +11,6 @@
       url = "github:hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # where {version} is the hyprland release version
-    # or "github:hyprwm/Hyprland?submodules=1" to follow the development branch
 
     zen-browser = {
       url = "github:myamusashi/zen-twilight-flake";
@@ -20,8 +18,7 @@
     };
 
     hy3 = {
-      url = "github:outfoxxed/hy3"; # where {version} is the hyprland release version
-      # or "github:outfoxxed/hy3" to follow the development branch.
+      url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -69,21 +66,38 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
-    let system = "x86_64-linux";
-    in {
+  outputs =
+    { nixpkgs
+    , home-manager
+    , ...
+    } @ inputs:
+    let
+      system = "x86_64-linux";
+    in
+    {
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./system/default.nix
+          ];
+        };
+      };
+
       homeConfigurations."myamusashi@nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [ inputs.hyprpanel.overlay ];
+          overlays = [
+            inputs.hyprpanel.overlay
+            inputs.hyprpicker.overlays.default
+            inputs.hyprsunset.overlays.default
+            inputs.hypridle.overlays.default
+            inputs.hyprland.overlays.default
+            inputs.neovim-nightly-overlay.overlays.default
+          ];
         };
 
-        extraSpecialArgs = {
-          inherit system;
-          inherit inputs;
-        };
-
-        modules = [ ./home.nix ];
+        modules = [ ./home/default.nix ];
       };
     };
 }
