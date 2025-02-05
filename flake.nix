@@ -87,8 +87,6 @@
           modules = [
             ./system/default.nix
           ];
-          # Also pass inputs at the system level
-          specialArgs = { inherit inputs; };
         };
       };
 
@@ -97,8 +95,6 @@
           inherit pkgs;
           modules = [
             ./home/default.nix
-            # Pass inputs to the standalone home-manager configuration
-            { _module.args.inputs = inputs; }
           ];
         };
     };

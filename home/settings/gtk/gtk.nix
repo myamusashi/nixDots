@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+	config,
   ...
 }: let
   future-cyan-hyprcursor = pkgs.callPackage ./themes/cursors/Future-cyan-hyprcursor/package.nix {};
@@ -9,7 +10,9 @@ in {
   home.activation.createSymlink = lib.hm.dag.entryAfter ["writeBoundary"] ''
 		mkdir -p $HOME/.local/share/icons
 		mkdir $HOME/.icons
+		ln -sf $HOME/.dots/home/programs/hypr/scripts /tmp
     ln -sf ${future-cyan-hyprcursor}/share/icons/Future-Cyan-Hyprcursor_Theme $HOME/.icons/Future-cyan-hyprcursor
+		ln -sf $HOME/.nix-profile/share/themes $HOME/.themes
   '';
 
   home.packages = [
@@ -18,18 +21,12 @@ in {
     pkgs.gtk4
     pkgs.morewaita-icon-theme
     pkgs.vimix-icon-theme
-    (pkgs.nightfox-gtk-theme.override {
-      colorVariants = ["dark"];
-      sizeVariants = ["compact"];
-      themeVariants = ["ruby"];
-      tweakVariants = ["flat"];
-    })
     pkgs.numix-icon-theme
     (pkgs.vimix-gtk-themes.override {
-      themeVariants = ["ruby"];
+      themeVariants = ["beryl"];
       colorVariants = ["dark"];
-      sizeVariants = ["compact"];
-      tweaks = ["flat"];
+      sizeVariants = ["standard"];
+      tweaks = ["translucent"];
     })
   ];
 
@@ -44,7 +41,7 @@ in {
     enable = true;
 
     iconTheme = {name = "MoreWaita";};
-    theme = {name = "Vimix-dark-doder";};
+    theme = {name = "vimix-dark-compact-ruby";};
 
     gtk2 = {
       #configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";

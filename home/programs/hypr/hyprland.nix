@@ -6,9 +6,8 @@
 }: {
   imports = [./hyprlock.nix ./hypridle.nix];
 	
-	home.activation.createSymlink = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    ln -sf $HOME/.dots/home/programs/hypr/scripts /tmp
-  '';
+	# home.activation.createSymlink = lib.hm.dag.entryAfter ["writeBoundary"] ''
+ #  '';
 
   wayland.windowManager.hyprland = {
     enable = true;
