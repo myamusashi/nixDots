@@ -14,7 +14,7 @@
     Service = {
       Type = "oneshot";
       ExecStart = "${pkgs.writeShellScript "get-adzan-data" ''
-        /run/current-system/sw/bin/bash $HOME/.config/eww/script/adzan_info
+        ${pkgs.bash}/bin/bash $HOME/.dots/scripts/adzan_info.sh
       ''}";
     };
   };

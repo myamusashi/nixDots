@@ -32,7 +32,7 @@ in {
     background {
       blur_passes = 1
       blur_size = 2
-      monitor = HDMI-A-1
+      monitor = HDMI-A-2
       path = $HOME/.cache/wall/HDMI.png
       color = ${oneDarkColors.background}
     }
@@ -50,7 +50,7 @@ in {
     }
 
     label {
-      monitor = HDMI-A-1
+      monitor = HDMI-A-2
       text = cmd[update:30000] echo "$(date +'%R')"
       color = ${oneDarkColors.color1}
       font_size = 70
@@ -73,7 +73,7 @@ in {
     }
 
     label {
-      monitor = HDMI-A-1
+      monitor = HDMI-A-2
       text = cmd[update:43200000] echo "$(date +'%A, %d %B %Y')"
       color = ${oneDarkColors.color1}
       font_size = 25
@@ -99,7 +99,7 @@ in {
     }
 
     image {
-      monitor = HDMI-A-1
+      monitor = HDMI-A-2
       path = $HOME/.face
       size = 80
       rounding = -1
@@ -125,7 +125,7 @@ in {
     }
 
     shape {
-      monitor = HDMI-A-1
+      monitor = HDMI-A-2
       size = 550, 550
       color = rgba(30, 30, 46, 0.65)
       rounding = 30
@@ -167,7 +167,7 @@ in {
     }
 
     shape {
-      monitor = HDMI-A-1
+      monitor = HDMI-A-2
       size = 300, 60
       color = ${oneDarkColors.color8}
       rounding = -1
@@ -181,7 +181,7 @@ in {
     }
 
     label {
-      monitor = HDMI-A-1
+      monitor = HDMI-A-2
       text =  $USER
       color = ${oneDarkColors.color15}
       outline_thickness = 2
@@ -218,7 +218,7 @@ in {
 
     # INPUT PASSWORD FIELD
     input-field {
-      monitor = HDMI-A-1
+      monitor = HDMI-A-2
       size = 300, 60
       outline_thickness = 4
       dots_size = 0.2

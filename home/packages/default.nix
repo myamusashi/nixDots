@@ -37,6 +37,8 @@
     pkgs.hicolor-icon-theme
     pkgs.adwaita-icon-theme
     pkgs.adwaita-qt6
+		pkgs.gitea
+		pkgs.papirus-icon-theme
     inputs.zen-browser.packages.${pkgs.system}.default
     pkgs.hyprpanel
     pkgs.spotify-qt

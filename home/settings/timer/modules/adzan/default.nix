@@ -14,7 +14,7 @@
     Service = {
       Type = "oneshot";
       ExecStart = "${pkgs.writeShellScript "adzan-notify" ''
-        /run/current-system/sw/bin/bash $HOME/.local/bin/adzan_notify
+        ${pkgs.bash}/bin/bash $HOME/.dots/scripts/adzan_notify.sh
       ''}";
     };
   };

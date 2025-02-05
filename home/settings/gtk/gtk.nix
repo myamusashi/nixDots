@@ -7,8 +7,9 @@
   future-cursor = pkgs.callPackage ./themes/cursors/future-cursor/package.nix {};
 in {
   home.activation.createSymlink = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    ln -sf ${future-cyan-hyprcursor}/share/icons/Future-Cyan-Hyprcursor_Theme $HOME/.icons/
-    ln -sf ${future-cyan-hyprcursor}/share/icons/Future-Cyan-Hyprcursor_Theme $HOME/.local/share/icons
+		mkdir -p $HOME/.local/share/icons
+		mkdir $HOME/.icons
+    ln -sf ${future-cyan-hyprcursor}/share/icons/Future-Cyan-Hyprcursor_Theme $HOME/.icons/Future-cyan-hyprcursor
   '';
 
   home.packages = [
@@ -20,8 +21,8 @@ in {
     (pkgs.nightfox-gtk-theme.override {
       colorVariants = ["dark"];
       sizeVariants = ["compact"];
-      themeVariants = ["default"];
-      tweakVariants = ["carbon"];
+      themeVariants = ["ruby"];
+      tweakVariants = ["flat"];
     })
     pkgs.numix-icon-theme
     (pkgs.vimix-gtk-themes.override {

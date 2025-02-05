@@ -1,9 +1,11 @@
 {pkgs, ...}: {
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
-  boot.kernelModules = ["uas" "usbhid" "hid" "usb_storage"];
+  boot.kernelModules = [ "kvm-intel" "uas" "usbhid" "hid" "usb_storage"];
   boot.kernelParams = ["console=tty1"];
 
   boot.kernel.sysctl = {

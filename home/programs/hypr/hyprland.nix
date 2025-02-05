@@ -1,9 +1,15 @@
 {
   inputs,
   pkgs,
+	lib,
   ...
 }: {
   imports = [./hyprlock.nix ./hypridle.nix];
+	
+	home.activation.createSymlink = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    ln -sf $HOME/.dots/home/programs/hypr/scripts /tmp
+  '';
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -18,7 +24,7 @@
       exec-once = [
         "hyprpanel"
         "swayosd-server"
-        "./scripts/start_boot"
+        "/tmp/scripts/start_boot"
         "brightnessctl set 60%"
         "udiskie -t -a --appindicator --file-manager nautilus"
         "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
@@ -26,7 +32,7 @@
         "$HOME/.local/bin/cache_wall"
       ];
 
-      monitor = ["eDP-1,1366x768@60,0x0,1, vrr, 1" "HDMI-A-1,1920x1080@74.97,0x768,1, vrr, 1"];
+      monitor = ["eDP-1,1366x768@60,0x0,1, vrr, 1, bitdepth, 10" "HDMI-A-2,1920x1080@74.97,0x768,1, vrr, 1, bitdepth, 10"];
 
       input = {
         kb_file = "";
@@ -158,13 +164,13 @@
       };
 
       "$term" = "kitty";
-      "$screencapture" = "./scripts/screen-capture.sh";
+      "$screencapture" = "/tmp/scripts/screen-capture.sh";
       "$files" = "kitty --single-instance yazi";
       "$zen-browser" = "${inputs.zen-browser.packages.${pkgs.system}.default}/bin/zen";
       "$vm" = "vmware";
       "$launcher" = "$HOME/.config/rofi/launchers/type-5/launcher.sh";
       "$powermenu" = "$HOME/.config/rofi/powermenu/type-5/powermenu.sh";
-      "$colorpick" = "./scripts/picker.sh";
+      "$colorpick" = "/tmp/scripts/picker.sh";
       "$notifhistory" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t notificationsmenu";
       "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
@@ -181,7 +187,7 @@
           "$modalt, F, exec, $zen-browser"
           "$modalt, E, exec, $files"
           "SHIFT $modalt, C, exec, $clipmanager"
-          "SHIFT $modalt, E, exec, ./scripts/ags_connect"
+          "SHIFT $modalt, E, exec, /tmp/scripts/ags_connect"
           "SHIFT $modalt, D, exec, $discord"
           "$modalt, SPACE, exec, $launcher"
           "$modalt, C, exec, $wipeclip"

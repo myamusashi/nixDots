@@ -10,13 +10,14 @@
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     extraPackages = with pkgs; [
       luajit
-      llvmPackages_19.clang-unwrapped # C stuff
       alejandra
       nil # nix lsp
       gopls
       gnumake
       mesonlsp
       sassc
+			llvmPackages_19.clang-unwrapped # C stuff
+			gcc14
       typescript-language-server
       eslint
       sqls
@@ -27,6 +28,8 @@
       lua54Packages.luarocks_bootstrap
       stylua
       typescript
+			pnpm
+			yarn
       nodejs_22
       dockerfile-language-server-nodejs
       fish-lsp

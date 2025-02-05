@@ -13,7 +13,6 @@
     pkgs.vmware-workstation
     pkgs.cloudflare-warp
    # pkgs.ciscoPacketTracer8
-    pkgs.mlocate
     pkgs.gns3-gui
     pkgs.gns3-server
     pkgs.dynamips
