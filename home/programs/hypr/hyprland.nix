@@ -6,9 +6,6 @@
 }: {
   imports = [./hyprlock.nix ./hypridle.nix];
 	
-	# home.activation.createSymlink = lib.hm.dag.entryAfter ["writeBoundary"] ''
- #  '';
-
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -25,6 +22,7 @@
         "swayosd-server"
         "/tmp/scripts/start_boot"
         "brightnessctl set 60%"
+				"Xwayland"
         "udiskie -t -a --appindicator --file-manager nautilus"
         "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
         "$HOME/.local/bin/github_notify"

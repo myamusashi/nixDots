@@ -7,14 +7,6 @@
   future-cyan-hyprcursor = pkgs.callPackage ./themes/cursors/Future-cyan-hyprcursor/package.nix {};
   future-cursor = pkgs.callPackage ./themes/cursors/future-cursor/package.nix {};
 in {
-  home.activation.createSymlink = lib.hm.dag.entryAfter ["writeBoundary"] ''
-		mkdir -p $HOME/.local/share/icons
-		mkdir $HOME/.icons
-		ln -sf $HOME/.dots/home/programs/hypr/scripts /tmp
-    ln -sf ${future-cyan-hyprcursor}/share/icons/Future-Cyan-Hyprcursor_Theme $HOME/.icons/Future-cyan-hyprcursor
-		ln -sf $HOME/.nix-profile/share/themes $HOME/.themes
-  '';
-
   home.packages = [
     pkgs.gtk-engine-murrine
     pkgs.gtk3

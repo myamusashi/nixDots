@@ -8,6 +8,10 @@
   programs.neovim = {
     enable = true;
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    plugins = [
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+			pkgs.vimPlugins.nvim-treesitter-parsers.latex
+    ];
     extraPackages = with pkgs; [
       luajit
       alejandra
@@ -16,8 +20,8 @@
       gnumake
       mesonlsp
       sassc
-			llvmPackages_19.clang-unwrapped # C stuff
-			gcc14
+      llvmPackages_19.clang-unwrapped # C stuff
+      gcc14
       typescript-language-server
       eslint
       sqls
@@ -28,8 +32,8 @@
       lua54Packages.luarocks_bootstrap
       stylua
       typescript
-			pnpm
-			yarn
+      pnpm
+      yarn
       nodejs_22
       dockerfile-language-server-nodejs
       fish-lsp
