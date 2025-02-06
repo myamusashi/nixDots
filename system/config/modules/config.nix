@@ -1,6 +1,5 @@
 {
   nix.settings.experimental-features = ["nix-command" "flakes"];
-	
 
   nixpkgs.config.allowUnfree = true;
 
@@ -15,7 +14,7 @@
     enableSSHSupport = true;
   };
 
-  nix.settings.substituters = [ https://cache.komunix.org/ ];
+  nix.settings.substituters = [https://cache.komunix.org/];
 
   programs.hyprland.enable = true;
 }

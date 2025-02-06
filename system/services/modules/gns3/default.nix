@@ -1,5 +1,5 @@
 {
-	  services.gns3-server = {
+  services.gns3-server = {
     enable = false;
     settings = {
       Server = {
@@ -11,5 +11,4 @@
       };
     };
   };
-
 }

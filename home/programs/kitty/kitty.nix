@@ -1,6 +1,10 @@
-{lib, pkgs, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   kitty_themes = pkgs.callPackage "./themes/package.nix";
-in  {
+in {
   programs.kitty = lib.mkForce {
     enable = true;
     themeFile = "GitHub_Dark_High_Contrast";

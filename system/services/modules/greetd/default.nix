@@ -1,5 +1,5 @@
-{pkgs, ... }: {
-	  services.greetd = {
+{pkgs, ...}: {
+  services.greetd = {
     enable = true;
     vt = 2;
     settings = {
@@ -10,5 +10,4 @@
       };
     };
   };
-
 }

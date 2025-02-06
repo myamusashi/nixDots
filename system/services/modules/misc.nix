@@ -1,16 +1,16 @@
-{pkgs, ... }: {
-	services.cloudflare-warp.enable = true;
+{pkgs, ...}: {
+  services.cloudflare-warp.enable = true;
 
   services.xserver.videoDrivers = ["vmware"];
-	
-	services.printing.enable = false;
+
+  services.printing.enable = false;
 
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
-	services.blueman.enable = true;
+  services.blueman.enable = true;
   services.upower.enable = true;
   services.power-profiles-daemon.enable = true;
   services.openssh.enable = true;

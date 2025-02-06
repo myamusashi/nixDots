@@ -1,25 +1,25 @@
-{ config, lib, pkgs, modulesPath, ... }:
-
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/c60c5a1c-9d19-4395-9bca-671bebddc679";
-      fsType = "ext4";
-    };
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}: {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/c60c5a1c-9d19-4395-9bca-671bebddc679";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/F5DD-1B31";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/F5DD-1B31";
+    fsType = "vfat";
+    options = ["fmask=0077" "dmask=0077"];
+  };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/93afed54-632b-44f3-9964-ce444b239fc9"; }];
+  swapDevices = [{device = "/dev/disk/by-uuid/93afed54-632b-44f3-9964-ce444b239fc9";}];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -39,6 +39,6 @@
   fileSystems."/home/myamusashi/external_drive" = {
     device = "/dev/disk/by-label/apalah";
     fsType = "ntfs-3g";
-    options = [ "rw" "auto" "uid=022" "nofail" ];
+    options = ["rw" "auto" "uid=022" "nofail"];
   };
 }

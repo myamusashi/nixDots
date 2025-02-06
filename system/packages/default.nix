@@ -14,7 +14,7 @@
     pkgs.cloudflare-warp
     pkgs.ciscoPacketTracer8
     pkgs.linux-wifi-hotspot
-		pkgs.gns3-gui
+    pkgs.gns3-gui
     pkgs.gns3-server
     pkgs.dynamips
     pkgs.wireshark

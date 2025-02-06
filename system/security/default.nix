@@ -1,7 +1,7 @@
 {
-	security.rtkit.enable = true;
+  security.rtkit.enable = true;
 
-	security.wrappers.ubridge = {
+  security.wrappers.ubridge = {
     source = "/run/current-system/sw/bin/ubridge";
     capabilities = "cap_net_admin,cap_net_raw=ep";
     owner = "root";

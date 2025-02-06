@@ -1,5 +1,5 @@
 {
-	  services.resolved = {
+  services.resolved = {
     enable = true;
     dnssec = "true";
     domains = ["~."];
@@ -11,14 +11,13 @@
     '';
   };
 
-		services.create_ap = {
-		enable = true;
-		settings = {
-			INTERNET_IFACE = "enp0s31f6";
-			WIFI_IFACE = "wlp3s0";
-			SSID = "nixos";
-			PASSPHRASE = "12345678";
-		};
-	};
-
+  services.create_ap = {
+    enable = true;
+    settings = {
+      INTERNET_IFACE = "enp0s31f6";
+      WIFI_IFACE = "wlp3s0";
+      SSID = "nixos";
+      PASSPHRASE = "12345678";
+    };
+  };
 }

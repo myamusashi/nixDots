@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-	config,
+  config,
   ...
 }: let
   future-cyan-hyprcursor = pkgs.callPackage ./themes/cursors/Future-cyan-hyprcursor/package.nix {};

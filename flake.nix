@@ -66,40 +66,43 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true; # Tambahkan jika diperlukan
-        overlays = [
-          inputs.hyprpanel.overlay
-          inputs.hyprpicker.overlays.default
-          inputs.hyprsunset.overlays.default
-          inputs.hypridle.overlays.default
-          inputs.hyprland.overlays.default
-        ];
-      };
-    in {
-      nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./system/default.nix
-          ];
-          # Also pass inputs at the system level
-          specialArgs = { inherit inputs; };
-        };
-      };
-
-      homeConfigurations."myamusashi" =
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./home/default.nix
-            # Pass inputs to the standalone home-manager configuration
-            { _module.args.inputs = inputs; }
-          ];
-        };
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = [
+        inputs.hyprpanel.overlay
+        inputs.hyprpicker.overlays.default
+        inputs.hyprsunset.overlays.default
+        inputs.hypridle.overlays.default
+        inputs.hyprland.overlays.default
+      ];
     };
+  in {
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./system/default.nix
+        ];
+        # Also pass inputs at the system level
+        specialArgs = {inherit inputs;};
+      };
+    };
+
+    homeConfigurations."myamusashi" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        ./home/default.nix
+        ./scripts/symlinks/symlinks.nix
+        # Pass inputs to the standalone home-manager configuration
+        {_module.args.inputs = inputs;}
+      ];
+    };
+  };
 }
