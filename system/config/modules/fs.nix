@@ -48,17 +48,4 @@
 			"noauto"
     ];
   };
-
-  fileSystems."/home/myamusashi/ssd" = {
-    device = "/dev/disk/by-label/extn";
-    fsType = "ext4";
-    options = [
-	    "x-systemd.device-timeout=5s"
-      "noatime"
-      "nodiratime"
-      "discard"
-      "nofail"
-			"noauto"
-    ];
-  };
 }
