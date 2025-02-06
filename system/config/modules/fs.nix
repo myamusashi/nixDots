@@ -48,4 +48,16 @@
 			"noauto"
     ];
   };
+
+  fileSystems."/home/myamusashi/ssd" = {
+    device = "/dev/disk/by-label/extn";
+    fsType = "ext4";
+    options = [
+      "noatime"
+      "nodiratime"
+      "discard"
+      "nofail"
+			"noauto"
+    ];
+  };
 }
