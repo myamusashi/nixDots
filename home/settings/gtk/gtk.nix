@@ -15,9 +15,9 @@ in {
     pkgs.vimix-icon-theme
     pkgs.numix-icon-theme
     (pkgs.vimix-gtk-themes.override {
-      themeVariants = ["beryl"];
+      themeVariants = ["ruby"];
       colorVariants = ["dark"];
-      sizeVariants = ["standard"];
+      sizeVariants = ["compact"];
       tweaks = ["translucent"];
     })
   ];

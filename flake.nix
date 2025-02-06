@@ -90,7 +90,6 @@
         modules = [
           ./system/default.nix
         ];
-        # Also pass inputs at the system level
         specialArgs = {inherit inputs;};
       };
     };
@@ -100,7 +99,6 @@
       modules = [
         ./home/default.nix
         ./scripts/symlinks/symlinks.nix
-        # Pass inputs to the standalone home-manager configuration
         {_module.args.inputs = inputs;}
       ];
     };
