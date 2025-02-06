@@ -58,7 +58,6 @@
         "windows_names"
         "nofail"
 				"nossd"
-        "x-systemd.automount"
       ];
     };
     "/home/myamusashi/ssd" = {
@@ -69,7 +68,6 @@
         "nodiratime"
         "discard"
         "nofail"
-        "x-systemd.device-timeout=5s"
       ];
     };
   };
