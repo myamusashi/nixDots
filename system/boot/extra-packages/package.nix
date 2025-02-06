@@ -15,17 +15,29 @@
       sha256 = "1n22hsjl77qby2s4wf9y6z3kbcw7yziiniv2x43xixgkl12ajvk5"; # zen
       isLqx = false;
     };
+    # ./update-zen.py lqx
+    lqx = {
+      version = "6.12.10"; # lqx
+      suffix = "lqx1"; # lqx
+      sha256 = "0sg905xdyy9wmjqv6d8p5jr307j767wgk27gzxhq8dnb2dz2yg5v"; # lqx
+      isLqx = true;
+    };
   };
   zenKernelsFor = {
     version,
     suffix,
     sha256,
+    isLqx,
   }:
     buildLinux (
       args
       // {
         inherit version;
-        pname = "linux-tkg-pds";
+        pname = "linux-${
+          if isLqx
+          then "lqx"
+          else "zen"
+        }";
         modDirVersion = lib.versions.pad 3 "${version}-${suffix}";
         isZen = true;
 
@@ -420,7 +432,7 @@
           CONFIG_ARCH_SPARSEMEM_ENABLE = yes;
           CONFIG_ARCH_SPARSEMEM_DEFAULT = yes;
           CONFIG_ARCH_PROC_KCORE_TEXT = yes;
-          CONFIG_ILLEGAL_POINTER_VALUE = 0 xdead000000000000;
+          CONFIG_ILLEGAL_POINTER_VALUE = "0 xdead000000000000";
           CONFIG_X86_PMEM_LEGACY_DEVICE = yes;
           CONFIG_X86_PMEM_LEGACY = module;
           CONFIG_X86_CHECK_BIOS_CORRUPTION = yes;
@@ -459,14 +471,14 @@
           CONFIG_ARCH_DEFAULT_CRASH_DUMP = yes;
           CONFIG_ARCH_SUPPORTS_CRASH_HOTPLUG = yes;
           CONFIG_ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION = yes;
-          CONFIG_PHYSICAL_START = 0 x1000000;
+          CONFIG_PHYSICAL_START = "0 x1000000";
           CONFIG_RELOCATABLE = yes;
           CONFIG_RANDOMIZE_BASE = yes;
           CONFIG_X86_NEED_RELOCS = yes;
-          CONFIG_PHYSICAL_ALIGN = 0 x200000;
+          CONFIG_PHYSICAL_ALIGN = "0 x200000";
           CONFIG_DYNAMIC_MEMORY_LAYOUT = yes;
           CONFIG_RANDOMIZE_MEMORY = yes;
-          CONFIG_RANDOMIZE_MEMORY_PHYSICAL_PADDING = 0 xa;
+          CONFIG_RANDOMIZE_MEMORY_PHYSICAL_PADDING = "0 xa";
           CONFIG_HOTPLUG_CPU = yes;
           CONFIG_LEGACY_VSYSCALL_XONLY = yes;
           CONFIG_MODIFY_LDT_SYSCALL = yes;
@@ -2278,17 +2290,10 @@
           CONFIG_SCSI_ACARD = module;
           CONFIG_SCSI_AACRAID = module;
           CONFIG_SCSI_AIC7XXX = module;
-          CONFIG_AIC7XXX_CMDS_PER_DEVICE = 32;
-          CONFIG_AIC7XXX_RESET_DELAY_MS = 15000;
           CONFIG_AIC7XXX_DEBUG_ENABLE = yes;
           CONFIG_AIC7XXX_DEBUG_MASK = 0;
           CONFIG_AIC7XXX_REG_PRETTY_PRINT = yes;
           CONFIG_SCSI_AIC79XX = module;
-          CONFIG_AIC79XX_CMDS_PER_DEVICE = 32;
-          CONFIG_AIC79XX_RESET_DELAY_MS = 15000;
-          CONFIG_AIC79XX_DEBUG_ENABLE = yes;
-          CONFIG_AIC79XX_DEBUG_MASK = 0;
-          CONFIG_AIC79XX_REG_PRETTY_PRINT = yes;
           CONFIG_SCSI_AIC94XX = module;
           CONFIG_AIC94XX_DEBUG = yes;
           CONFIG_SCSI_MVSAS = module;
@@ -5823,8 +5828,8 @@
           CONFIG_DRM_MIPI_DSI = yes;
           CONFIG_DRM_KMS_HELPER = yes;
           CONFIG_DRM_PANIC = yes;
-          CONFIG_DRM_PANIC_FOREGROUND_COLOR = 0 xffffff;
-          CONFIG_DRM_PANIC_BACKGROUND_COLOR = 0 x0000aa;
+          CONFIG_DRM_PANIC_FOREGROUND_COLOR = "0 xffffff";
+          CONFIG_DRM_PANIC_BACKGROUND_COLOR = "0 x0000aa";
           CONFIG_DRM_PANIC_SCREEN = "kmsg";
           CONFIG_DRM_CLIENT = yes;
           CONFIG_DRM_CLIENT_LIB = yes;
@@ -9757,7 +9762,7 @@
           CONFIG_SECTION_MISMATCH_WARN_ONLY = yes;
           CONFIG_OBJTOOL = yes;
           CONFIG_MAGIC_SYSRQ = yes;
-          CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE = 0 x0;
+          CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE = "0 x0";
           CONFIG_MAGIC_SYSRQ_SERIAL = yes;
           CONFIG_MAGIC_SYSRQ_SERIAL_SEQUENCE = "";
           CONFIG_DEBUG_FS = yes;
@@ -9896,13 +9901,16 @@
           CONFIG_ARCH_USE_MEMTEST = yes;
           CONFIG_MEMTEST = yes;
         };
+
         extraMeta = {
           branch = lib.versions.majorMinor version + "/master";
           maintainers = with lib.maintainers; [
             thiagokokada
             jerrysm64
           ];
-          description = "Built using the best configuration and kernel sources for desktop, multimedia, and gaming workloads.";
+          description =
+            "Built using the best configuration and kernel sources for desktop, multimedia, and gaming workloads."
+            + lib.optionalString isLqx " (Same as linux_zen, but less aggressive release schedule and additional extra config)";
           broken = stdenv.hostPlatform.isAarch64;
         };
       }
