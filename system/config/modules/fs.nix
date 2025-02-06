@@ -11,6 +11,16 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c60c5a1c-9d19-4395-9bca-671bebddc679";
     fsType = "ext4";
+    options = [
+      "noatime" # Menonaktifkan update access time untuk mengurangi writes
+      "nodiratime" # Menonaktifkan directory access time
+      "commit=60" # Flush data ke disk setiap 60 detik (default 5)
+      "errors=remount-ro" # Remount sebagai read-only saat error
+      "discard" # Enable TRIM untuk SSD (jika menggunakan SSD)
+      "barrier=1" # Ensure metadata integrity (default di ext4)
+      "data=ordered" # Default write ordering mode
+      "journal_checksum" # Checksum untuk journal (meningkatkan integritas)
+    ];
   };
 
   fileSystems."/boot" = {
@@ -36,9 +46,31 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  fileSystems."/home/myamusashi/external_drive" = {
-    device = "/dev/disk/by-label/apalah";
-    fsType = "ntfs-3g";
-    options = ["rw" "auto" "uid=022" "nofail"];
+  fileSystems = {
+    "/home/myamusashi/external_drive" = {
+      device = "/dev/disk/by-label/apalah";
+      fsType = "ntfs-3g";
+      options = [
+        "rw"
+        "uid=1000"
+        "gid=100"
+        "umask=022"
+        "windows_names"
+        "nofail"
+				"nossd"
+        "x-systemd.automount"
+      ];
+    };
+    "/home/myamusashi/ssd" = {
+      device = "/dev/disk/by-label/extn";
+      fsType = "ext4";
+      options = [
+        "noatime"
+        "nodiratime"
+        "discard"
+        "nofail"
+        "x-systemd.device-timeout=5s"
+      ];
+    };
   };
 }
