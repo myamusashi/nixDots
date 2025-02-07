@@ -11,6 +11,11 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c60c5a1c-9d19-4395-9bca-671bebddc679";
     fsType = "ext4";
+    options = [
+      "noatime"
+      "nodiratime"
+      "discard"
+    ];
   };
 
   fileSystems."/boot" = {
@@ -36,7 +41,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  fileSystems."/home/myamusashi/external_drive" = {
+  fileSystems."/run/media/apalah" = {
     device = "/dev/disk/by-label/apalah";
     fsType = "ntfs-3g";
     options = [
@@ -45,11 +50,10 @@
       "gid=100"
       "umask=022"
       "nofail"
-			"noauto"
     ];
   };
 
-  fileSystems."/home/myamusashi/ssd" = {
+  fileSystems."/run/media/extn" = {
     device = "/dev/disk/by-label/extn";
     fsType = "ext4";
     options = [
@@ -57,7 +61,11 @@
       "nodiratime"
       "discard"
       "nofail"
-			"noauto"
     ];
   };
+
+	systemd.tmpfiles.rules = [
+		"L /run/media/apalah - - - - /home/myamusashi/external_drive"
+		"L /run/media/extn - - - - /home/myamusashi/ssd"
+	];
 }

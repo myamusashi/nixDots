@@ -15,8 +15,6 @@
   services.power-profiles-daemon.enable = true;
   services.openssh.enable = true;
 
-  services.udisks2.enable = true;
-
   services.locate.package = pkgs.mlocate;
   services.locate.enable = true;
 

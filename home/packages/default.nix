@@ -54,8 +54,6 @@
     pkgs.rquickshare
     pkgs.enlightenment.ephoto
     pkgs.mpv
-    pkgs.udiskie
-    pkgs.udisks
     pkgs.python313Packages.pygithub
     pkgs.lazygit
     pkgs.wf-recorder

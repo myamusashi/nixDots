@@ -18,7 +18,7 @@
     };
 
     hy3 = {
-      url = "github:outfoxxed/hy3";
+      url = "github:myamusashi/hy3";
       inputs.hyprland.follows = "hyprland";
     };
 

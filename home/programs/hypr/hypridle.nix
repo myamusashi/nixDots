@@ -16,12 +16,12 @@
       listener = [
         {
           timeout = 200;
-          on-timeout = "notify-send -a 'Hypridle' 'Idle' 'Bangun woy, gua kunci nih' -i ./scripts/User-idle.png";
+          on-timeout = "notify-send -a 'Hypridle' 'Idle' 'Bangun woy, gua kunci nih' -i /tmp/scripts/User-idle.png";
         }
 
         {
           timeout = 500;
-          on-timeout = "hyprlock -c ./scripts/lock_listen.conf";
+          on-timeout = "hyprlock -c /tmp/scripts/lock_listen.conf";
         }
 
         {

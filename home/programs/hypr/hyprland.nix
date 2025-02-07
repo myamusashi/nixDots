@@ -22,7 +22,6 @@
         "swayosd-server"
         "/tmp/scripts/start_boot"
         "brightnessctl set 60%"
-        "udiskie -t -a --appindicator --file-manager nautilus"
         "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
         "$HOME/.local/bin/github_notify"
         "$HOME/.local/bin/cache_wall"

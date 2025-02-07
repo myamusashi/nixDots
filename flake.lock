@@ -426,15 +426,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1738535976,
-        "narHash": "sha256-w8lTgUYyJoP94+H0jzv9+UlP4uGcvoGpQjnLot0vwtI=",
-        "owner": "outfoxxed",
+        "lastModified": 1738892400,
+        "narHash": "sha256-GatIVUiqWhK/sPfvg3Ix/ucCeNxKEKu5TtoKXxYbFPg=",
+        "owner": "myamusashi",
         "repo": "hy3",
-        "rev": "a5fbc10b871d4b8c3d9be635c32b2ebb19b14afe",
+        "rev": "9638641346a1364a5b007af30b9fceb7cb6fbbda",
         "type": "github"
       },
       "original": {
-        "owner": "outfoxxed",
+        "owner": "myamusashi",
         "repo": "hy3",
         "type": "github"
       }
