@@ -1,0 +1,5 @@
+{
+	imports = [
+		./steam/steam.nix
+	];
+}

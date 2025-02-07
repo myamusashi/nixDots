@@ -20,7 +20,7 @@
     pkgs.yazi
     pkgs.cliphist
     pkgs.fuzzel
-    pkgs.rofi
+    pkgs.rofi-wayland
     pkgs.grim
     pkgs.slurp
     pkgs.hyprshot
