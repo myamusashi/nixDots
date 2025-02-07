@@ -5,5 +5,6 @@
     ./modules/fs.nix
     ./modules/timezone.nix
     ./modules/virtualisation.nix
+    ./modules/hardware-configuration.nix
   ];
 }
