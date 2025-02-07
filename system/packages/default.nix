@@ -12,7 +12,7 @@
     pkgs.vulkan-tools
     pkgs.vmware-workstation
     pkgs.cloudflare-warp
-    pkgs.ciscoPacketTracer8
+    # pkgs.ciscoPacketTracer8
     pkgs.linux-wifi-hotspot
     pkgs.gns3-gui
     pkgs.gns3-server
