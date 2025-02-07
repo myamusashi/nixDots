@@ -1,5 +1,5 @@
 {
-  inputs = { 
+  inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -83,7 +83,6 @@
         inputs.hyprland.overlays.default
       ];
     };
-    
   in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {

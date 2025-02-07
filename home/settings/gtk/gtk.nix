@@ -11,6 +11,7 @@ in {
     pkgs.gtk-engine-murrine
     pkgs.gtk3
     pkgs.gtk4
+    future-cyan-hyprcursor
     pkgs.morewaita-icon-theme
     pkgs.vimix-icon-theme
     pkgs.numix-icon-theme

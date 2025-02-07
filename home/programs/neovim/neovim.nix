@@ -9,8 +9,10 @@
     enable = true;
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     plugins = [
+			pkgs.vimPlugins.nvim-treesitter
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       pkgs.vimPlugins.nvim-treesitter-parsers.latex
+			pkgs.vimPlugins.nvim-treesitter-parsers.bibtex
     ];
     extraPackages = with pkgs; [
       luajit

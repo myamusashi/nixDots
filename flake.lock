@@ -1619,11 +1619,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738911137,
-        "narHash": "sha256-zhXnksYY9mXhcr8LdDevnQHwVGvFwqXEZQsiQRe5ccs=",
+        "lastModified": 1738950825,
+        "narHash": "sha256-1+25q8Rh4x0tYQflLXfJHJMqBF4sw3wejwjyyiz7SjE=",
         "owner": "myamusashi",
         "repo": "zen-twilight-flake",
-        "rev": "831bdc5cadbaa262cf38a2473eaaeb1379ab8f66",
+        "rev": "4e65cd5a0216d8ec60c2d83ccf4f6405cfdddecb",
         "type": "github"
       },
       "original": {
