@@ -84,9 +84,6 @@
       ];
     };
     
-  nix.settings.experimental-features = [ "nix-commands" "flakes" ];
-  nix.settings.trusted-subtituters = pkgs.lib.mkBefore [ "https://cache.komunix.org/" ];
-  nix.settings.fallback = true;
   in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
