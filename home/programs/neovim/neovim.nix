@@ -56,7 +56,7 @@
       typescript
       pnpm
       yarn
-      nodejs_22
+      nodejs_23
       dockerfile-language-server-nodejs
       fish-lsp
       ltex-ls

@@ -9,6 +9,7 @@
     pkgs.nwg-look
     pkgs.sassc
     pkgs.sass
+		pkgs.nodejs_23
     pkgs.gh
     pkgs.zip
     pkgs.nixpkgs-fmt
