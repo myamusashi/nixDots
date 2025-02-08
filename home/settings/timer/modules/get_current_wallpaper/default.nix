@@ -11,8 +11,8 @@
 
   systemd.user.services.getWP = {
     Unit = {Description = "Services dapet current desktop screenshot";};
-    Services = {
-      Type = "onshot";
+    Service = {
+      Type = "oneshot";
       ExecStart = "${pkgs.writeShellScript "getWP" ''
         ${pkgs.bash}/bin/bash $HOME/.dots/scripts/cache_wall.sh
       ''}";

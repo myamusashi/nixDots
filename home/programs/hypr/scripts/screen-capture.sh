@@ -55,22 +55,22 @@ case "$SELECTION" in
 		notify-send -u critical -a "Screen Capture" "Screenshot Failed" "Failed to take screenshot on eDP-1."
 	fi
 	;;
-"screenshot HDMI-A-1")
+"screenshot HDMI-A-2")
 	sleep 2
-	grim -c -o HDMI-A-1 "$IMG"
+	grim -c -o HDMI-A-2 "$IMG"
 	if [ $? -eq 0 ]; then
 		wl-copy <"$IMG"
 		goto_link
 		mpg123 $HOME/.config/hypr/scripts/audiofile/camera-shutter-6305.mp3
 	else
-		notify-send -u critical -a "Screen Capture" "Screenshot Failed" "Failed to take screenshot on HDMI-A-1."
+		notify-send -u critical -a "Screen Capture" "Screenshot Failed" "Failed to take screenshot on HDMI-A-2."
 	fi
 	;;
 "screenshot both screens")
 	sleep 2
 	grim -c -o eDP-1 "${IMG//.png/-eDP-1.png}"
 	GRIM_EDP=$?
-	grim -c -o HDMI-A-1 "${IMG//.png/-HDMI-A-2.png}"
+	grim -c -o HDMI-A-2 "${IMG//.png/-HDMI-A-2.png}"
 	GRIM_HDMI=$?
 
 	if [ $GRIM_EDP -eq 0 ] && [ $GRIM_HDMI -eq 0 ]; then

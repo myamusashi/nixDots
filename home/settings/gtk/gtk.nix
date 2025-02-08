@@ -15,6 +15,8 @@ in {
     pkgs.morewaita-icon-theme
     pkgs.vimix-icon-theme
     pkgs.numix-icon-theme
+		pkgs.kdePackages.qtstyleplugin-kvantum
+    pkgs.libsForQt5.qt5ct
     (pkgs.vimix-gtk-themes.override {
       themeVariants = ["ruby"];
       colorVariants = ["dark"];
@@ -30,6 +32,13 @@ in {
     gtk.enable = true;
     x11.enable = true;
   };
+
+	qt = {
+		enable = true;
+		platformTheme.name = "qtct";
+		style.name = "kvantum";
+	};
+
   gtk = {
     enable = true;
 
