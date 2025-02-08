@@ -11,6 +11,14 @@
 
   systemd.user.services.getWP = {
     Unit = {Description = "Services dapet current desktop screenshot";};
+    serviceConfig = {
+      path = [
+        "${pkgs.gawk}/bin"
+        "${pkgs.swww}/bin"
+        "${pkgs.hyprshot}/bin"
+        "${pkgs.grim}/bin"
+      ];
+    };
     Service = {
       Type = "oneshot";
       ExecStart = "${pkgs.writeShellScript "getWP" ''
