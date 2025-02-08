@@ -8,17 +8,37 @@
   programs.neovim = {
     enable = true;
     package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
-    plugins = [
-			pkgs.vimPlugins.nvim-treesitter
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-      pkgs.vimPlugins.nvim-treesitter-parsers.latex
-			pkgs.vimPlugins.nvim-treesitter-parsers.bibtex
+    plugins = with pkgs.vimPlugins; [
+      (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
+      (nvim-treesitter.withPlugins (
+        plugins:
+          with plugins; [
+            tree-sitter-c
+            tree-sitter-cpp
+            tree-sitter-dockerfile
+            tree-sitter-fish
+            tree-sitter-go
+            tree-sitter-html
+            tree-sitter-json
+            tree-sitter-latex
+            tree-sitter-lua
+            tree-sitter-nix
+            tree-sitter-python
+            tree-sitter-r
+            tree-sitter-regex
+            tree-sitter-rust
+            tree-sitter-toml
+            tree-sitter-vim
+            tree-sitter-yaml
+          ]
+      ))
     ];
     extraPackages = with pkgs; [
       luajit
       alejandra
       nil # nix lsp
       gopls
+      kdePackages.qtdeclarative
       gnumake
       mesonlsp
       sassc

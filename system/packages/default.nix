@@ -1,33 +1,36 @@
 {pkgs, ...}: {
-  environment.systemPackages = [
-    pkgs.vim
-    pkgs.wget
-    pkgs.ntfs3g
-    pkgs.polkit
-    pkgs.tree-sitter
-    pkgs.libGL
-    pkgs.libGLU
-    pkgs.pciutils
-    pkgs.mesa
-    pkgs.vulkan-tools
-    pkgs.vmware-workstation
-    pkgs.cloudflare-warp
-    # pkgs.ciscoPacketTracer8
-    pkgs.linux-wifi-hotspot
-    pkgs.gns3-gui
-    pkgs.gns3-server
-    pkgs.dynamips
-    pkgs.wireshark
-    pkgs.ubridge
-    pkgs.busybox
-    pkgs.inetutils
-    pkgs.vpcs
-    pkgs.docker
-    pkgs.libvirt
-    pkgs.python3
-    pkgs.upower
-    pkgs.upower-notify
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    ntfs3g
+    vulkan-tools
+    libgdiplus
+    winetricks
+    polkit
+    tree-sitter
+    libGL
+    libGLU
+    pciutils
+    mesa
+    vulkan-tools
+    vmware-workstation
+    cloudflare-warp
+    # ciscoPacketTracer8
+    linux-wifi-hotspot
+    gns3-gui
+    gns3-server
+    dynamips
+    wireshark
+    ubridge
+    busybox
+    inetutils
+    vpcs
+    docker
+    libvirt
+    python3
+    upower
+    upower-notify
     ## For gns3
-    pkgs.virt-viewer
+    virt-viewer
   ];
 }

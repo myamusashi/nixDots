@@ -21,6 +21,7 @@
     pkgs.cliphist
     pkgs.fuzzel
     pkgs.rofi-wayland
+		pkgs.mutt
     pkgs.grim
     pkgs.slurp
     pkgs.hyprshot
