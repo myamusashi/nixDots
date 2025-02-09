@@ -83,10 +83,6 @@
         inputs.hyprland.overlays.default
       ];
     };
-    nix.config.substituters = [
-      "cache.nixos.org"
-      "cache.komunix.org"
-    ];
   in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
