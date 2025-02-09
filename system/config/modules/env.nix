@@ -1,6 +1,6 @@
 {
   environment.sessionVariables = {
-    GTK_THEME = "vimix-dark-compact-ruby";
+    GTK_THEME = "vimix-dark-standard-ruby";
     HYPRCURSOR_THEME = "Future-Cyan-Hyprcursor_Theme";
     HYPRCURSOR_SIZE = "50";
     AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";

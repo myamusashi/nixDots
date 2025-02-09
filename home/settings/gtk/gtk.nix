@@ -20,7 +20,7 @@ in {
     (pkgs.vimix-gtk-themes.override {
       themeVariants = ["ruby"];
       colorVariants = ["dark"];
-      sizeVariants = ["compact"];
+      sizeVariants = ["standard"];
       tweaks = ["translucent"];
     })
   ];
@@ -43,7 +43,7 @@ in {
     enable = true;
 
     iconTheme = {name = "MoreWaita";};
-    theme = {name = "vimix-dark-compact-ruby";};
+    theme = {name = "vimix-dark-standard-ruby";};
 
     gtk2 = {
       #configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";

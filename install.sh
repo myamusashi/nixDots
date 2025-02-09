@@ -27,7 +27,7 @@ echo "access-tokens = github.com=ghp_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" > "$HOME/.c
 cp -f "/etc/nixos/hardware-configuration.nix" "$HOME/.dots/system/config/modules"
 
 ## Install cachix
-nix-env -iA cachix -f https://cachix.org/api/v1/Install
+nix-env --extra-experimental-features "nix-command flakes" -iA cachix -f https://cachix.org/api/v1/Install
 cachix use nix-community
 
 ## flake update
