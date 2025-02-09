@@ -1,12 +1,14 @@
 {
   lib,
   pkgs,
+	config,
   ...
 }: let
   kitty_themes = pkgs.callPackage "./themes/package.nix";
 in {
   programs.kitty = lib.mkForce {
     enable = true;
+		package = (config.lib.nixGL.warp pkgs.kitty);
     themeFile = "GitHub_Dark_High_Contrast";
     settings = {
       confirm_os_window_close = 0;

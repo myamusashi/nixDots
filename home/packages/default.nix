@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  config,
   ...
 }: {
   home.packages = [
@@ -9,7 +10,7 @@
     pkgs.nwg-look
     pkgs.sassc
     pkgs.sass
-		pkgs.nodejs_23
+    pkgs.nodejs_23
     pkgs.gh
     pkgs.zip
     pkgs.nixpkgs-fmt
@@ -22,7 +23,7 @@
     pkgs.cliphist
     pkgs.fuzzel
     pkgs.rofi-wayland
-		pkgs.mutt
+    pkgs.mutt
     pkgs.grim
     pkgs.slurp
     pkgs.hyprshot
@@ -41,21 +42,21 @@
     pkgs.adwaita-qt6
     pkgs.gitea
     pkgs.papirus-icon-theme
-    inputs.zen-browser.packages.${pkgs.system}.default
+    (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)
     pkgs.hyprpanel
     pkgs.spotify-qt
     pkgs.themix-gui
     pkgs.nushell
-    pkgs.vscodium
+    (config.lib.nixGL.wrap pkgs.vscodium)
     pkgs.fastfetch
-    pkgs.neovide
+    (config.lib.nixGL.wrap pkgs.neovide)
     pkgs.swayosd
     pkgs.legcord
     pkgs.btop
     pkgs.htop
     pkgs.rquickshare
     pkgs.enlightenment.ephoto
-    pkgs.mpv
+    (config.lib.nixGL.wrap pkgs.mpv)
     pkgs.python313Packages.pygithub
     pkgs.lazygit
     pkgs.wf-recorder
