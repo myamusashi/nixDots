@@ -23,6 +23,9 @@ fi
 
 echo "access-tokens = github.com=ghp_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" > "$HOME/.config/nix/nix.conf"
 
+## Copy hardware-configuration 
+cp -f "/etc/nixos/hardware-configuration.nix" "$HOME/.dots/system/config/modules"
+
 ## Install cachix
 nix-env -iA cachix -f https://cachix.org/api/v1/Install
 cachix use nix-community

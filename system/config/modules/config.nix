@@ -13,8 +13,5 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  nix.settings.substituters = [https://cache.komunix.org/];
-
   programs.hyprland.enable = true;
 }
