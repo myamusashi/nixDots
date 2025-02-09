@@ -21,17 +21,29 @@ if [[ ! -d "$HOME/.config/nix" ]]; then
     mkdir -p "$HOME/.config/nix"
 fi
 
-echo "access-tokens = github.com=ghp_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" > "$HOME/.config/nix/nix.conf"
+echo "xbUsidEydNLNQ8nb4yZZrdyFrPEuGt2g04qg"
+
+echo "access-tokens = github.com=ghp_" > "$HOME/.config/nix/nix.conf"
+
+## rebuild for now because we had this mf issue
+sudo grep -q 'nix.settings' /etc/nixos/configuration.nix || \
+sudo sed -i '$ i\
+nix.settings = {\
+    trusted-users = [ "root" "myamusashi" ];\
+    experimental-features = [ "nix-command" "flakes" ];\
+};' /etc/nixos/configuration.nix
+
+sudo nixos-rebuild switch
 
 ## Copy hardware-configuration 
 cp -f "/etc/nixos/hardware-configuration.nix" "$HOME/.dots/system/config/modules"
 
 ## Install cachix
-nix-env --extra-experimental-features "nix-command flakes" -iA cachix -f https://cachix.org/api/v1/Install
+nix-env -iA cachix -f "https://cachix.org/api/v1/install"
 cachix use nix-community
 
 ## flake update
-nix flake update
+nix --extra-experimental-features "nix-command flakes" flake update
 
 ## Install nixos unstable and home-manager
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
@@ -42,3 +54,4 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/master.t
 nix-channel --update
 nix-shell '<home-manager>' -A install
 home-manager switch --flake "$HOME/.dots" --keep-going
+
