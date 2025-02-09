@@ -1,1 +1,1 @@
-./system/config/modules/hardware-configuration.nix
+system/config/modules/hardware-configuration.nix
