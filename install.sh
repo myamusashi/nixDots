@@ -36,10 +36,6 @@ if [[ ! -d "/run/media/extn" ]]; then
 	sudo chown gilang:gilang "/run/media/extn"
 fi
 
-echo "xbUsidEydNLNQ8nb4yZZrdyFrPEuGt2g04qg"
-
-echo "access-tokens = github.com=ghp_" > "$HOME/.config/nix/nix.conf"
-
 ## rebuild for now because we had this mf issue
 sudo grep -q 'nix.settings' /etc/nixos/configuration.nix || \
 sudo sed -i '$ i\
