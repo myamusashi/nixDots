@@ -21,6 +21,21 @@ if [[ ! -d "$HOME/.config/nix" ]]; then
     mkdir -p "$HOME/.config/nix"
 fi
 
+if [[ ! -d "/run/media/Ventoy" ]]; then
+    sudo mkdir -p "/run/media/Ventoy"
+	sudo chown gilang:gilang "/run/media/Ventoy"
+fi
+
+if [[ ! -d "/run/media/apalah" ]]; then
+    sudo mkdir -p "/run/media/apalah"
+	sudo chown gilang:gilang "/run/media/apalah"
+fi
+
+if [[ ! -d "/run/media/extn" ]]; then
+    sudo mkdir -p "/run/media/extn"
+	sudo chown gilang:gilang "/run/media/extn"
+fi
+
 echo "xbUsidEydNLNQ8nb4yZZrdyFrPEuGt2g04qg"
 
 echo "access-tokens = github.com=ghp_" > "$HOME/.config/nix/nix.conf"

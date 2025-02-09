@@ -1,4 +1,9 @@
 {
+	fileSystems."/run/media/Ventoy" = {
+		device = "/dev/disk/by-label/Ventoy";
+		fsType = "exfat";
+	};
+
   fileSystems."/run/media/apalah" = {
     device = "/dev/disk/by-label/apalah";
     fsType = "ntfs-3g";
