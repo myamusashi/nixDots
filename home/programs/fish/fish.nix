@@ -9,8 +9,8 @@
           #Shortcut
           alias ssh="kitty +kitten ssh"
           alias ls="eza --icons"
-          alias sys_update="sudo nixos-rebuild switch --flake $HOME/.dots#nixos --option substituters 'https://cache.nixos.org'"
-          alias user_update="home-manager switch --flake $HOME/.dots#myamusashi --option substituters 'https://cache.nixos.org'"
+          alias sys_update="sudo nixos-rebuild switch --flake $HOME/.dots#nixos"
+          alias user_update="home-manager switch --flake $HOME/.dots#myamusashi"
 
           #Environment Variables
           set -gx PATH $HOME/go/bin $HOME/.cargo/bin $HOME/.npm/bin $HOME/.local/bin $PATH
