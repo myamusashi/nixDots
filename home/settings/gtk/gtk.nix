@@ -4,6 +4,7 @@
   config,
   ...
 }: let
+	vimix-icon = pkgs.callPackage ./icons/vimix-icon-themes/package.nix { colorVariants = "Ruby"; };
   future-cyan-hyprcursor = pkgs.callPackage ./themes/cursors/Future-cyan-hyprcursor/package.nix {};
   future-cursor = pkgs.callPackage ./themes/cursors/future-cursor/package.nix {};
 in {
@@ -13,6 +14,7 @@ in {
     pkgs.gtk4
     future-cyan-hyprcursor
     pkgs.morewaita-icon-theme
+		vimix-icon
     # pkgs.vimix-icon-theme
     # pkgs.numix-icon-theme
 		pkgs.kdePackages.qtstyleplugin-kvantum
@@ -42,7 +44,7 @@ in {
   gtk = {
     enable = true;
 
-    iconTheme = {name = "MoreWaita";};
+    iconTheme = {name = "Vimix-Ruby";};
     theme = {name = "vimix-dark-standard-ruby";};
 
     gtk2 = {
