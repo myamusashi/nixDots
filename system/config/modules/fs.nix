@@ -2,6 +2,9 @@
 	fileSystems."/run/media/Ventoy" = {
 		device = "/dev/disk/by-label/Ventoy";
 		fsType = "exfat";
+		options = [
+			"nofail"
+		];
 	};
 
   fileSystems."/run/media/apalah" = {
