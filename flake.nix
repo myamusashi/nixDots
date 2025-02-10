@@ -27,10 +27,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    # Hyprspace = {
-    #   url = "github:myamusashi/Hyprspace";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     hyprpanel = {
       url = "github:Jas-SinghFSU/HyprPanel";
