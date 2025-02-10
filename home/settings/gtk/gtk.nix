@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-	vimix-icon = pkgs.callPackage ./icons/vimix-icon-themes/package.nix { colorVariants = "Ruby"; };
+	vimix-icon = pkgs.callPackage ./icons/vimix-icon-themes/package.nix { colorVariants = [ "Ruby" ]; };
   future-cyan-hyprcursor = pkgs.callPackage ./themes/cursors/Future-cyan-hyprcursor/package.nix {};
   future-cursor = pkgs.callPackage ./themes/cursors/future-cursor/package.nix {};
 in {
@@ -37,8 +37,10 @@ in {
 
 	qt = {
 		enable = true;
-		platformTheme.name = "qtct";
-		style.name = "kvantum";
+		style = {
+			name = "kvantum";
+			package = pkgs.gruvbox-kvantum;
+		};
 	};
 
   gtk = {

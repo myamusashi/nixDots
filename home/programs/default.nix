@@ -7,6 +7,7 @@
 		./btop/btop.nix
 		./lazygit/lazygit.nix
 		./mpv/mpv.nix
+		./ghostty/ghostty.nix
 		./htop/htop.nix
 		./fuzzel/fuzzel.nix
 		./eza/eza.nix
