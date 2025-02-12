@@ -45,7 +45,7 @@
   #   linux_tkg_pds = pkgs.callPackage linux_tkg_pds_pkg {};
   # in
   #   pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor linux_tkg_pds);
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "sd_mod" "rtsx_pci_sdmmc"];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
