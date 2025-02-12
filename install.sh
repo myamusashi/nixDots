@@ -52,6 +52,7 @@ cp -f "/etc/nixos/hardware-configuration.nix" "$HOME/.dots/system/config/modules
 ## Install cachix
 nix-env -iA cachix -f "https://cachix.org/api/v1/install"
 cachix use nix-community
+cachix use chaotic-nyx
 
 ## flake update
 nix --extra-experimental-features "nix-command flakes" flake update
