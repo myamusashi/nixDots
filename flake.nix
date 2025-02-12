@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -68,6 +69,7 @@
 
   outputs = {
     nixpkgs,
+    chaotic,
     home-manager,
     ...
   } @ inputs: let
@@ -87,6 +89,9 @@
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          chaotic.nixosModules.nyx-cache
+          chaotic.nixosModules.nyx-overlay
+          chaotic.nixosModules.nyx-registry
           ./system/default.nix
         ];
         specialArgs = {inherit inputs;};
@@ -95,10 +100,15 @@
 
     homeConfigurations."myamusashi" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
+
+      extraSpecialArgs = {
+        inherit system;
+        inherit inputs;
+      };
+
       modules = [
         ./home/default.nix
         ./scripts/symlinks/symlinks.nix
-        {_module.args.inputs = inputs;}
       ];
     };
   };
