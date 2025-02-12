@@ -37,7 +37,6 @@
     pkgs.kdePackages.dolphin
     pkgs.gitea
     (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)
-    pkgs.hyprpanel
     pkgs.spotify-qt
     pkgs.nushell
     (config.lib.nixGL.wrap pkgs.vscodium)
