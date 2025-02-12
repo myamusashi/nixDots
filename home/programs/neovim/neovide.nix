@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   programs.neovide = {
     enable = true;
 
-    package = pkgs.neovide;
+    package = config.lib.nixGL.wrap pkgs.neovide;
     settings = {
       vsync = false;
       srgb = true;
