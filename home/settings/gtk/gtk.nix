@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-	vimix-icon = pkgs.callPackage ./icons/vimix-icon-themes/package.nix { colorVariants = [ "Ruby" ]; };
+  vimix-icon = pkgs.callPackage ./icons/vimix-icon-themes/package.nix {colorVariants = ["Ruby"];};
   future-cyan-hyprcursor = pkgs.callPackage ./themes/cursors/Future-cyan-hyprcursor/package.nix {};
   future-cursor = pkgs.callPackage ./themes/cursors/future-cursor/package.nix {};
 in {
@@ -14,10 +14,10 @@ in {
     pkgs.gtk4
     future-cyan-hyprcursor
     pkgs.morewaita-icon-theme
-		vimix-icon
+    vimix-icon
     # pkgs.vimix-icon-theme
     # pkgs.numix-icon-theme
-		pkgs.kdePackages.qtstyleplugin-kvantum
+    pkgs.kdePackages.qtstyleplugin-kvantum
     pkgs.libsForQt5.qt5ct
     (pkgs.vimix-gtk-themes.override {
       themeVariants = ["ruby"];
@@ -35,13 +35,13 @@ in {
     x11.enable = true;
   };
 
-	qt = {
-		enable = true;
-		style = {
-			name = "kvantum";
-			package = pkgs.gruvbox-kvantum;
-		};
-	};
+  qt = {
+    enable = true;
+    style = {
+      name = "kvantum";
+      package = pkgs.gruvbox-kvantum;
+    };
+  };
 
   gtk = {
     enable = true;

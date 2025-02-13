@@ -5,7 +5,6 @@
 }: {
   programs.mpv = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.mpv;
     config = {
       vo = "gpu";
       gpu-context = "wayland";

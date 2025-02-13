@@ -8,7 +8,6 @@
 in {
   programs.kitty = lib.mkForce {
     enable = true;
-		package = (config.lib.nixGL.wrap pkgs.kitty);
     themeFile = "GitHub_Dark_High_Contrast";
     settings = {
       confirm_os_window_close = 0;

@@ -8,39 +8,31 @@
     pkgs.brightnessctl
     pkgs.wl-clipboard
     pkgs.nwg-look
-    pkgs.sassc
-    pkgs.sass
-    pkgs.nodejs_23
     pkgs.gh
     pkgs.zip
+    pkgs.alejandra
     pkgs.nixpkgs-fmt
     pkgs.nixfmt-classic
     pkgs.wl-gammactl
     pkgs.unzip
     pkgs.ripgrep
     pkgs.yazi
-    pkgs.cliphist
     pkgs.rofi-wayland
-    pkgs.mutt
     pkgs.grim
     pkgs.slurp
     pkgs.hyprshot
     pkgs.swww
     pkgs.playerctl
     pkgs.pavucontrol
-    pkgs.telegram-desktop
     pkgs.libnotify
     pkgs.jq
     pkgs.viewnior
     pkgs.kdePackages.qt6ct
     pkgs.libsForQt5.qt5ct
-    pkgs.gitea
-    (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)
-    pkgs.spotify-qt
+    inputs.zen-browser.packages.${pkgs.system}.default
     pkgs.nushell
-    (config.lib.nixGL.wrap pkgs.vscodium)
+    pkgs.vscodium
     pkgs.swayosd
-    pkgs.legcord
     pkgs.rquickshare
     pkgs.enlightenment.ephoto
     pkgs.python313Packages.pygithub
