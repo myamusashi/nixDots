@@ -34,13 +34,11 @@
     pkgs.viewnior
     pkgs.kdePackages.qt6ct
     pkgs.libsForQt5.qt5ct
-    pkgs.kdePackages.dolphin
     pkgs.gitea
     (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)
     pkgs.spotify-qt
     pkgs.nushell
     (config.lib.nixGL.wrap pkgs.vscodium)
-    (config.lib.nixGL.wrap pkgs.neovide)
     pkgs.swayosd
     pkgs.legcord
     pkgs.rquickshare

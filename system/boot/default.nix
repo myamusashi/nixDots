@@ -50,8 +50,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = ["ntfs"];
-  boot.kernelModules = ["kvm-intel" "uas" "usbhid" "hid" "usb_storage"];
-  boot.kernelParams = ["console=tty1"];
+  boot.kernelModules = ["kvm-intel" "uas" "usbhid" "hid" "usb_storage" "zram" ];
+  boot.kernelParams = ["console=tty1" "noibrs" "noibpb" "nopti" "nospectre_v2" "nospectre_v1" "l1tf=off" "nospec_store_bypass_disable" "no_stf_barrier" "mds=off" "mitigations=off"];
 
   boot.kernel.sysctl = {
     "net.core.default_qdisc" = "fq";
