@@ -39,17 +39,12 @@
       alejandra
       nil # nix lsp
       gopls
-      kdePackages.qtdeclarative
       gnumake
       mesonlsp
       sassc
       llvmPackages_19.clang-unwrapped # C stuff
-      gcc14
       typescript-language-server
       sqls
-      texlab
-      texliveFull
-      texlivePackages.latexindent
       sass
       lua54Packages.luarocks_bootstrap
       stylua
@@ -59,7 +54,6 @@
       nodejs_23
       dockerfile-language-server-nodejs
       fish-lsp
-      ltex-ls
       pyright
       rust-analyzer
       marksman

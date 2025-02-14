@@ -24,6 +24,7 @@
     pkgs.swww
     pkgs.playerctl
     pkgs.pavucontrol
+    pkgs.telegram-desktop
     pkgs.libnotify
     pkgs.jq
     pkgs.viewnior
