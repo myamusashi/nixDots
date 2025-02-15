@@ -1,14 +1,12 @@
 {
   lib,
   pkgs,
-	config,
+  config,
   ...
-}: let
-  kitty_themes = pkgs.callPackage "./themes/package.nix";
-in {
+}: {
   programs.kitty = lib.mkForce {
     enable = true;
-    themeFile = "GitHub_Dark_High_Contrast";
+    # themeFile = "GitHub_Dark_High_Contrast";
     settings = {
       confirm_os_window_close = 0;
 
@@ -31,7 +29,6 @@ in {
       mouse_hide_wait = 3.0;
 
       detect_urls = true;
-      url_color = "#0087bd";
       url_style = "curly";
       open_url_with = "default";
 
@@ -75,6 +72,45 @@ in {
       bold_font = "auto";
       italic_font = "auto";
       bold_italic_font = "auto";
+
+      # Custom theme
+      foreground = "#D8DEE9";
+      background = "#0f111a";
+      selection_foreground = "#000000";
+      selection_background = "#FFFACD";
+      url_color = "#FF4151";
+      cursor = "#FF4151";
+
+      # black
+      color0 = "#3B4252";
+      color8 = "#4C566A";
+
+      # red
+      color1 = "#BF616A";
+      color9 = "#BF616A";
+
+      # green
+      color2 = "#A3BE8C";
+      color10 = "#A3BE8C";
+
+      # yellow
+      color3 = "#EBCB8B";
+      color11 = "#EBCB8B";
+
+      # blue
+      color4 = "#81A1C1";
+      color12 = "#81A1C1";
+
+      # magenta
+      color5 = "#B48EAD";
+      color13 = "#B48EAD";
+
+      # cyan
+      color6 = "#88C0D0";
+      color14 = "#8FBCBB";
+
+      color7 = "#E5E9F0";
+      color15 = "#B48EAD";
     };
   };
 }
