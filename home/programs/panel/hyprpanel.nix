@@ -8,6 +8,10 @@
     hyprland.enable = false;
     overwrite.enable = true;
 
+    override = {
+      theme.bar.background = "override = ";
+    };
+
     layout = {
       "bar.layouts" = {
         "0" = {
@@ -187,7 +191,7 @@
         power.lowBatteryNotification = true;
 
         media.displayTime = true;
-        displayTimeTooltip = true;
+        media.displayTimeTooltip = true;
 
         dashboard = {
           controls.enabled = false;
@@ -622,9 +626,6 @@
             tooltip.text = "#abb2bf";
             tooltip.background = "#0F111A";
 
-            text = "#abb2bf";
-            background = "#0F111A";
-            border.color = "#4b5263";
 
             popover = {
               text = "#88C0D0";
@@ -657,183 +658,13 @@
             };
           };
 
-          background = "#0F111A";
-
           buttons = {
             radius = "0.3em";
 
-            media = {
-              icon = "#88C0D0";
-              text = "#88C0D0";
-
-              icon_background = "#88C0D0";
-              background = "#00010A";
-              border = "#88C0D0";
-            };
-
-            icon = "#88C0D0";
-            text = "#88C0D0";
-            hover = "#4C566A";
-            background = "#4C566A";
-
-            workspaces = {
-              numbered_active_highlighted_text_color = "#00010A";
-              numbered_active_underline_color = "#BF616A";
-              border = "#00010A"; # Added border for workspaces
-            };
-
             style = "default";
-
-            clock = {
-              icon_background = "#BF616A";
-              border = "#A3BE8C"; # Added border for clock
-            };
-
-            volume = {
-              icon_background = "#f07178";
-              border = "#f07178"; # Added border for volume
-            };
-
-            network = {
-              icon_background = "#BF616A";
-              border = "#BF616A"; # Added border for network
-            };
-
-            battery = {
-              icon_background = "#EBCB8B";
-              border = "#EBCB8B"; # Added border for battery
-            };
-
-            icon_background = "#00010A";
-
-            windowtitle = {
-              icon_background = "#BF616A";
-              border = "#A3BE8C"; # Added border for windowtitle
-            };
-
-            bluetooth = {
-              icon_background = "#89dbeb";
-              border = "#88C0D0"; # Added border for bluetooth
-            };
-
-            notifications = {
-              border = "#88C0D0"; # Added border for notifications
-            };
-
-            systray = {
-              border = "#4b5263"; # Added border for systray
-            };
-
-            dashboard = {
-              border = "#EBCB8B"; # Added border for dashboard
-            };
-
-            modules = {
-              updates = {
-                text = "#BF616A";
-                icon = "#BF616A";
-                icon_background = "#BF616A";
-                background = "#00010A";
-                border = "#BF616A"; # Added border for updates
-              };
-
-              storage = {
-                icon = "#f07178";
-                background = "#00010A";
-                text = "#f07178";
-                border = "#f07178"; # Added border for storage
-              };
-
-              ram = {
-                text = "#EBCB8B";
-                icon = "#EBCB8B";
-                icon_background = "#88C0D0";
-                background = "#00010A";
-                border = "#EBCB8B"; # Added border for ram
-              };
-
-              cava.spacing = "0.5em";
-
-              netstat = {
-                icon = "#A3BE8C";
-                icon_background = "#A3BE8C";
-                background = "#00010A";
-                text = "#A3BE8C";
-                border = "#A3BE8C"; # Added border for netstat
-              };
-
-              weather = {
-                text = "#88C0D0";
-                icon_background = "#88C0D0";
-                icon = "#88C0D0";
-                background = "#00010A";
-                border = "#88C0D0"; # Added border for weather
-                enableBorder = false;
-              };
-
-              power = {
-                icon = "#f07178";
-                icon_background = "#f07178";
-                background = "#00010A";
-                border = "#f07178"; # Added border for power
-              };
-
-              cpu = {
-                text = "#f07178";
-                cpu.icon = "#f07178";
-                background = "#00010A";
-                border = "#f07178"; # Added border for cpu
-              };
-
-              kbLayout = {
-                text = "#56b6c2";
-                icon = "#56b6c2";
-                icon_background = "#56b6c2";
-                background = "#00010A";
-                border = "#56b6c2"; # Added border for kbLayout
-              };
-
-              submap = {
-                background = "#00010A";
-                text = "#56b6c2";
-                border = "#56b6c2";
-                icon = "#56b6c2";
-                icon_background = "#00010A";
-              };
-
-              hyprsunset = {
-                icon = "#EBCB8B";
-                background = "#00010A";
-                icon_background = "#EBCB8B";
-                text = "#EBCB8B";
-                border = "#EBCB8B";
-                enableBorder = false;
-              };
-
-              hypridle = {
-                icon = "#f07178";
-                background = "#00010A";
-                icon_background = "#f07178";
-                text = "#f07178";
-                border = "#f07178";
-              };
-            };
           };
 
-          icons = {
-            active = "#88C0D0";
-            passive = "#4b5263";
-          };
 
-          listitems = {
-            active = "#88C0D0";
-            passive = "#abb2bf";
-          };
-
-          label = "#88C0D0";
-          feinttext = "#4C566A";
-          dimtext = "#4b5263";
-          cards = "#00010A";
         };
 
         buttons = {

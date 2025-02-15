@@ -17,10 +17,14 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
 
-  # fileSystems."/" = {
-  #   device = "/dev/disk/by-uuid/e53792b4-68da-45eb-82ae-11c6bcd51b95";
-  #   fsType = "ext4";
-  # };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/e53792b4-68da-45eb-82ae-11c6bcd51b95";
+    fsType = "ext4";
+    options = [
+      "noatime"
+      "discard"
+    ];
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/3EAB-3196";

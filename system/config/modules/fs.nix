@@ -1,13 +1,13 @@
 {
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/ROOT";
-    fsType = "ext4";
-    options = [
-      "default"
-      "noatime"
-      "discard"
-    ];
-  };
+  # fileSystems."/" = {
+  #   device = "/dev/disk/by-label/ROOT";
+  #   fsType = "ext4";
+  #   options = [
+  #     "default"
+  #     "noatime"
+  #     "discard"
+  #   ];
+  # };
 
   fileSystems."/run/media/apalah" = {
     device = "/dev/disk/by-label/apalah";
