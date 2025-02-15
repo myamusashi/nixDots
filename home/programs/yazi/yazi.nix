@@ -4,6 +4,10 @@ in {
   home.packages = with pkgs; [
     mediainfo
     ouch
+    glow
+    hexyl
+    antiprism
+    fzf
   ];
   programs.yazi = {
     enable = true;
@@ -21,7 +25,8 @@ in {
       git = "${yazi-plugins.official-plugins}/git.yazi";
       hide-preview = "${yazi-plugins.official-plugins}/hide-preview.yazi";
       mount = "${yazi-plugins.official-plugins}/mount.yazi";
-      mime-ext = "${yazi-plugins.official-plugins}/mime-ext.yazi";
+      mime-ext = "${yazi-plugins.mime-ext}";
+      mime-preview = "${yazi-plugins.mime-preview}";
       eza-preview = "${yazi-plugins.eza-preview}";
       mediainfo = "${yazi-plugins.mediainfo}";
       fg = "${yazi-plugins.fzf}";
@@ -111,6 +116,14 @@ in {
           run = "ouch d -y '$@'";
           desc = "Extract here with ouch";
           for = "unix";
+        }
+      ];
+      plugin.fetchers = [
+        {
+          id = "mime-ext";
+          name = "*";
+          run = "mime-ext";
+          prio = "high";
         }
       ];
       plugin.append_previewers = [

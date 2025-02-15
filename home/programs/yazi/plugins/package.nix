@@ -6,6 +6,20 @@
     hash = "sha256-enIt79UvQnKJalBtzSEdUkjNHjNJuKUWC4L6QFb3Ou4=";
   };
 
+  mime-preview = pkgs.fetchFromGitHub {
+    owner = "DreamMaoMao";
+    repo = "mime-preview.yazi";
+    rev = "5ee0e78d7a46b756b77bec029722d31823869f08";
+    hash = "sha256-utK+Ng0M5BvxAH/Cjz6/Gg6vc+cD9bwJxiQTerOhnW8=";
+  };
+
+  mim-ext = pkgs.fetchFromGitHub {
+    owner = "DreamMaoMao";
+    repo = "mime-ext.yazi";
+    rev = "47b5f85b0b6156f689641132eb9d29f7301b9b6a";
+    hash = "sha256-+hxHKEhvpvHcTrb56BY7cuvzKYO3ywbvdY4dmPQR4pU=";
+  };
+
   mediainfo = pkgs.fetchFromGitHub {
     owner = "boydaihungst";
     repo = "mediainfo.yazi";
@@ -83,10 +97,17 @@
     hash = "sha256-Z/lyXNCSqX0wvCQd39ZedxOGlhRzQ+M0hqzkBEcpxEE=";
   };
 
-	fzf = pkgs.fetchFromGitHub {
-	  owner = "DreamMaoMao";
-	  repo = "fg.yazi";
-	  rev = "daf696065d65e61a1b3026ab8190351203513d51";
-	  hash = "sha256-dcidPBhc0+NvPb80hK+kUoq+PxspceFCliyEc7K3OTk=";
-	};
+  fzf = pkgs.fetchFromGitHub {
+    owner = "DreamMaoMao";
+    repo = "fg.yazi";
+    rev = "daf696065d65e61a1b3026ab8190351203513d51";
+    hash = "sha256-dcidPBhc0+NvPb80hK+kUoq+PxspceFCliyEc7K3OTk=";
+  };
+
+  miller = pkgs.fetchFrom {
+    owner = "AnirudhG07";
+    repo = "rich-preview.yazi";
+    rev = "2559e5fa7c1651dbe7c5615ef6f3b5291347d81a";
+    hash = "sha256-dW2gAAv173MTcQdqMV32urzfrsEX6STR+oCJoRVGGpA=";
+  };
 }

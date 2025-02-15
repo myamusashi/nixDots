@@ -9,6 +9,8 @@ require("fg"):setup({
 	default_action = "menu", -- nvim, jump
 })
 
+require("mime-preview"):setup()
+
 require("githead"):setup()
 
 require("git"):setup()
