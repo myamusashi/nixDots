@@ -8,6 +8,7 @@
 
   programs.neovim = {
     enable = true;
+		package = (config.lib.nixGL.wrap pkgs.neovim);
     # package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     plugins = with pkgs.vimPlugins; [
       (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))

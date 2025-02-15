@@ -26,17 +26,16 @@
     pkgs.pavucontrol
     pkgs.libnotify
     pkgs.jq
-		pkgs.hyprpanel
+    pkgs.hyprpanel
     pkgs.viewnior
     pkgs.kdePackages.qt6ct
     pkgs.libsForQt5.qt5ct
-    inputs.zen-browser.packages.${pkgs.system}.default
+    (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)
     pkgs.nushell
     pkgs.vscodium
     pkgs.swayosd
     pkgs.rquickshare
     pkgs.enlightenment.ephoto
-    pkgs.python313Packages.pygithub
     pkgs.wf-recorder
     pkgs.waypaper
     pkgs.nautilus
