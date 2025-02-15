@@ -6,7 +6,7 @@
 }: {
   programs.kitty = lib.mkForce {
     enable = true;
-    packge = config.lib.nixGL.wrap pkgs.kitty;
+    package = config.lib.nixGL.wrap pkgs.kitty;
     # themeFile = "GitHub_Dark_High_Contrast";
     settings = {
       confirm_os_window_close = 0;
