@@ -77,11 +77,6 @@
       url = "git+https://git.outfoxxed.me/quickshell/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nix-yazi-plugins = {
-      url = "github:myamusashi/nix-yazi-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
