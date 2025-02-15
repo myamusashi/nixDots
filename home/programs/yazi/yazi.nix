@@ -7,15 +7,15 @@
     # 	];
     # };
     plugins = {
-      mediainfo = ./plugins/mediainfo.yazi;
-      glow = ./plugins/glow.yazi;
-      hexyl = ./plugins/hexyl.yazi;
-      ouch = ./plugins/ouch.yazi;
-      rich-preview = ./plugins/rich-preview.yazi;
-      yatline = ./plugins/yatline.yazi;
-      yatline-symlink = ./plugins/yatline-symlink.yazi;
-      lazygit = ./plugins/lazygit.yazi;
-      githead = ./plugins/githead.yazi;
+      mediainfo = ./plugins/mediainfo;
+      glow = ./plugins/glow;
+      hexyl = ./plugins/hexyl;
+      ouch = ./plugins/ouch;
+      rich-preview = ./plugins/rich-preview;
+      yatline = ./plugins/yatline;
+      yatline-symlink = ./plugins/yatline-symlink;
+      lazygit = ./plugins/lazygit;
+      githead = ./plugins/githead;
     };
   };
 }
