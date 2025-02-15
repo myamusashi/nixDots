@@ -1,4 +1,6 @@
-{inputs, ...}: {
+{pkgs, ...}: let
+  yazi-plugins = import ./plugins.nix {inherit pkgs;};
+in {
   programs.yazi = {
     enable = true;
     # keymap = {
@@ -7,15 +9,22 @@
     # 	];
     # };
     plugins = {
-      mediainfo = ./plugins/mediainfo;
-      glow = ./plugins/glow;
-      hexyl = ./plugins/hexyl;
-      ouch = ./plugins/ouch;
-      rich-preview = ./plugins/rich-preview;
-      yatline = ./plugins/yatline;
-      yatline-symlink = ./plugins/yatline-symlink;
-      lazygit = ./plugins/lazygit;
-      githead = ./plugins/githead;
+      chmod = "${yazi-plugins.chmod}/chmod.yazi";
+      diff = "${yazi-plugins.diff}/diff.yazi";
+      full-border = "${yazi-plugins.full-border}/full-border.yazi";
+      git = "${yazi-plugins.git}/git.yazi";
+      hide-preview = "${yazi-plugins.hide-preview}/hide-preview.yazi";
+      mount = "${yazi-plugins.mount}/mount.yazi";
+      mime-ext = "${yazi-plugins.mime-ext}/mime-ext.yazi";
+      mediainfo = "${yazi-plugins.mediainfo}";
+      glow = "${yazi-plugins.glow}";
+      hexyl = "${yazi-plugins.hexyl}";
+      ouch = "${yazi-plugins.ouch}";
+      rich-preview = "${yazi-plugins.rich-preview}";
+      yatline = "${yazi-plugins.yatline}";
+      yatline-symlink = "${yazi-plugins.yatline-symlink}/yatline-symlink.yazi";
+      lazygit = "${yazi-plugins.lazygit}";
+      githead = "${yazi-plugins.githead}";
     };
   };
 }
