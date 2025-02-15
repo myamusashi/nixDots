@@ -26,6 +26,7 @@
     pkgs.pavucontrol
     pkgs.libnotify
     pkgs.jq
+		pkgs.hyprpanel
     pkgs.viewnior
     pkgs.kdePackages.qt6ct
     pkgs.libsForQt5.qt5ct

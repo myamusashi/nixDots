@@ -90,6 +90,7 @@
       inherit system;
       config.allowUnfree = true;
       overlays = [
+        inputs.hyprpanel.overlay
         inputs.hyprpicker.overlays.default
         inputs.hyprsunset.overlays.default
         inputs.hypridle.overlays.default
