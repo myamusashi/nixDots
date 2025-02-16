@@ -13,7 +13,7 @@
     hash = "sha256-utK+Ng0M5BvxAH/Cjz6/Gg6vc+cD9bwJxiQTerOhnW8=";
   };
 
-  mim-ext = pkgs.fetchFromGitHub {
+  mime-ext = pkgs.fetchFromGitHub {
     owner = "DreamMaoMao";
     repo = "mime-ext.yazi";
     rev = "47b5f85b0b6156f689641132eb9d29f7301b9b6a";
@@ -95,6 +95,13 @@
     repo = "kanagawa.yazi";
     rev = "d98f0c3e27299f86ee080294df2722c5a634495a";
     hash = "sha256-Z/lyXNCSqX0wvCQd39ZedxOGlhRzQ+M0hqzkBEcpxEE=";
+  };
+
+  material-ocean = pkgs.fetchFromGitHub {
+    owner = "myamusashi";
+    repo = "material-ocean.yazi";
+    rev = "b0d8a53e5df7dd9935f8be108c2e6f47c208a75c";
+    hash = "sha256-Hc3CmoQYWaIxob7z6bXtrxT/sL/GWxxn8E5fEV4MIKU=";
   };
 
   fzf = pkgs.fetchFromGitHub {

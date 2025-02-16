@@ -1,5 +1,5 @@
 {
-	imports = [
-		./steam/steam.nix
-	];
+  imports = [
+    ./steam/steam.nix
+  ];
 }

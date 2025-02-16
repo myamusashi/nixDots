@@ -5,7 +5,7 @@
 
   services.printing.enable = false;
 
-	services.udisks2.enable = true;
+  services.udisks2.enable = true;
 
   services.xserver.xkb = {
     layout = "us";

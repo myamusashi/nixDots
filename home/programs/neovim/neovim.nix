@@ -31,18 +31,21 @@
             tree-sitter-toml
             tree-sitter-vim
             tree-sitter-yaml
+            tree-sitter-toml
           ]
       ))
     ];
     extraPackages = with pkgs; [
       luajit
       alejandra
+      lemminx
       nil # nix lsp
       gopls
       gnumake
       mesonlsp
       sassc
       llvmPackages_19.clang-unwrapped # C stuff
+      gccgo14
       typescript-language-server
       sqls
       sass

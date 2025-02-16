@@ -11,7 +11,7 @@
   home.activation.extHD = lib.hm.dag.entryAfter ["writeBoundary"] ''
     ln -sf /run/media/apalah $HOME/external_drive
   '';
-	home.activation.extSSD = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  home.activation.extSSD = lib.hm.dag.entryAfter ["writeBoundary"] ''
     ln -sf /run/media/extn $HOME/ssd
   '';
 }

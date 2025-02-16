@@ -626,7 +626,6 @@
             tooltip.text = "#abb2bf";
             tooltip.background = "#0F111A";
 
-
             popover = {
               text = "#88C0D0";
               border = "#0F111A";
@@ -663,8 +662,6 @@
 
             style = "default";
           };
-
-
         };
 
         buttons = {

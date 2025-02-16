@@ -14,9 +14,10 @@ in {
     initLua = ./init.lua;
     flavors = {
       kanagawa = "${yazi-plugins.kanagawa}";
+      material-ocean = "${yazi-plugins.material-ocean}";
     };
     theme.flavor = {
-      dark = "kanagawa";
+      dark = "material-ocean";
     };
     plugins = {
       chmod = "${yazi-plugins.official-plugins}/chmod.yazi";
