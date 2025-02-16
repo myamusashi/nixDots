@@ -3,7 +3,9 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  rich-cli = import ./extra-packages/rich-cli.nix {};
+in {
   home.packages = [
     pkgs.brightnessctl
     pkgs.wl-clipboard
@@ -27,7 +29,9 @@
     pkgs.libnotify
     pkgs.jq
     pkgs.hyprpanel
+		rich-cli
     pkgs.viewnior
+		pkgs.mpg123
     pkgs.kdePackages.qt6ct
     pkgs.libsForQt5.qt5ct
     (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)
