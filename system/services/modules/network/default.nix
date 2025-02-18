@@ -12,7 +12,7 @@
   };
 
   services.create_ap = {
-    enable = true;
+    enable = false;
     settings = {
       INTERNET_IFACE = "enp0s31f6";
       WIFI_IFACE = "wlp3s0";

@@ -1,14 +1,4 @@
 {
-  # fileSystems."/" = {
-  #   device = "/dev/disk/by-label/ROOT";
-  #   fsType = "ext4";
-  #   options = [
-  #     "default"
-  #     "noatime"
-  #     "discard"
-  #   ];
-  # };
-
   fileSystems."/run/media/apalah" = {
     device = "/dev/disk/by-label/apalah";
     fsType = "ntfs-3g";
@@ -18,18 +8,20 @@
       "gid=100"
       "umask=022"
       "nofail"
-      "automount"
     ];
+		noCheck = true;
   };
 
   fileSystems."/run/media/extn" = {
     device = "/dev/disk/by-label/extn";
     fsType = "ext4";
     options = [
-      "noatime"
-      "discard"
+      "rw"
+      "user"
       "nofail"
-      "automount"
+      "exec"
+      "umask=000"
     ];
+		noCheck = true;
   };
 }
