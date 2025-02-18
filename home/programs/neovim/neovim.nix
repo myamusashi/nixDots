@@ -45,9 +45,9 @@
       mesonlsp
       sassc
       llvmPackages_19.clang-unwrapped # C stuff
-      gccgo14
       typescript-language-server
       sqls
+			libgcc
       sass
       lua54Packages.luarocks_bootstrap
       stylua

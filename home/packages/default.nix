@@ -3,7 +3,7 @@
   pkgs,
   config,
   ...
-}:{
+}: {
   home.packages = [
     pkgs.brightnessctl
     pkgs.wl-clipboard
@@ -29,7 +29,8 @@
     pkgs.hyprpanel
     pkgs.viewnior
     pkgs.rich-cli
-		pkgs.mpg123
+    pkgs.libgcc
+    pkgs.mpg123
     pkgs.kdePackages.qt6ct
     pkgs.libsForQt5.qt5ct
     (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)
