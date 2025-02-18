@@ -8,6 +8,9 @@
     enable = true;
     package = config.lib.nixGL.wrap pkgs.kitty;
     # themeFile = "GitHub_Dark_High_Contrast";
+    keybindings = {
+      "ctrl+g" = "lazygit";
+    };
     settings = {
       confirm_os_window_close = 0;
 

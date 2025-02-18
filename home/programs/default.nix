@@ -13,6 +13,7 @@
     ./eza/eza.nix
     ./fastfetch/fastfetch.nix
     ./yazi/yazi.nix
+		./foot/foot.nix
     # ./panel/hyprpanel.nix
   ];
 }
