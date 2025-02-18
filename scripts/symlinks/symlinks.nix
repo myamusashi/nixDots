@@ -8,10 +8,10 @@
   home.activation.themeLinkAction = lib.hm.dag.entryAfter ["writeBoundary"] ''
     ln -sf $HOME/.nix-profile/share/themes/* $HOME/.themes
   '';
-  home.activation.extHD = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    ln -sf /run/media/apalah $HOME/external_drive
-  '';
-  home.activation.extSSD = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    ln -sf /run/media/extn $HOME/ssd
-  '';
+  # home.activation.extHD = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  #   ln -sf /run/media/apalah $HOME/external_drive
+  # '';
+  # home.activation.extSSD = lib.hm.dag.entryAfter ["writeBoundary"] ''
+  #   ln -sf /run/media/extn $HOME/ssd
+  # '';
 }

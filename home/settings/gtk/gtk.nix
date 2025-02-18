@@ -17,6 +17,7 @@ in {
     vimix-icon
     # pkgs.vimix-icon-theme
     # pkgs.numix-icon-theme
+		pkgs.papirus-icon-theme
     pkgs.kdePackages.qtstyleplugin-kvantum
     pkgs.libsForQt5.qt5ct
     (pkgs.vimix-gtk-themes.override {
