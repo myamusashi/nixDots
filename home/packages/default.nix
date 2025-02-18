@@ -3,9 +3,7 @@
   pkgs,
   config,
   ...
-}: let
-  rich-cli = import ./extra-packages/rich-cli.nix {};
-in {
+}:{
   home.packages = [
     pkgs.brightnessctl
     pkgs.wl-clipboard
@@ -29,8 +27,8 @@ in {
     pkgs.libnotify
     pkgs.jq
     pkgs.hyprpanel
-		rich-cli
     pkgs.viewnior
+    pkgs.rich-cli
 		pkgs.mpg123
     pkgs.kdePackages.qt6ct
     pkgs.libsForQt5.qt5ct
