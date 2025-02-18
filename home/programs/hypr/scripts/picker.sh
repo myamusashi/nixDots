@@ -3,8 +3,8 @@
 color=$(hyprpicker -a)
 
 if [[ color == "" ]]; then
-    notify-send -a "hyprpicker" "Canceled"
-    exit 0
+	notify-send -a "hyprpicker" "Canceled"
+	exit 0
 fi
 
-notify-send -a "hyprpicker" "Get color: $color" -i /home/gilang/.local/share/icons/Papirus/16x16/apps/colors.svg
+notify-send -a "hyprpicker" "Get color: $color" -i "$HOME/.icons/Papirus/48x48/apps/colors.svg"

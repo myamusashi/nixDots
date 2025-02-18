@@ -161,7 +161,7 @@
 
       "$term" = "kitty";
       "$screencapture" = "/tmp/scripts/screen-capture.sh";
-      "$files" = "kitty --single-instance yazi";
+      "$files" = "${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
       "$zen-browser" = "zen";
       "$vm" = "vmware";
       "$launcher" = "$HOME/.config/rofi/launchers/type-5/launcher.sh";

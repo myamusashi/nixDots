@@ -23,10 +23,10 @@ goto_link() {
 
 case "$SELECTION" in
 "screenshot window")
-	output=$(hyprshot -m window -d -s -o "$HOME/Pictures/screenshot/" -f "$(date +%Y-%m-%d_%H-%m-%s).png") 
+	output=$(hyprshot -m window -d -s -o "$HOME/Pictures/screenshot/" -f "$(date +%Y-%m-%d_%H-%m-%s).png")
 	if ! [[ "$output" =~ "selection cancelled" ]]; then
 		wl-copy <"$IMG"
-		mpg123 $HOME/.config/hypr/scripts/audiofile/camera-shutter-6305.mp3
+		mpg123 "$HOME/.dots/home/programs/hypr/scripts/camera-13695.mp3"
 		sleep 1
 		goto_link
 	else
@@ -37,7 +37,7 @@ case "$SELECTION" in
 	grim -g "$(slurp)" "$IMG"
 	if [ $? -eq 0 ]; then
 		wl-copy <"$IMG"
-		mpg123 $HOME/.config/hypr/scripts/audiofile/camera-shutter-6305.mp3
+		mpg123 "$HOME/.dots/home/programs/hypr/scripts/camera-13695.mp3"
 		sleep 1
 		goto_link
 	else
@@ -49,7 +49,7 @@ case "$SELECTION" in
 	grim -c -o eDP-1 "$IMG"
 	if [ $? -eq 0 ]; then
 		wl-copy <"$IMG"
-		mpg123 $HOME/.config/hypr/scripts/audiofile/camera-shutter-6305.mp3
+		mpg123 "$HOME/.dots/home/programs/hypr/scripts/camera-13695.mp3"
 		goto_link
 	else
 		notify-send -u critical -a "Screen Capture" "Screenshot Failed" "Failed to take screenshot on eDP-1."
@@ -61,7 +61,7 @@ case "$SELECTION" in
 	if [ $? -eq 0 ]; then
 		wl-copy <"$IMG"
 		goto_link
-		mpg123 $HOME/.config/hypr/scripts/audiofile/camera-shutter-6305.mp3
+		mpg123 "$HOME/.dots/home/programs/hypr/scripts/camera-13695.mp3"
 	else
 		notify-send -u critical -a "Screen Capture" "Screenshot Failed" "Failed to take screenshot on HDMI-A-2."
 	fi
@@ -77,7 +77,7 @@ case "$SELECTION" in
 		montage "${IMG//.png/-eDP-1.png}" "${IMG//.png/-HDMI-A-2.png}" -tile 2x1 -geometry +0+0 "$IMG"
 		wl-copy <"$IMG"
 		rm "${IMG//.png/-eDP-1.png}" "${IMG//.png/-HDMI-A-2.png}"
-		mpg123 $HOME/.config/hypr/scripts/audiofile/camera-shutter-6305.mp3
+		mpg123 "$HOME/.dots/home/programs/hypr/scripts/camera-13695.mp3"
 		goto_link
 	else
 		notify-send -u critical -a "Screen Capture" "Screenshot Failed" "Failed to take screenshot on both screens."
