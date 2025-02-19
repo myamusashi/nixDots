@@ -13,41 +13,26 @@ clock_boot() {
         sleep 3
         # mpg123 ~/.config/hypr/scripts/audiofile/xp_sound.mp3
         sleep 8
-        notify-send -a "arch@gilang" "Hai Gilang, selamat pagi" "$WAKTU" -i /home/gilang/.local/share/icons/artix.png
+        notify-send -a "arch@gilang" "Hai Gilang, selamat pagi" "$WAKTU" -i "$HOME/.icons/Papirus/48x48/apps/nix-snowflake.svg"
     elif [[ 12 -ge "$JAM" && "$JAM" -le 16 ]]; then
         wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 40%
         sleep 3
         # mpg123 ~/.config/hypr/scripts/audiofile/xp_sound.mp3
         sleep 8
-        notify-send -a "arch@gilang" "Hai Gilang, selamat siang" "$WAKTU" -i /home/gilang/.local/share/icons/artix.png
+        notify-send -a "arch@gilang" "Hai Gilang, selamat siang" "$WAKTU" -i "$HOME/.icons/Papirus/48x48/apps/nix-snowflake.svg"
     elif [[ 16 -ge "$JAM" && "$JAM" -le 19 ]]; then
         wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 40%
         sleep 3
         # mpg123 ~/.config/hypr/scripts/audiofile/xp_sound.mp3
         sleep 8
-        notify-send -a "arch@gilang" "Hai Gilang, selamat sore" "$WAKTU" -i /home/gilang/.local/share/icons/artix.png
+        notify-send -a "arch@gilang" "Hai Gilang, selamat sore" "$WAKTU" -i "$HOME/.icons/Papirus/48x48/apps/nix-snowflake.svg"
     else
         wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 40%
         sleep 3
         # mpg123 ~/.config/hypr/scripts/audiofile/xp_sound.mp3
         sleep 8
-        notify-send -a "arch@gilang" "Hai Gilang, selamat malam" "$WAKTU" -i /home/gilang/.local/share/icons/artix.png
+        notify-send -a "arch@gilang" "Hai Gilang, selamat malam" "$WAKTU" -i "$HOME/.icons/Papirus/48x48/apps/nix-snowflake.svg"
     fi
-}
-
-query_wall() {
-    sleep 1
-    QUERY_EDP=$(cat ~/.cache/wallpaper/edpWall)
-    OUTPUT_EDP=$(echo "$QUERY_EDP")
-
-    QUERY_HDMI=$(cat ~/.cache/wallpaper/hdmiWall)
-    OUTPUT_HDMI=$(echo "$QUERY_HDMI")
-
-    swww-daemon -f xrgb
-
-    swww img $OUTPUT_EDP --outputs "eDP-1" --transition-bezier 1,.01,0,1.05 --transition-duration 2.1 --transition-type grow  --transition-step 255 --transition-pos top-right --transition-fps 60
-
-    swww img $OUTPUT_HDMI --outputs "HDMI-A-1" --transition-bezier 1,.01,0,1.05 --transition-duration 2.1 --transition-type grow  --transition-step 255 --transition-pos top-right --transition-fps 60
 }
 
 clock_boot
