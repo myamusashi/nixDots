@@ -29,7 +29,6 @@
     pkgs.hyprpanel
     pkgs.viewnior
     pkgs.rich-cli
-    pkgs.libgcc
     pkgs.mpg123
     pkgs.kdePackages.qt6ct
     pkgs.libsForQt5.qt5ct

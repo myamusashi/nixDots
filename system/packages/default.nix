@@ -8,6 +8,7 @@
     winetricks
     polkit
     tree-sitter
+		libgcc
     libGL
     libGLU
     pciutils

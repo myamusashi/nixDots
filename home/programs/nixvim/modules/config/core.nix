@@ -1,5 +1,5 @@
 {
-  programs.nixvim.extraFiles."lua/config/core.lua" = ''
+  programs.nixvim.extraFiles."lua/config/core.lua".text  = ''
     vim.g.do_filetype_lua = 1
 
     vim.filetype.add({
