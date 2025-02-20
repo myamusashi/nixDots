@@ -39,97 +39,119 @@ in {
       githead = "${plugin.githead}";
     };
     keymap = {
-      manager.prepend_keymap = [
-        {
-          on = ["E"];
-          run = "plugin eza-preview";
-          desc = "Toggle tree/list dir preview";
-        }
+      manager = {
+        show_symlink = true;
+        prepend_keymap = [
+          {
+            on = ["E"];
+            run = "plugin eza-preview";
+            desc = "Toggle tree/list dir preview";
+          }
 
-        {
-          on = ["-"];
-          run = "plugin eza-preview '--inc-level'";
-          desc = "Increment tree level";
-        }
+          {
+            on = ["-"];
+            run = "plugin eza-preview '--inc-level'";
+            desc = "Increment tree level";
+          }
 
-        {
-          on = ["_"];
-          run = "plugin eza-preview '--dec-level'";
-          desc = "Decrement tree level";
-        }
+          {
+            on = ["_"];
+            run = "plugin eza-preview '--dec-level'";
+            desc = "Decrement tree level";
+          }
 
-        {
-          on = ["$"];
-          run = "plugin eza-preview '--toggle-follow-symlinks'";
-          desc = "Toggle tree follow symlinks";
-        }
+          {
+            on = ["$"];
+            run = "plugin eza-preview '--toggle-follow-symlinks'";
+            desc = "Toggle tree follow symlinks";
+          }
 
-        {
-          on = ["<C-d>"];
-          run = "plugin diff";
-          desc = "Diff the selected with the hovered file";
-        }
+          {
+            on = ["<C-d>"];
+            run = "plugin diff";
+            desc = "Diff the selected with the hovered file";
+          }
 
-        {
-          on = ["g" "i"];
-          run = "plugin lazygit";
-          desc = "run lazygit";
-        }
+          {
+            on = ["g" "i"];
+            run = "plugin lazygit";
+            desc = "run lazygit";
+          }
 
-        {
-          on = ["T"];
-          run = "plugin hide-preview";
-          desc = "Hide or show preview";
-        }
+          {
+            on = ["T"];
+            run = "plugin hide-preview";
+            desc = "Hide or show preview";
+          }
 
-        {
-          on = ["M"];
-          run = "plugin mount";
-        }
+          {
+            on = ["M"];
+            run = "plugin mount";
+          }
 
-        {
-          on = ["<C-e>"];
-          run = "seek 5";
-        }
+          {
+            on = ["<C-e>"];
+            run = "seek 5";
+          }
 
-        {
-          on = ["<C-y>"];
-          run = "seek -5";
-        }
+          {
+            on = ["<C-y>"];
+            run = "seek -5";
+          }
 
-        {
-          on = ["f" "g"];
-          run = "plugin fg";
-          desc = "find file by content";
-        }
+          {
+            on = ["f" "g"];
+            run = "plugin fg";
+            desc = "find file by content";
+          }
 
-        {
-          on = ["f" "f"];
-          run = "plugin fg 'fzf'";
-          desc = "find file by filename";
-        }
+          {
+            on = ["f" "f"];
+            run = "plugin fg 'fzf'";
+            desc = "find file by filename";
+          }
 
-        {
-          on = ["f" "G"];
-          run = "plugin fg 'rg'";
-          desc = "find file by content (ripgrep match)";
-        }
+          {
+            on = ["f" "G"];
+            run = "plugin fg 'rg'";
+            desc = "find file by content (ripgrep match)";
+          }
 
-        {
-          on = ["C"];
-          run = "plugin ouch zip";
-          desc = "Compress with ouch";
-        }
-      ];
+          {
+            on = ["C"];
+            run = "plugin ouch zip";
+            desc = "Compress with ouch";
+          }
+        ];
+      };
     };
     settings = {
-      opener.extract = [
-        {
-          run = "ouch d -y '$@'";
-          desc = "Extract here with ouch";
-          for = "unix";
-        }
-      ];
+      opener = {
+        openImage = [
+          {
+            run = ''viewnior "$@" '';
+            block = true;
+            for = "unix";
+          }
+        ];
+        extract = [
+          {
+            run = "ouch d -y '$@'";
+            desc = "Extract here with ouch";
+            for = "unix";
+          }
+        ];
+      };
+
+      open = {
+        prepend_rules = [
+          {
+            name = "*.{svg,png,jpg,jpeg,gif}";
+            use = "openImage";
+          }
+        ];
+      };
+
       # plugin.append_previewers = [
       #   {
       #     name = "*";
@@ -167,7 +189,7 @@ in {
         }
 
         {
-          mime = "{audio,video,image}/*";
+          mime = "{audio,video}/*";
           run = "mediainfo";
         }
 
