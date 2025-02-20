@@ -3,6 +3,8 @@
 
   services.xserver.videoDrivers = ["vmware"];
 
+  services.scx.enable = true;
+
   services.printing.enable = false;
 
   services.udisks2.enable = true;

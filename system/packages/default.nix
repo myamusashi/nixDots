@@ -8,7 +8,8 @@
     winetricks
     polkit
     tree-sitter
-		libgcc
+    proton-ge-custom
+    libgcc
     libGL
     libGLU
     pciutils

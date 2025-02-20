@@ -13,22 +13,22 @@ cache_isya=$(cat ~/.cache/eww/adzan/waktu_isya)
 TIME=$(date "+%H:%M")
 
 case $TIME in
-    $cache_imsak)
-       notify-send "Imsak" "Waktu imsak telah tiba" -i ~/.local/share/icons/mosque-svgrepo-com.svg 
-        ;;
-    $cache_shubuh)
-       notify-send "Shubuh" "Waktu shubuh telah tiba" -i ~/.local/share/icons/mosque-svgrepo-com.svg 
-        ;;
-    $cache_dzuhur)
-       notify-send "Dzuhur" "Waktu dzuhur telah tiba" -i ~/.local/share/icons/mosque-svgrepo-com.svg 
-        ;;
-    $cache_ashar)
-       notify-send "Ashar" "Waktu ashar telah tiba" -i ~/.local/share/icons/mosque-svgrepo-com.svg 
-        ;;
-    $cache_magrib)
-       notify-send "Magrib" "Waktu magrib telah tiba" -i ~/.local/share/icons/mosque-svgrepo-com.svg 
-        ;;
-    $cache_isya)
-       notify-send "Isya" "Waktu isya telah tiba" -i ~/.local/share/icons/mosque-svgrepo-com.svg 
-        ;;
+"$cache_imsak")
+	notify-send "Imsak" "Waktu imsak telah tiba" -i "$HOME/.dots/scripts/mosque.svg"
+	;;
+"$cache_shubuh")
+	notify-send "Shubuh" "Waktu shubuh telah tiba" -i "$HOME/.dots/scripts/mosque.svg"
+	;;
+"$cache_dzuhur")
+	notify-send "Dzuhur" "Waktu dzuhur telah tiba" -i "$HOME/.dots/scripts/mosque.svg"
+	;;
+"$cache_ashar")
+	notify-send "Ashar" "Waktu ashar telah tiba" -i "$HOME/.dots/scripts/mosque.svg"
+	;;
+"$cache_magrib")
+	notify-send "Magrib" "Waktu magrib telah tiba" -i "$HOME/.dots/scripts/mosque.svg"
+	;;
+"$cache_isya")
+	notify-send "Isya" "Waktu isya telah tiba" -i "$HOME/.dots/scripts/mosque.svg"
+	;;
 esac
