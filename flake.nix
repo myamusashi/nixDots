@@ -6,6 +6,7 @@
       "https://chaotic-nyx.cachix.org"
       "https://ezkea.cachix.org"
       "https://yazi.cachix.org"
+      "https://hyprland.cachix.org"
     ];
     extra-trustted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -13,10 +14,11 @@
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs?rev=73cf49b8ad837ade2de76f87eb53fc85ed5d4680";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager = {
@@ -35,7 +37,7 @@
     };
 
     hy3 = {
-      url = "github:myamusashi/hy3";
+      url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -106,9 +108,7 @@
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          chaotic.nixosModules.nyx-cache
-          chaotic.nixosModules.nyx-overlay
-          chaotic.nixosModules.nyx-registry
+          chaotic.nixosModules.default
           ./system/default.nix
         ];
         specialArgs = {inherit inputs;};
