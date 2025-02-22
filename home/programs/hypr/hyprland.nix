@@ -82,8 +82,8 @@ in {
       general = {
         gaps_in = 2;
         gaps_out = 5;
-        border_size = 1;
-        "col.active_border" = "rgba(fff5c2e7) rgba(c293a3ff) 45deg";
+        border_size = 2;
+        "col.active_border" = "rgba(e5e9f0e7) rgba(ff4151ff) 45deg";
         "col.inactive_border" = "0xff382D2E";
         no_border_on_floating = false;
         layout = "hy3";
