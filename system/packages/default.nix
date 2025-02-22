@@ -13,7 +13,7 @@
     libGL
     libGLU
     pciutils
-    ffmpeg-full
+    ffmpeg
     vulkan-tools
     vmware-workstation
     cloudflare-warp
