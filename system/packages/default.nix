@@ -13,7 +13,6 @@
     libGL
     libGLU
     pciutils
-    mesa
     ffmpeg-full
     vulkan-tools
     vmware-workstation

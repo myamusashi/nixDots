@@ -5,6 +5,11 @@
 
   services.scx.enable = true;
 
+  services.nix-serve = {
+    enable = false;
+    secretKeyFile = "/var/cache-priv-key.pem";
+  };
+
   services.printing.enable = false;
 
   services.udisks2.enable = true;
