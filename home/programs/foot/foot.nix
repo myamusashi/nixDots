@@ -16,26 +16,16 @@
       };
 
       colors = {
-        foreground = "ECEFF1";
-        background = "263238";
-        regular0 = "546E7A"; #black
-        regular1 = "FF5252"; #red
-        regular2 = "5CF19E"; #green
-        regular3 = "FFD740"; #yellow
-        regular4 = "40C4FF"; #blue
-        regular5 = "FF4081"; #magenta
-        regular6 = "64FCDA"; #cyan
-        regular7 = "FFFFFF"; #white
-        bright0 = "B0BEC5"; # bright black
-        bright1 = "FF8A80"; # bright red
-        bright2 = "B9F6CA"; # bright green
-        bright3 = "FFE57F"; # bright yellow
-        bright4 = "80D8FF"; # bright blue
-        bright5 = "FF80AB"; # bright magenta
-        bright6 = "A7FDEB"; # bright cyan
-        bright7 = "FFFFFF"; # bright white
-        # selection-foreground = "ECEFF1";
-        # selection-background = "607D8B";
+        foreground = "E5E9F0";
+        background = "0F111A";
+        regular0 = "00010A"; #black
+        regular1 = "FF4151"; #red
+        regular2 = "A3BE8C"; #green
+        regular3 = "EBCB8B"; #yellow
+        regular4 = "81A1C1"; #blue
+        regular5 = "B48EAD"; #magenta
+        regular6 = "88C0D0"; #cyan
+        regular7 = "F9F6EE"; #white
       };
 
       mouse = {

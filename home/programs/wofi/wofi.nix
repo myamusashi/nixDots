@@ -42,5 +42,9 @@
       background-color: #4C566A;
       }
     '';
+    settings = {
+      pre_display_exec = true;
+      image_size = 128;
+    };
   };
 }

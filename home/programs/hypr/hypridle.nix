@@ -5,8 +5,6 @@
 }: {
   services.hypridle = {
     enable = true;
-    package = pkgs.hypridle;
-
     settings = {
       general = {
         lock_cmd = "hyprlock";

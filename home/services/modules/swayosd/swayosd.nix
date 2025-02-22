@@ -3,6 +3,6 @@
     enable = true;
     display = ""; ## Means auto
     topMargin = 0.3;
-    stylePath = "./style.css";
+    stylePath = "/home/myamusashi/.dots/home/services/modules/swayosd/style.css";
   };
 }

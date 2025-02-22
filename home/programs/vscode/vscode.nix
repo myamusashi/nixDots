@@ -21,7 +21,7 @@
 
       editor.cursorSmoothCaretAnimation = "on";
       animations.CursorAnimation = true;
-      editor.fontFamily = "CaskaydiaMono Nerd Font";
+      editor.fontFamily = "CaskaydiaMono \Nerd \Font";
       editor.smoothScrolling = true;
       editor.cursorBlinking = "smooth";
       workbench.reduceMotion = "off";
@@ -35,5 +35,9 @@
         Command-Palette = 1000;
       };
     };
+    extensions = with pkgs.vscode-extensions; [
+      golang.go
+
+    ];
   };
 }

@@ -3,7 +3,33 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  spotify-adblock = pkgs.rustPlatform.buildRustPackage rec {
+    pname = "spotify-adblock";
+    version = "8e0312d6085a6e4f9afeb7c2457517a75e8b8f9d";
+    src = pkgs.fetchFromGitHub {
+      owner = "abba23";
+      repo = "${pname}";
+      rev = "${version}";
+      hash = "sha256-nwiX2wCZBKRTNPhmrurWQWISQdxgomdNwcIKG2kSQsE=";
+    };
+    cargoLock.lockFile = "${src}/Cargo.lock";
+  };
+
+  cliphist-img-display = pkgs.buildGoModule rec {
+    pname = "cliphist-wofi-img";
+    version = "0.0.3";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "pdf";
+      repo = "${pname}";
+      rev = "v${version}";
+      hash = "sha256-2N7LPetEMRXVWXQ4ls3deEZmT/cxztBIGwAz0IUbnDQ=";
+    };
+
+    vendorHash = null;
+  };
+in {
   imports = [./hyprlock.nix ./hypridle.nix];
 
   wayland.windowManager.hyprland = {
@@ -19,16 +45,15 @@
     settings = {
       exec-once = [
         "hyprpanel"
-        "swayosd-server"
+        "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"
         "/tmp/scripts/start_boot"
         "brightnessctl set 60%"
+				"swayosd-server"
         "udiskie --appindicator --menu-update-workaround --file-manager nautilus --tray --notify --automount"
         "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
-        "$HOME/.local/bin/github_notify"
-        "$HOME/.local/bin/cache_wall"
       ];
 
-      monitor = ["eDP-1,1366x768@60,0x0,1, vrr, 1, bitdepth, 10" "HDMI-A-2,1920x1080@74.97,0x768,1, vrr, 1, bitdepth, 10"];
+      monitor = ["eDP-1, 1366x768@60, 0x0, 1, vrr, 1, bitdepth, 10" "HDMI-A-2, 1920x1080@74.97, 0x768,1, vrr, 1, bitdepth, 10"];
 
       input = {
         kb_file = "";
@@ -90,7 +115,7 @@
         disable_autoreload = false;
         mouse_move_enables_dpms = true;
         vfr = true;
-        font_family = "Jetbrains Nerd Font";
+        font_family = "CaskaydiaMono Nerd Font";
         vrr = 1;
         render_ahead_of_time = false;
         animate_manual_resizes = true;
@@ -161,7 +186,7 @@
 
       "$term" = "kitty";
       "$screencapture" = "/tmp/scripts/screen-capture.sh";
-      "$files" = "${pkgs.foot}/bin/foot ${pkgs.yazi}/bin/yazi";
+      "$files" = "foot yazi";
       "$zen-browser" = "zen";
       "$vm" = "vmware";
       "$launcher" = "$HOME/.config/rofi/launchers/type-5/launcher.sh";
@@ -170,10 +195,10 @@
       "$notifhistory" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t notificationsmenu";
       "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
-      "$spotify" = "LD_PRELOAD=/usr/lib/spotify-adblock.so spotify";
-      "$discord" = "legcord";
-      "$clipmanager" = "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold| cliphist decode | wl-copy";
-      "$wipeclip" = "cliphist list | fuzzel --dmenu -w 60 -l 10 --tabs 2 -p Clipmanager --use-bold | cliphist delete";
+      "$spotify" = "LD_PRELOAD=${spotify-adblock}/lib/libspotifyadblock.so ${pkgs.spotify}/bin/spotify";
+      "$discord" = "${pkgs.discord}";
+      "$clipmanager" = "cliphist list | wofi --dmenu --allow-images -p copy --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist decode | wl-copy";
+      "$wipeclip" = "cliphist list | wofi --dmenu --allow-images -p delete --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist delete";
       "$modalt" = "ALT";
       "$mod" = "SUPER";
 
@@ -303,7 +328,11 @@
         "opacity 0.90,title:^(Spotify)$"
         "opacity 1 override,class:^(zen|zen-twilight)$"
         "opacity 0.95,class:^(nemo)$"
-        "noblur,class:^(Code)$"
+        "noblur,xwayland:1"
+      ];
+
+      layerrule = [
+        "animation popin, wofi"
       ];
 
       plugin = {
@@ -314,7 +343,7 @@
           panelBorderColor = "rgb(243, 139, 168)";
 
           # Layout
-          disableBlur = true;
+          disableBlur = false;
           workspaceMargin = 20;
           panelHeight = 250;
           panelBorderWidth = 5;
@@ -371,12 +400,12 @@
             text_font = "Sans"; # default: Sans
             text_height = 5; # default: 8
             text_padding = 1; # default: 3
-            "col.active" = "0xf38ba8ff"; # default: 0xff32b4ff
-            "col.urgent" = "0xffff4f4f"; # default: 0xffff4f4f
-            "col.inactive" = "0x80808080"; # default: 0x80808080
-            "col.text.active" = "0xff000000"; # default: 0xff000000
-            "col.text.urgent" = "0xff000000"; # default: 0xff000000
-            "col.text.inactive" = "0xff000000"; # default: 0xff000000
+            col.active = "0xf38ba8ff"; # default: 0xff32b4ff
+            col.urgent = "0xffff4f4f"; # default: 0xffff4f4f
+            col.inactive = "0x80808080"; # default: 0x80808080
+            col.text.active = "0xff000000"; # default: 0xff000000
+            col.text.urgent = "0xff000000"; # default: 0xff000000
+            col.text.inactive = "0xff000000"; # default: 0xff000000
           };
 
           autotile = {

@@ -34,7 +34,6 @@
     pkgs.libsForQt5.qt5ct
     (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)
     pkgs.nushell
-    pkgs.swayosd
     pkgs.rquickshare
     pkgs.enlightenment.ephoto
     pkgs.wf-recorder

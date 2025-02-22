@@ -13,7 +13,9 @@
     ./eza/eza.nix
     ./fastfetch/fastfetch.nix
     ./yazi/yazi.nix
+		./wofi/wofi.nix
 		./foot/foot.nix
+		./vscode/vscode.nix
     # ./panel/hyprpanel.nix
   ];
 }
