@@ -17,8 +17,6 @@
     vulkan-tools
     vmware-workstation
     cloudflare-warp
-    udiskie
-    udisks
     # ciscoPacketTracer8
     linux-wifi-hotspot
     gns3-gui

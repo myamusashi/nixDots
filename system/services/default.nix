@@ -6,5 +6,6 @@
     ./modules/network
     ./modules/misc.nix
     ./modules/udev
+		./modules/samba/samba.nix
   ];
 }
