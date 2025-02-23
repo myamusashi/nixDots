@@ -1,8 +1,101 @@
 {
+  home.file = {
+    "myamusashi/.config/btop/themes/kanagawa.themes" = {
+      enable = true;
+      text = ''
+        # Main background, empty for terminal default, need to be empty if you want transparent background
+        theme[main_bg]="#16161D"
+
+        # Main text color
+        theme[main_fg]="#DCD7BA"
+
+        # Title color for boxes
+        theme[title]="#DCD7BA"
+
+        # Highlight color for keyboard shortcuts
+        theme[hi_fg]="#E82424"
+
+        # Background color of selected items
+        theme[selected_bg]="#363646"
+
+        # Foreground color of selected items
+        theme[selected_fg]="#D27E99"
+
+        # Color of inactive/disabled text
+        theme[inactive_fg]="#223249"
+
+        # Color of text appearing on top of graphs, i.e uptime and current network graph scaling
+        theme[graph_text]="#E6C384"
+
+        # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+        theme[proc_misc]="#98BB6C"
+
+        # Cpu box outline color
+        theme[cpu_box]="#E6C384"
+
+        # Memory/disks box outline color
+        theme[mem_box]="#E6C384"
+
+        # Net up/down box outline color
+        theme[net_box]="#E6C384"
+
+        # Processes box outline color
+        theme[proc_box]="#E6C384"
+
+        # Box divider line and small boxes line color
+        theme[div_line]="#E6C384"
+
+        # Temperature graph colors
+        theme[temp_start]="#98BB6C"
+        theme[temp_mid]=""
+        theme[temp_end]="#E82424"
+
+        # CPU graph colors
+        theme[cpu_start]="#8EC07C"
+        theme[cpu_mid]="#FFA066"
+        theme[cpu_end]="#E82424"
+
+        # Mem/Disk free meter
+        theme[free_start]="#E82424"
+        theme[free_mid]="#FFA066"
+        theme[free_end]="#8EC07C"
+
+        # Mem/Disk cached meter
+        theme[cached_start]="#458588"
+        theme[cached_mid]="#83A598"
+        theme[cached_end]="#8EC07C"
+
+        # Mem/Disk available meter
+        theme[available_start]="#E82424"
+        theme[available_mid]="#D65D0E"
+        theme[available_end]="#FABD2F"
+
+        # Mem/Disk used meter
+        theme[used_start]="#8EC07C"
+        theme[used_mid]="#D65D0E"
+        theme[used_end]="#E82424"
+
+        # Download graph colors
+        theme[download_start]="#98BB6C"
+        theme[download_mid]="#689d6A"
+        theme[download_end]="#6A9589"
+
+        # Upload graph colors
+        theme[upload_start]="#E82424"
+        theme[upload_mid]="#D65d0E"
+        theme[upload_end]="#FABF2F"
+
+        # Process box color gradient for threads, mem and cpu usage
+        theme[process_start]="#8EC07C"
+        theme[process_mid]="#FE8019"
+        theme[process_end]="#E82424"
+      '';
+    };
+  };
   programs.btop = {
     enable = true;
     settings = {
-      color_theme = "Default";
+      color_theme = "kanagawa";
       theme_background = false;
       truecolor = false;
       force_tty = false;

@@ -7,7 +7,7 @@
   programs.kitty = lib.mkForce {
     enable = true;
     package = config.lib.nixGL.wrap pkgs.kitty;
-    # themeFile = "GitHub_Dark_High_Contrast";
+    themeFile = "kanagawa_dragon";
     keybindings = {
       "ctrl+g" = "lazygit";
     };
@@ -57,8 +57,8 @@
       single_window_margin_width = -1;
       window_padding_width = 0;
       placement_strategy = "center";
-      active_border_color = "#00ff00";
-      inactive_border_color = "#cccccc";
+      active_border_color = "#98BB6C";
+      inactive_border_color = "#DCD7BA";
       inactive_text_alpha = 1.0;
       hide_window_decorations = false;
       tab_bar_style = "powerline";
@@ -78,43 +78,43 @@
       bold_italic_font = "auto";
 
       # Custom theme
-      foreground = "#D8DEE9";
-      background = "#0f111a";
-      selection_foreground = "#000000";
-      selection_background = "#FFFACD";
-      url_color = "#FF4151";
-      cursor = "#FF4151";
-
-      # black
-      color0 = "#3B4252";
-      color8 = "#4C566A";
-
-      # red
-      color1 = "#BF616A";
-      color9 = "#BF616A";
-
-      # green
-      color2 = "#A3BE8C";
-      color10 = "#A3BE8C";
-
-      # yellow
-      color3 = "#EBCB8B";
-      color11 = "#EBCB8B";
-
-      # blue
-      color4 = "#81A1C1";
-      color12 = "#81A1C1";
-
-      # magenta
-      color5 = "#B48EAD";
-      color13 = "#B48EAD";
-
-      # cyan
-      color6 = "#88C0D0";
-      color14 = "#8FBCBB";
-
-      color7 = "#E5E9F0";
-      color15 = "#B48EAD";
+      # foreground = "#D8DEE9";
+      # background = "#0f111a";
+      # selection_foreground = "#000000";
+      # selection_background = "#FFFACD";
+      # url_color = "#FF4151";
+      # cursor = "#FF4151";
+      #
+      # # black
+      # color0 = "#3B4252";
+      # color8 = "#4C566A";
+      #
+      # # red
+      # color1 = "#BF616A";
+      # color9 = "#BF616A";
+      #
+      # # green
+      # color2 = "#A3BE8C";
+      # color10 = "#A3BE8C";
+      #
+      # # yellow
+      # color3 = "#EBCB8B";
+      # color11 = "#EBCB8B";
+      #
+      # # blue
+      # color4 = "#81A1C1";
+      # color12 = "#81A1C1";
+      #
+      # # magenta
+      # color5 = "#B48EAD";
+      # color13 = "#B48EAD";
+      #
+      # # cyan
+      # color6 = "#88C0D0";
+      # color14 = "#8FBCBB";
+      #
+      # color7 = "#E5E9F0";
+      # color15 = "#B48EAD";
     };
   };
 }

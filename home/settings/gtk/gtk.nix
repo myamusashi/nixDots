@@ -13,6 +13,8 @@ in {
     future-cyan-hyprcursor
     pkgs.morewaita-icon-theme
     vimix-icon
+		pkgs.kanagawa-gtk-theme
+		pkgs.kanagawa-icon-theme
     # pkgs.vimix-icon-theme
     # pkgs.numix-icon-theme
     pkgs.papirus-icon-theme
@@ -45,8 +47,8 @@ in {
   gtk = {
     enable = true;
 
-    iconTheme = {name = "Vimix-Ruby";};
-    theme = {name = "vimix-dark-standard-ruby";};
+    iconTheme = {name = "Kanagawa";};
+    theme = {name = "Kanagawa-B-LB";};
 
     gtk2 = {
       #configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";

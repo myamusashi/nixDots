@@ -48,7 +48,7 @@ in {
         "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"
         "/tmp/scripts/start_boot"
         "brightnessctl set 60%"
-				"swayosd-server"
+        "swayosd-server"
         "udiskie --appindicator --menu-update-workaround --file-manager nautilus --tray --notify --automount"
         "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
       ];
@@ -196,7 +196,7 @@ in {
       "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
       "$spotify" = "LD_PRELOAD=${spotify-adblock}/lib/libspotifyadblock.so ${pkgs.spotify}/bin/spotify";
-      "$discord" = "${pkgs.discord}";
+      "$discord" = "${pkgs.discord}/bin/discord";
       "$clipmanager" = "cliphist list | wofi --dmenu --allow-images -p copy --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist decode | wl-copy";
       "$wipeclip" = "cliphist list | wofi --dmenu --allow-images -p delete --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist delete";
       "$modalt" = "ALT";
@@ -310,12 +310,16 @@ in {
         "move 40 44%,title:^(iwgtk)$"
         "move 40 44%,title:^(Volume Control)$"
         "move 40 58%,title:^(Bluetooth Devices)$"
+        "center,title:^(Import Hyprpanel Theme)$"
+        "center,title:^(hyprpanel-settings)$"
         "center,title:^(Hyprland Polkit Agent)$"
         "center,title:^(rofi - )$"
         "center,title:^(rofi -  myamusashi@nixos)$"
         "center,title:^(rofi - APPS)$"
         "center,title:^(Image Properties)$"
         "center,title:^(Enter name of file to save to…)$"
+        "size 800 600,title:^(hyprpanel-settings)$"
+        "size 800 600,title:^(Import Hyprpanel Theme)$"
         "size 800 600,title:^(Hyprland Polkit Agent)$"
         "size 800 600,class:^(download)$"
         "size 800 600,title:^(Volume Control)$"
@@ -332,7 +336,16 @@ in {
       ];
 
       layerrule = [
-        "animation popin, wofi"
+        "animation popin 80%, wofi"
+        "animation popin 95%, notifications-window"
+        "animation popin 95%, mediamenu"
+        "animation popin 95%, dashboardmenu"
+        "animation popin 95%, networkmenu"
+        "animation popin 95%, audiomenu"
+        "animation popin 95%, bluetoothmenu"
+        "animation popin 95%, energymenu"
+        "animation popin 95%, calendarmenu"
+        "animation popin 95%, notificationsmenu"
       ];
 
       plugin = {

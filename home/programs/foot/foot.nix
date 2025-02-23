@@ -16,16 +16,16 @@
       };
 
       colors = {
-        foreground = "E5E9F0";
-        background = "0F111A";
-        regular0 = "00010A"; #black
-        regular1 = "FF4151"; #red
-        regular2 = "A3BE8C"; #green
-        regular3 = "EBCB8B"; #yellow
-        regular4 = "81A1C1"; #blue
-        regular5 = "B48EAD"; #magenta
-        regular6 = "88C0D0"; #cyan
-        regular7 = "F9F6EE"; #white
+        foreground = "DCD7BA";
+        background = "16161D";
+        regular0 = "1E1F28"; #black
+        regular1 = "E82424"; #red
+        regular2 = "98BB6C"; #green
+        regular3 = "E6C384"; #yellow
+        regular4 = "7E9CD8"; #blue
+        regular5 = "957FB8"; #magenta
+        regular6 = "9CABCA"; #cyan
+        regular7 = "DAD5B8"; #white
       };
 
       mouse = {
