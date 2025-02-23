@@ -1,6 +1,6 @@
 {
   home.file = {
-    "myamusashi/.config/btop/themes/kanagawa.themes" = {
+    ".config/btop/themes/kanagawa.themes" = {
       enable = true;
       text = ''
         # Main background, empty for terminal default, need to be empty if you want transparent background
