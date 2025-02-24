@@ -7,7 +7,11 @@
   networking = {
     firewall = {
       enable = true;
-      allowedTCPPorts = [];
+      allowedTCPPorts = [
+        139
+        445
+        991 # for rquickshare
+      ];
     };
   };
 }
