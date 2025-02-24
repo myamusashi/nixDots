@@ -318,6 +318,8 @@ in {
         "center,title:^(rofi - APPS)$"
         "center,title:^(Image Properties)$"
         "center,title:^(Enter name of file to save to…)$"
+        "center,title:^(vesktop)$"
+        "size 300 350,title:^(vesktop)$"
         "size 800 600,title:^(hyprpanel-settings)$"
         "size 800 600,title:^(Import Hyprpanel Theme)$"
         "size 800 600,title:^(Hyprland Polkit Agent)$"
