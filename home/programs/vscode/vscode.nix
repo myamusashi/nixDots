@@ -2,7 +2,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    userSettings = {
+    profiles.default.userSettings = {
       workbench.iconTheme = "material-icon-theme";
       workbench.colorTheme = "Material Theme Darker";
       editor.minimap.enabled = false;
@@ -35,7 +35,7 @@
         Command-Palette = 1000;
       };
     };
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       golang.go
 
     ];
