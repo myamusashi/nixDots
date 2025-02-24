@@ -196,7 +196,7 @@ in {
       "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
       "$spotify" = "LD_PRELOAD=${spotify-adblock}/lib/libspotifyadblock.so ${pkgs.spotify}/bin/spotify";
-      "$discord" = "${pkgs.discord}/bin/discord";
+      "$discord" = "${pkgs.vesktop}/bin/vesktop";
       "$clipmanager" = "cliphist list | wofi --dmenu --allow-images -p copy --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist decode | wl-copy";
       "$wipeclip" = "cliphist list | wofi --dmenu --allow-images -p delete --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist delete";
       "$modalt" = "ALT";
