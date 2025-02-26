@@ -15,6 +15,7 @@
     ./yazi/yazi.nix
 		./wofi/wofi.nix
 		./foot/foot.nix
+		./spicetify/spicetify.nix
 		./vscode/vscode.nix
     # ./panel/hyprpanel.nix
   ];
