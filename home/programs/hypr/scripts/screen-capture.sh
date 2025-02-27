@@ -17,7 +17,7 @@ goto_link() {
 	ACTION=$(notify-send -a "Screen Capture" --action="default=open link" -i "$IMG" "Screenshot Taken" "${IMG}")
 
 	if [ "$ACTION" == "default" ]; then
-		kitty --single-instance yazi $IMG
+		foot --single-instance yazi $IMG
 	fi
 }
 

@@ -1,19 +1,17 @@
 #!/usr/bin/env bash
 
-# Script configuration
 readonly LOG_FILE="/tmp/wallpaper_backup.log"
 readonly CACHE_DIR="$HOME/.cache/wall"
 
-# Color definitions for output
 readonly RED='\033[0;31m'
 readonly GREEN='\033[0;32m'
 readonly NC='\033[0m' # No Color
 
-if [[ ! -d "$CACHE_DIR" ]]; then
-	mkdir -p "$CACHE_DIR"
-fi
+check_output_active() {
+	local output=$1
+	hyprctl monitors -j | jq -e --arg output "$output" '.[] | select(.name == $output)' >/dev/null 2>&1
+}
 
-# Logging function
 log() {
 	local level=$1
 	shift
@@ -21,59 +19,51 @@ log() {
 	echo -e "$message" | tee -a "$LOG_FILE"
 }
 
-# Error handling function
 error() {
 	log "ERROR" "${RED}$*${NC}"
-	# notify "ERROR" "$*"
 	return 1
 }
 
-# Backup wallpapers
 backup_wallpapers() {
-	local current_time=$(date '+%Y-%m-%d %H:%M:%S')
-
-	# Check for HDMI wallpaper
-	local hdmi_wall=$(swww query | grep HDMI | awk '{print $8}')
-	if [[ -n "$hdmi_wall" && -f "$hdmi_wall" ]]; then
-		if cp -f "$hdmi_wall" "$CACHE_DIR/HDMI.png"; then
-			log "SUCCESS" "${GREEN}HDMI wallpaper backed up successfully${NC}"
-			# notify "SUCCESS" "HDMI wallpaper backed up at $current_time"
+	if [[ -n $(check_output_active "HDMI-A-2") ]]; then
+		if cp -uf "HDMI-A-2" "$CACHE_DIR/HDMI.png"; then
+			log "SUCCESS" "${GREEN}HDMI wallpaper backed up (optimized)${NC}"
 		else
 			error "Failed to backup HDMI wallpaper"
 		fi
 	fi
 
-	# Check for eDP wallpaper
-	local edp_wall=$(swww query | grep eDP | awk '{print $8}')
-	if [[ -n "$edp_wall" && -f "$edp_wall" ]]; then
-		if cp -f "$edp_wall" "$CACHE_DIR/eDP.png"; then
-			log "SUCCESS" "${GREEN}eDP wallpaper backed up successfully${NC}"
-			# notify "SUCCESS" "eDP wallpaper backed up at $current_time"
+	if [[ -n $(check_output_active "eDP-1") ]]; then
+		if cp -uf "eDP-1" "$CACHE_DIR/eDP.png"; then
+			log "SUCCESS" "${GREEN}eDP wallpaper backed up (optimized)${NC}"
 		else
 			error "Failed to backup eDP wallpaper"
 		fi
 	fi
 }
 
-get_live_wallpapers() {
-	local current_time=$(date '+%Y-%m-%d %H:%M:%S')
-
-	if grim -c -o HDMI-A-2 $HOME/.cache/wall/Watch_HDMI.png >/dev/null 2>&1; then
-		log "SUCCESS" "${GREEN}HDMI wallpaper backed up successfully${NC}"
-	else
-		error "Failed to backup HDMI wallpaper"
+get_current_wallpapers() {
+	if check_output_active "HDMI-A-2"; then
+		if grim -l 1 -o HDMI-A-2 "$HOME/.cache/wall/Watch_HDMI.png" >/dev/null 2>&1; then
+			log "SUCCESS" "${GREEN}HDMI screenshot optimized${NC}"
+		else
+			error "Failed to capture HDMI current wallpaper"
+		fi
 	fi
 
-	if grim -c -o eDP-1 $HOME/.cache/wall/Watch_eDP.png >/dev/null 2>&1; then
-		log "SUCCESS" "${GREEN}eDP wallpaper backed up successfully${NC}"
-	else
-		error "Failed to backup eDP wallpaper"
+	if check_output_active "eDP-1"; then
+		if grim -l 1 -o eDP-1 "$HOME/.cache/wall/Watch_eDP.png" >/dev/null 2>&1; then
+			log "SUCCESS" "${GREEN}eDP screenshot optimized${NC}"
+		else
+			error "Failed to capture eDP current wallpaper"
+		fi
 	fi
 }
 
 main() {
+	[[ ! -d "$CACHE_DIR" ]] && mkdir -p "$CACHE_DIR"
 	backup_wallpapers
-	get_live_wallpapers
+	# get_current_wallpapers
 }
 
 main
