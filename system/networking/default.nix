@@ -12,6 +12,10 @@
         445
         991 # for rquickshare
       ];
+      allowedUDPPorts = [
+        137
+        138
+      ];
     };
   };
 }
