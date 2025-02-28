@@ -1,7 +1,7 @@
 {
   inputs,
   pkgs,
-  lib,
+  config,
   ...
 }: let
   spotify-adblock = pkgs.rustPlatform.buildRustPackage rec {
@@ -48,7 +48,6 @@ in {
         "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"
         "/tmp/scripts/start_boot"
         "brightnessctl set 60%"
-        "swayosd-server"
         "udiskie --appindicator --menu-update-workaround --file-manager nautilus --tray --notify --automount"
         "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
       ];
@@ -186,7 +185,7 @@ in {
 
       "$term" = "kitty";
       "$screencapture" = "/tmp/scripts/screen-capture.sh";
-      "$files" = "foot yazi";
+      "$files" = "footclient --title=yaziFM yazi";
       "$zen-browser" = "zen";
       "$vm" = "vmware";
       "$launcher" = "$HOME/.config/rofi/launchers/type-5/launcher.sh";
@@ -195,7 +194,7 @@ in {
       "$notifhistory" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t notificationsmenu";
       "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
-      "$spotify" = "LD_PRELOAD=${spotify-adblock}/lib/libspotifyadblock.so ${pkgs.spotify}/bin/spotify";
+      "$spotify" = "LD_PRELOAD=${spotify-adblock}/lib/libspotifyadblock.so ${config.programs.spicetify.spicedSpotify}/bin/spotify";
       "$discord" = "${pkgs.vesktop}/bin/vesktop";
       "$clipmanager" = "cliphist list | wofi --dmenu --allow-images -p copy --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist decode | wl-copy";
       "$wipeclip" = "cliphist list | wofi --dmenu --allow-images -p delete --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist delete";
@@ -316,6 +315,7 @@ in {
         "center,title:^(rofi - )$"
         "center,title:^(rofi -  myamusashi@nixos)$"
         "center,title:^(rofi - APPS)$"
+        "center,title:^(yaziFM)$"
         "center,title:^(Image Properties)$"
         "center,title:^(Enter name of file to save to…)$"
         "center,title:^(vesktop)$"
@@ -335,6 +335,8 @@ in {
         "opacity 1 override,class:^(zen|zen-twilight)$"
         "opacity 0.95,class:^(nemo)$"
         "noblur,xwayland:1"
+        "noborder,initialClass:^(Xdg-desktop-portal-gtk)$"
+        "bordersize 0,initialClass:^(Xdg-desktop-portal-gtk)$"
       ];
 
       layerrule = [

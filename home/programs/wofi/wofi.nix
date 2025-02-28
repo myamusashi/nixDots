@@ -4,7 +4,7 @@
     style = ''
       window {
       margin: 0px;
-      border: 1px solid #BF616A;
+      border: 1px solid #C0A36E;
       background-color: #0F111A;
       }
 

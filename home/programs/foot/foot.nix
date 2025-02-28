@@ -1,6 +1,7 @@
 {
   programs.foot = {
     enable = true;
+		server.enable = true;
     settings = {
       main = {
         font = "CaskaydiaMono Nerd Font:size=10";

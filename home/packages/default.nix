@@ -34,6 +34,7 @@
     pkgs.libsForQt5.qt5ct
     (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)
     pkgs.nushell
+    pkgs.spicetify-cli
     pkgs.rquickshare
     pkgs.enlightenment.ephoto
     pkgs.wf-recorder
@@ -42,6 +43,7 @@
     pkgs.power-profiles-daemon
     pkgs.hyprsunset
     pkgs.hyprpicker
+    pkgs.telegram-desktop
     inputs.quickshell.packages.${pkgs.system}.default
   ];
 }

@@ -6,13 +6,13 @@
         terminal = "${pkgs.kitty}/bin/kitty";
         layer = "overlay";
       };
-      colors.background = "1E1F28FF";
-      colors.text = "DCD7BAFF";
-      colors.border = "E6C384FF";
-      colors.match = "363646FF";
-      colors.selection = "54546DFF";
-      colors.selection-match = "2A2A37FF";
-      colors.selection-text = "938AA9FF";
+      colors.background = "171717ff";
+      colors.text = "dcd7baff";
+      colors.border = "e6c384ff";
+      colors.match = "363646ff";
+      colors.selection = "54546dff";
+      colors.selection-match = "2a2a37ff";
+      colors.selection-text = "938aa9ff";
     };
   };
 }

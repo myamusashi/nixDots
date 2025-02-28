@@ -7,7 +7,7 @@
     ./btop/btop.nix
     ./lazygit/lazygit.nix
     ./mpv/mpv.nix
-    ./ghostty/ghostty.nix
+    # ./ghostty/ghostty.nix
     ./htop/htop.nix
     ./fuzzel/fuzzel.nix
     ./eza/eza.nix
@@ -16,7 +16,7 @@
 		./wofi/wofi.nix
 		./foot/foot.nix
 		./spicetify/spicetify.nix
-		./vscode/vscode.nix
+		# ./vscode/vscode.nix
     # ./panel/hyprpanel.nix
   ];
 }
