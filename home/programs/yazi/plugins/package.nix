@@ -30,8 +30,8 @@
   eza-preview = pkgs.fetchFromGitHub {
     owner = "ahkohd";
     repo = "eza-preview.yazi";
-    rev = "5ef05bcee141291566276e62cc16e265a387dca4";
-    hash = "sha256-L7i+uL2kAx3AUr5EAzRrduoV2m4+/tE1gCfbTOSuAc4=";
+    rev = "6575a9a4806d8dc96ac75adf28791155551804fb";
+    hash = "sha256-RwJu79bjdgmKbRaDH++y8wreBKdGGwbyGOx4G/px2PE=";
   };
 
   glow = pkgs.fetchFromGitHub {
@@ -65,15 +65,8 @@
   yatline = pkgs.fetchFromGitHub {
     owner = "imsi32";
     repo = "yatline";
-    rev = "93282055cfb4d74a9bc8e47cf2035ded9b3c5b00";
-    hash = "sha256-1TodD0sIeb/Y24rJk7pd1IfqLmbsFzxWvV0RSfwabIA=";
-  };
-
-  yatline-symlink = pkgs.fetchFromGitHub {
-    owner = "lpanebr";
-    repo = "yazi-plugins";
-    rev = "ca18a2cfb893e3608997c9de54acced124373871";
-    hash = "sha256-v+EmMbrccAlzeR9rhmlFq0f+899l624EhWx1DFz+qzc=";
+    rev = "655facb7c31ddcf96a05185c65dd5b89d5954f2b";
+    hash = "sha256-fjapFEaM5ORoJJivrzKxwPM9pe6B9UkVqPfOsUPxpEg=";
   };
 
   lazygit = pkgs.fetchFromGitHub {

@@ -56,5 +56,3 @@ require("yatline"):setup({
 		},
 	},
 })
-
-require("yatline-symlink"):setup()

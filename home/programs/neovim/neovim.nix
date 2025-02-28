@@ -43,6 +43,7 @@
       gnumake
       mesonlsp
       sassc
+			ccls
       llvmPackages_19.clang-unwrapped # C stuff
       gcc14
       libgcc

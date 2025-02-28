@@ -2,7 +2,7 @@
   wluma = pkgs.callPackage ./package.nix {};
 in {
   services.wluma = {
-    enable = true;
+    enable = false;
     package = wluma;
     settings = {
       als.time = {

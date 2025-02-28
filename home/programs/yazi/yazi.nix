@@ -34,7 +34,6 @@ in {
       hexyl = "${plugin.hexyl}";
       ouch = "${plugin.ouch}";
       yatline = "${plugin.yatline}";
-      yatline-symlink = "${plugin.yatline-symlink}/yatline-symlink.yazi";
       lazygit = "${plugin.lazygit}";
       githead = "${plugin.githead}";
     };
@@ -152,12 +151,6 @@ in {
         ];
       };
 
-      # plugin.append_previewers = [
-      #   {
-      #     name = "*";
-      #     run = "hexyl";
-      #   }
-      # ];
       plugin.prepend_fetchers = [
         {
           id = "git";
@@ -194,6 +187,11 @@ in {
         }
 
         {
+          name = "*.{jpg,png,webp}";
+          run = "mediainfo";
+        }
+
+        {
           mime = "application/subrip";
           run = "mediainfo";
         }
@@ -223,40 +221,40 @@ in {
           run = "rich-preview";
         }
 
-        # {
-        #   mime = "application/*zip";
-        #   run = "ouch";
-        # }
-        #
-        # {
-        #   mime = "application/x-tar";
-        #   run = "ouch";
-        # }
-        #
-        # {
-        #   mime = "application/x-tar.gz";
-        #   run = "ouch";
-        # }
-        #
-        # {
-        #   mime = "application/x-bzip2";
-        #   run = "ouch";
-        # }
-        #
-        # {
-        #   mime = "application/x-7z-compressed";
-        #   run = "ouch";
-        # }
-        #
-        # {
-        #   mime = "application/x-rar";
-        #   run = "ouch";
-        # }
-        #
-        # {
-        #   mime = "application/x-xz";
-        #   run = "ouch";
-        # }
+        {
+          mime = "application/*zip";
+          run = "ouch";
+        }
+
+        {
+          mime = "application/x-tar";
+          run = "ouch";
+        }
+
+        {
+          mime = "application/x-tar.gz";
+          run = "ouch";
+        }
+
+        {
+          mime = "application/x-bzip2";
+          run = "ouch";
+        }
+
+        {
+          mime = "application/x-7z-compressed";
+          run = "ouch";
+        }
+
+        {
+          mime = "application/x-rar";
+          run = "ouch";
+        }
+
+        {
+          mime = "application/x-xz";
+          run = "ouch";
+        }
       ];
     };
   };

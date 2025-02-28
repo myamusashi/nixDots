@@ -21,7 +21,8 @@
     pkgs.grim
     pkgs.slurp
     pkgs.hyprshot
-    pkgs.swww
+    pkgs.ffmpegthumbnailer
+		pkgs.swww
     pkgs.playerctl
     pkgs.pavucontrol
     pkgs.libnotify
