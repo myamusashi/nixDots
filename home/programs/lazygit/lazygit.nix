@@ -103,11 +103,6 @@
         overrideGpg = false;
         disableForcePushing = false;
 
-        commitPrefix = {
-          pattern = "";
-          replace = "";
-        };
-
         branchPrefix = "";
         parseEmoji = false;
 
