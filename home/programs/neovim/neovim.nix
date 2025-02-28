@@ -1,6 +1,5 @@
 {
   inputs,
-  config,
   pkgs,
   ...
 }: {
@@ -8,7 +7,7 @@
 
   programs.neovim = {
     enable = true;
-    # package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     plugins = with pkgs.vimPlugins; [
       (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
       (nvim-treesitter.withPlugins (
@@ -36,11 +35,11 @@
       ))
     ];
     extraPackages = with pkgs; [
-      luajit
       alejandra
       lemminx
       nil # nix lsp
       gopls
+      nixd
       gnumake
       mesonlsp
       sassc
@@ -53,8 +52,6 @@
       lua54Packages.luarocks_bootstrap
       stylua
       typescript
-      pnpm
-      yarn
       nodejs_23
       dockerfile-language-server-nodejs
       fish-lsp
