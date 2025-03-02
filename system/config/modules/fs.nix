@@ -24,7 +24,7 @@
         "users"
         "nofail"
         "exec"
-				"X-mount.owner=myamusashi"
+        "X-mount.owner=myamusashi"
       ];
       noCheck = true;
     };

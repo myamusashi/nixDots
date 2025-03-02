@@ -3,7 +3,7 @@
   inputs,
   ...
 }: let
-  oneDarkColors = import ./colors/onedark.nix;
+  kanagawaColors = import ./colors/kanagawa.nix;
   mochaColors = import ./colors/mocha.nix;
 
   fontFamily = "ProggyClean Nerd Font";
@@ -26,7 +26,7 @@ in {
       blur_size = 5
       monitor = eDP-1
       path = $HOME/.cache/wall/eDP.png
-      color = ${oneDarkColors.background}
+      color = ${kanagawaColors.background}
     }
 
     background {
@@ -34,14 +34,14 @@ in {
       blur_size = 2
       monitor = HDMI-A-2
       path = $HOME/.cache/wall/HDMI.png
-      color = ${oneDarkColors.background}
+      color = ${kanagawaColors.background}
     }
 
     # TIME
     label {
       monitor = eDP-1
       text = cmd[update:30000] echo "$(date +'%R')"
-      color = ${oneDarkColors.color1}
+      color = ${kanagawaColors.color1}
       font_size = 70
       font_family = ${fontFamily}
       position = 0, 50
@@ -52,7 +52,7 @@ in {
     label {
       monitor = HDMI-A-2
       text = cmd[update:30000] echo "$(date +'%R')"
-      color = ${oneDarkColors.color1}
+      color = ${kanagawaColors.color1}
       font_size = 70
       font_family = ${fontFamily}
       position = 0, -10
@@ -64,7 +64,7 @@ in {
     label {
       monitor = eDP-1
       text = cmd[update:43200000] echo "$(date +'%A, %d %B %Y')"
-      color = ${oneDarkColors.color1}
+      color = ${kanagawaColors.color1}
       font_size = 25
       font_family = ${fontFamily}
       position = 0, -10
@@ -75,7 +75,7 @@ in {
     label {
       monitor = HDMI-A-2
       text = cmd[update:43200000] echo "$(date +'%A, %d %B %Y')"
-      color = ${oneDarkColors.color1}
+      color = ${kanagawaColors.color1}
       font_size = 25
       font_family = ${fontFamily}
       position = 0, -70
@@ -91,7 +91,7 @@ in {
       size = 80
       rounding = -1
       rotate = 0
-      reload-time = -1
+      reload_time = -1
       border_size = 0
       position = 0, 220
       halign = center
@@ -104,7 +104,7 @@ in {
       size = 80
       rounding = -1
       rotate = 0
-      reload-time = -1
+      reload_time = -1
       border_size = 0
       position = 0, 200
       halign = center
@@ -140,10 +140,10 @@ in {
     shape {
       monitor = eDP-1
       size = 300, 60
-      color = ${oneDarkColors.color8}
+      color = ${kanagawaColors.color8}
       rounding = -1
       border_size = 4
-      border_color = ${oneDarkColors.color0}
+      border_color = ${kanagawaColors.color0}
       xray = false
       rotate = 0
       position = 0, -100
@@ -154,11 +154,7 @@ in {
     label {
       monitor = eDP-1
       text =  $USER
-      color = ${oneDarkColors.color15}
-      outline_thickness = 2
-      dots_size = 1 # Scale of input-field height, 0.2 - 0.8
-      dots_spacing = 1 # Scale of dots' absolute size, 0.0 - 1.0
-      dots_center = true
+      color = ${kanagawaColors.color15}
       font_size = 25
       font_family = ${fontFamily}
       position = 0, -100
@@ -169,10 +165,10 @@ in {
     shape {
       monitor = HDMI-A-2
       size = 300, 60
-      color = ${oneDarkColors.color8}
+      color = ${kanagawaColors.color8}
       rounding = -1
       border_size = 4
-      border_color = ${oneDarkColors.color0}
+      border_color = ${kanagawaColors.color0}
       xray = false
       rotate = 0
       position = 0, -200
@@ -183,11 +179,7 @@ in {
     label {
       monitor = HDMI-A-2
       text =  $USER
-      color = ${oneDarkColors.color15}
-      outline_thickness = 2
-      dots_size = 1 # Scale of input-field height, 0.2 - 0.8
-      dots_spacing = 1 # Scale of dots' absolute size, 0.0 - 1.0
-      dots_center = true
+      color = ${kanagawaColors.color15}
       font_size = 25
       font_family = ${fontFamily}
       position = 0, -200
@@ -203,14 +195,14 @@ in {
       dots_size = 0.2
       dots_spacing = 0.2
       dots_center = true
-      outer_color = ${oneDarkColors.color4}
-      inner_color = ${oneDarkColors.color8}
-      font_color = ${oneDarkColors.color15}
+      outer_color = ${kanagawaColors.color4}
+      inner_color = ${kanagawaColors.color8}
+      font_color = ${kanagawaColors.color15}
       fade_on_empty = false
-      placeholder_text = <i><span foreground='##${oneDarkColors.color10}'>󰌾 Aduh </span> <span foreground='##${accentAlpha}'><b>gantengnya</b></span></i>
+      placeholder_text = <i><span foreground='##${kanagawaColors.color10accent}'>󰌾 Aduh </span> <span foreground='##${accentAlpha}'><b>gantengnya</b></span></i>
       hide_input = false
       fail_text = <i>Tolol, Coba lagi<b>($ATTEMPTS)</b></i>
-      capslock_color = ${oneDarkColors.color3}
+      capslock_color = ${kanagawaColors.color3}
       position = 0, -185
       halign = center
       valign = center
@@ -224,14 +216,14 @@ in {
       dots_size = 0.2
       dots_spacing = 0.2
       dots_center = true
-      outer_color = ${oneDarkColors.color4}
-      inner_color = ${oneDarkColors.color8}
-      font_color = ${oneDarkColors.color15}
+      outer_color = ${kanagawaColors.color4}
+      inner_color = ${kanagawaColors.color8}
+      font_color = ${kanagawaColors.color15}
       fade_on_empty = false
-      placeholder_text = <i><span foreground='##${oneDarkColors.color10}'>󰌾 Aduh </span> <span foreground='##${accentAlpha}'><b>gantengnya</b></span></i>
+      placeholder_text = <i><span foreground='##${kanagawaColors.color10accent}'>󰌾 Aduh </span> <span foreground='##${accentAlpha}'><b>gantengnya</b></span></i>
       hide_input = false
       fail_text = <i>Tolol, Coba lagi<b>($ATTEMPTS)</b></i>
-      capslock_color = ${oneDarkColors.color3}
+      capslock_color = ${kanagawaColors.color3}
       position = 0, -285
       halign = center
       valign = center

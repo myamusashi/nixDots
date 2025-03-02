@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   vimix-icon = pkgs.callPackage ./icons/vimix-icon-themes/package.nix {colorVariants = ["Ruby"];};
   future-cyan-hyprcursor = pkgs.callPackage ./themes/cursors/Future-cyan-hyprcursor/package.nix {};
   future-cursor = pkgs.callPackage ./themes/cursors/future-cursor/package.nix {};
@@ -13,8 +10,8 @@ in {
     future-cyan-hyprcursor
     pkgs.morewaita-icon-theme
     vimix-icon
-		pkgs.kanagawa-gtk-theme
-		pkgs.kanagawa-icon-theme
+    pkgs.kanagawa-gtk-theme
+    pkgs.kanagawa-icon-theme
     # pkgs.vimix-icon-theme
     # pkgs.numix-icon-theme
     pkgs.papirus-icon-theme

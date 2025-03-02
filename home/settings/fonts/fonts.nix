@@ -8,7 +8,7 @@ in {
     pkgs.montserrat
     pkgs.overpass
     pkgs.nerd-fonts.caskaydia-mono
-		pkgs.source-sans-pro
+    pkgs.source-sans-pro
     pkgs.nerd-fonts.comic-shanns-mono
     pkgs.nerd-fonts.proggy-clean-tt
     pkgs.nerd-fonts.jetbrains-mono

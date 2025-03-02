@@ -17,6 +17,7 @@
     vulkan-tools
     vmware-workstation
     cloudflare-warp
+    android-tools
     udiskie
     udisks
     # ciscoPacketTracer8

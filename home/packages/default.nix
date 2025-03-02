@@ -22,7 +22,7 @@
     pkgs.slurp
     pkgs.hyprshot
     pkgs.ffmpegthumbnailer
-		pkgs.swww
+    pkgs.swww
     pkgs.playerctl
     pkgs.pavucontrol
     pkgs.libnotify

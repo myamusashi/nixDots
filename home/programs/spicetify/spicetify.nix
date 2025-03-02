@@ -11,6 +11,7 @@ in {
     enabledExtensions = with spicePkgs.extensions; [
       hidePodcasts
       shuffle
+      adblockify
     ];
     theme = {
       name = "kanagawa";

@@ -53,16 +53,16 @@ rustPlatform.buildRustPackage rec {
   dontCargoInstall = false;
   installFlags = ["PREFIX=${placeholder "out"}"];
   postInstall = ''
-    mkdir -p $out/etc/systemd/system/
-    mkdir -p $out/lib/udev/rules.d
+      mkdir -p $out/etc/systemd/system/
+      mkdir -p $out/lib/udev/rules.d
 
-    cp wluma.service $out/etc/systemd/system/
-    cp 90-wluma-backlight.rules $out/lib/udev/rules.d
-		
-		chmod 644 $out/etc/systemd/system/wluma.service
+      cp wluma.service $out/etc/systemd/system/
+      cp 90-wluma-backlight.rules $out/lib/udev/rules.d
 
-    wrapProgram $out/bin/wluma \
-              --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [wayland]}"
+    chmod 644 $out/etc/systemd/system/wluma.service
+
+      wrapProgram $out/bin/wluma \
+                --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [wayland]}"
   '';
 
   passthru.updateScript = nix-update-script {};

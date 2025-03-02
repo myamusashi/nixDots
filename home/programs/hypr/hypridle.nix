@@ -1,8 +1,4 @@
 {
-  inputs,
-  pkgs,
-  ...
-}: {
   services.hypridle = {
     enable = true;
     settings = {
@@ -14,23 +10,26 @@
       listener = [
         {
           timeout = 200;
-          on-timeout = "notify-send -a 'Hypridle' 'Idle' 'Bangun woy, gua kunci nih' -i /tmp/scripts/User-idle.png";
-        }
-
-        {
-          timeout = 500;
-          on-timeout = "hyprlock -c /tmp/scripts/lock_listen.conf";
+          on-timeout = "wl-gammactl -c 0.5";
+          on-resume = "pkill wl-gammactl";
         }
 
         {
           timeout = 700;
-          on-timeout = "wl-gammactl -c 0.5";
+          on-timeout = "notify-send -a 'Hypridle' 'Idle' 'Bangun woy, gua kunci nih' -i $HOME/.dots/scripts/image/2025-03-01_08-03-1740792858.png";
+        }
+
+        {
+          timeout = 1500;
+          on-timeout = "wl-gammactl -c 0.1";
           on-resume = "pkill wl-gammactl";
         }
-        # {
-        #   timeout = 2000;
-        #   on-timeout = "sysmtectl suspend";
-        # }
+
+        {
+          timeout = 2000;
+          on-timeout = "bash $HOME/.dots/scripts/check_compile_running.sh"; # sleep with different powerprofiles
+          on-resume = "powerprofilesctl set performance";
+        }
       ];
     };
   };

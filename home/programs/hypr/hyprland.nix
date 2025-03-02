@@ -188,8 +188,8 @@ in {
       "$files" = "footclient --title=yaziFM yazi";
       "$zen-browser" = "zen";
       "$vm" = "vmware";
-      "$launcher" = "$HOME/.config/rofi/launchers/type-5/launcher.sh";
-      "$powermenu" = "$HOME/.config/rofi/powermenu/type-5/powermenu.sh";
+      "$launcher" = "rofi -show drun";
+      "$powermenu" = "wlogout";
       "$colorpick" = "/tmp/scripts/picker.sh";
       "$notifhistory" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t notificationsmenu";
       "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
@@ -261,8 +261,8 @@ in {
           "$modalt, mouse_up, workspace, e-1"
 
           ", XF86AudioStop, exec, playerctl play-pause"
-          ", XF86AudioStop, exec, playerctl previous"
-          ", XF86AudioStop, exec, playerctl next"
+          ", XF86AudioPrev, exec, playerctl previous"
+          ", XF86AudioNext, exec, playerctl next"
 
           ", XF86AudioLowerVolume,exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-"
           ", XF86AudioRaiseVolume,exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
@@ -324,7 +324,7 @@ in {
         "size 800 600,title:^(Import Hyprpanel Theme)$"
         "size 800 600,title:^(Hyprland Polkit Agent)$"
         "size 800 600,class:^(download)$"
-				"size 1096 520,initialTitle:^(yaziFM)$"
+        "size 1096 520,initialTitle:^(yaziFM)$"
         "size 800 600,title:^(Volume Control)$"
         "size 493 254,title:^(Image Properties)$"
         "size 505 600,title:^(iwgtk)$"
@@ -351,6 +351,8 @@ in {
         "animation popin 95%, energymenu"
         "animation popin 95%, calendarmenu"
         "animation popin 95%, notificationsmenu"
+        "animation popin 95%, rofi"
+        "blur, rofi"
       ];
 
       plugin = {
