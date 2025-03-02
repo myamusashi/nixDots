@@ -5,37 +5,37 @@
     layout = [
       {
         label = "shutdown";
-        action = "systemctl poweroff";
+        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh shutdown";
         text = "Mati";
         keybind = "s";
       }
       {
         label = "reboot";
-        action = "systemctl reboot";
+        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh reboot";
         text = "Reboot";
         keybind = "r";
       }
       {
         label = "sleep";
-        action = "systemctl suspend";
+        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh suspend";
         text = "Turu";
         keybind = "t";
       }
       {
         label = "hibernate";
-        action = "systemctl hibernate";
+        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh hibernate";
         text = "Hibernate";
         keybind = "h";
       }
       {
         label = "lock";
-        action = "loginctl lock-session";
+        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh lock";
         text = "konci";
         keybind = "l";
       }
       {
         label = "logout";
-        action = "hyprctl dispatch exit";
+        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh logout";
         text = "keluar";
         keybind = "e";
       }
