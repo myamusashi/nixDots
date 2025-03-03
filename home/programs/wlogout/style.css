@@ -1,10 +1,10 @@
 * {
     background-image: none;
-    font-size: 30px;
+    font-size: 15px;
 }
 
 window {
-    background-color: #363646;
+    background-color: rgba(54, 54, 70, 0.5);
 }
 
 button {

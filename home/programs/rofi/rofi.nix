@@ -26,7 +26,7 @@
         bg3    : #393939bf;
         fg0    : #ffffff;
         fg1    : #cecece;
-        accent : #60cdff;
+        accent : #FFA066;
         urgent : @accent;
 
         background-color : transparent;

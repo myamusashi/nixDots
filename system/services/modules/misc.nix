@@ -1,31 +1,30 @@
 {pkgs, ...}: {
-  services.cloudflare-warp.enable = true;
+  services = {
+    cloudflare-warp.enable = true;
+    xserver.videoDrivers = ["vmware"];
+    scx.enable = true;
 
-  services.xserver.videoDrivers = ["vmware"];
+    nix-serve = {
+      enable = false;
+      secretKeyFile = "/var/cache-priv-key.pem";
+    };
 
-  services.scx.enable = true;
+    printing.enable = false;
+    udisks2.enable = true;
 
-  services.nix-serve = {
-    enable = false;
-    secretKeyFile = "/var/cache-priv-key.pem";
+    xserver.xkb = {
+      layout = "us";
+      variant = "";
+    };
+
+    blueman.enable = true;
+    upower.enable = true;
+    power-profiles-daemon.enable = true;
+    openssh.enable = true;
+
+    locate.package = pkgs.mlocate;
+    locate.enable = true;
   };
-
-  services.printing.enable = false;
-
-  services.udisks2.enable = true;
-
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  services.blueman.enable = true;
-  services.upower.enable = true;
-  services.power-profiles-daemon.enable = true;
-  services.openssh.enable = true;
-
-  services.locate.package = pkgs.mlocate;
-  services.locate.enable = true;
 
   systemd.services."getty@tty2".enable = false;
 }

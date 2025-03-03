@@ -11,7 +11,7 @@
     pkgs.gh
     pkgs.zip
     pkgs.alejandra
-    pkgs.nixpkgs-fmt
+    pkgs.statix
     pkgs.nixfmt-classic
     pkgs.wl-gammactl
     pkgs.unzip

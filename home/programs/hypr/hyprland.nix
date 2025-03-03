@@ -353,6 +353,7 @@ in {
         "animation popin 95%, notificationsmenu"
         "animation popin 95%, rofi"
         "blur, rofi"
+        "blur, logout_dialog"
       ];
 
       plugin = {
@@ -420,12 +421,17 @@ in {
             text_font = "Sans"; # default: Sans
             text_height = 5; # default: 8
             text_padding = 1; # default: 3
-            col.active = "0xf38ba8ff"; # default: 0xff32b4ff
-            col.urgent = "0xffff4f4f"; # default: 0xffff4f4f
-            col.inactive = "0x80808080"; # default: 0x80808080
-            col.text.active = "0xff000000"; # default: 0xff000000
-            col.text.urgent = "0xff000000"; # default: 0xff000000
-            col.text.inactive = "0xff000000"; # default: 0xff000000
+            col = {
+              active = "0xf38ba8ff";
+              urgent = "0xffff4f4f";
+              inactive = "0x80808080";
+
+              text = {
+                active = "0xff000000";
+                urgent = "0xff000000";
+                inactive = "0xff000000";
+              };
+            };
           };
 
           autotile = {

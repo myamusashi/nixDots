@@ -8,10 +8,12 @@
 
   fonts.fontDir.enable = true;
 
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+  programs = {
+    mtr.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    hyprland.enable = true;
   };
-  programs.hyprland.enable = true;
 }

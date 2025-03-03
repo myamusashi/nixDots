@@ -1,8 +1,10 @@
 {pkgs, ...}: {
-  home.username = "myamusashi";
-  home.homeDirectory = "/home/myamusashi";
-
-  home.stateVersion = "24.11";
+  
+	home = {
+    username = "myamusashi";
+    homeDirectory = "/home/myamusashi";
+    stateVersion = "24.11";
+  };
 
   fonts.fontconfig.enable = true;
 

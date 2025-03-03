@@ -125,6 +125,10 @@ in {
       };
     };
     settings = {
+      preview = {
+        image_filter = "catmull-rom";
+        image_quality = 80;
+      };
       opener = {
         openImage = [
           {
@@ -151,111 +155,113 @@ in {
         ];
       };
 
-      plugin.prepend_fetchers = [
-        {
-          id = "git";
-          name = "*";
-          run = "git";
-        }
+      plugin = {
+        prepend_fetchers = [
+          {
+            id = "git";
+            name = "*";
+            run = "git";
+          }
 
-        {
-          id = "git";
-          name = "*/";
-          run = "git";
-        }
-      ];
-      plugin.prepend_preloaders = [
-        {
-          mime = "{audio,video,image}/*";
-          run = "mediainfo";
-        }
+          {
+            id = "git";
+            name = "*/";
+            run = "git";
+          }
+        ];
+        prepend_preloaders = [
+          {
+            mime = "{audio,video,image}/*";
+            run = "mediainfo";
+          }
 
-        {
-          mime = "application/subrip";
-          run = "mediainfo";
-        }
-      ];
-      plugin.prepend_previewers = [
-        {
-          name = "*/";
-          run = "eza-preview";
-        }
+          {
+            mime = "application/subrip";
+            run = "mediainfo";
+          }
+        ];
+        prepend_previewers = [
+          {
+            name = "*/";
+            run = "eza-preview";
+          }
 
-        {
-          mime = "{audio,video}/*";
-          run = "mediainfo";
-        }
+          {
+            mime = "{audio,video}/*";
+            run = "mediainfo";
+          }
 
-        {
-          name = "*.{jpg,png,webp}";
-          run = "mediainfo";
-        }
+          {
+            name = "*.{jpg,png,webp}";
+            run = "mediainfo";
+          }
 
-        {
-          mime = "application/subrip";
-          run = "mediainfo";
-        }
+          {
+            mime = "application/subrip";
+            run = "mediainfo";
+          }
 
-        {
-          name = "*.csv";
-          run = "rich-preview";
-        }
+          {
+            name = "*.csv";
+            run = "rich-preview";
+          }
 
-        {
-          name = "*.md";
-          run = "rich-preview";
-        }
+          {
+            name = "*.md";
+            run = "rich-preview";
+          }
 
-        {
-          name = "*.rst";
-          run = "rich-preview";
-        }
+          {
+            name = "*.rst";
+            run = "rich-preview";
+          }
 
-        {
-          name = "*.ipynb";
-          run = "rich-preview";
-        }
+          {
+            name = "*.ipynb";
+            run = "rich-preview";
+          }
 
-        {
-          name = "*.json";
-          run = "rich-preview";
-        }
+          {
+            name = "*.json";
+            run = "rich-preview";
+          }
 
-        {
-          mime = "application/*zip";
-          run = "ouch";
-        }
+          {
+            mime = "application/*zip";
+            run = "ouch";
+          }
 
-        {
-          mime = "application/x-tar";
-          run = "ouch";
-        }
+          {
+            mime = "application/x-tar";
+            run = "ouch";
+          }
 
-        {
-          mime = "application/x-tar.gz";
-          run = "ouch";
-        }
+          {
+            mime = "application/x-tar.gz";
+            run = "ouch";
+          }
 
-        {
-          mime = "application/x-bzip2";
-          run = "ouch";
-        }
+          {
+            mime = "application/x-bzip2";
+            run = "ouch";
+          }
 
-        {
-          mime = "application/x-7z-compressed";
-          run = "ouch";
-        }
+          {
+            mime = "application/x-7z-compressed";
+            run = "ouch";
+          }
 
-        {
-          mime = "application/x-rar";
-          run = "ouch";
-        }
+          {
+            mime = "application/x-rar";
+            run = "ouch";
+          }
 
-        {
-          mime = "application/x-xz";
-          run = "ouch";
-        }
-      ];
+          {
+            mime = "application/x-xz";
+            run = "ouch";
+          }
+        ];
+      };
     };
   };
 }
