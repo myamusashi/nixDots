@@ -1,4 +1,8 @@
 {
+  pkgs,
+  nixgl,
+  ...
+}: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   nixpkgs.config.allowUnfree = true;
@@ -15,5 +19,6 @@
       enableSSHSupport = true;
     };
     hyprland.enable = true;
+    ccache.enable = true;
   };
 }

@@ -20,7 +20,16 @@
     android-tools
     udiskie
     udisks
-    # ciscoPacketTracer8
+    wineWowPackages.waylandFull
+    winetricks
+    carlito
+    jflap
+    netbeans
+    gparted
+    vsftpd
+    filezilla
+    mtpfs
+    gvfs
     linux-wifi-hotspot
     gns3-gui
     gns3-server

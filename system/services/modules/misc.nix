@@ -12,6 +12,10 @@
     printing.enable = false;
     udisks2.enable = true;
 
+    gvfs.enable = true;
+
+    flatpak.enable = false;
+
     xserver.xkb = {
       layout = "us";
       variant = "";
