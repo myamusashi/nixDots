@@ -85,11 +85,14 @@
     };
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    nixgl.url = "github:nix-community/nixGL";
   };
 
   outputs = {
     nixpkgs,
     chaotic,
+    nixgl,
     home-manager,
     ...
   } @ inputs: let
@@ -103,6 +106,7 @@
         inputs.hyprsunset.overlays.default
         inputs.hypridle.overlays.default
         inputs.hyprland.overlays.default
+        nixgl.overlay
       ];
     };
   in {
