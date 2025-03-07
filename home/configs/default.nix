@@ -1,6 +1,9 @@
-{pkgs, ...}: {
-  
-	home = {
+{
+  pkgs,
+  nixgl,
+  ...
+}: {
+  home = {
     username = "myamusashi";
     homeDirectory = "/home/myamusashi";
     stateVersion = "24.11";

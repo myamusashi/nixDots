@@ -9,7 +9,7 @@ wf-recorder_check() {
 	fi
 }
 
-SELECTION=$(echo -e "screenshot window\nscreenshot selection\nscreenshot eDP-1\nscreenshot HDMI-A-1\nscreenshot both screens" | fuzzel -d -p "󰄀 " -w 25 -l 6 -b e06c7510)
+SELECTION=$(echo -e "screenshot window\nscreenshot selection\nscreenshot eDP-1\nscreenshot HDMI-A-2\nscreenshot both screens" | fuzzel -d -p "󰄀 " -w 25 -l 6 -b e06c7510)
 
 IMG="$HOME/Pictures/screenshot/$(date +%Y-%m-%d_%H-%m-%s).png"
 

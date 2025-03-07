@@ -34,7 +34,7 @@ lock_system() {
 }
 
 logout_system() {
-	pkexec hyprctl dispatch exit
+	pkexec pkill .Hyprland-wrapp
 }
 
 # Check if a specific action was requested

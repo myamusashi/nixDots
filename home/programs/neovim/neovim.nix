@@ -25,6 +25,7 @@
             tree-sitter-nix
             tree-sitter-python
             tree-sitter-r
+            tree-sitter-java
             tree-sitter-regex
             tree-sitter-rust
             tree-sitter-toml
@@ -44,6 +45,9 @@
       mesonlsp
       sassc
       ccls
+      jdt-language-server
+      google-java-format
+      vscode-langservers-extracted
       llvmPackages_19.clang-unwrapped # C stuff
       gcc14
       libgcc

@@ -194,7 +194,7 @@ in {
       "$notifhistory" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t notificationsmenu";
       "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
-      "$spotify" = "LD_PRELOAD=${spotify-adblock}/lib/libspotifyadblock.so ${config.programs.spicetify.spicedSpotify}/bin/spotify";
+      "$spotify" = "spotify";
       "$discord" = "${pkgs.vesktop}/bin/vesktop";
       "$clipmanager" = "cliphist list | wofi --dmenu --allow-images -p copy --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist decode | wl-copy";
       "$wipeclip" = "cliphist list | wofi --dmenu --allow-images -p delete --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist delete";
@@ -352,8 +352,9 @@ in {
         "animation popin 95%, calendarmenu"
         "animation popin 95%, notificationsmenu"
         "animation popin 95%, rofi"
+        "animation popin 95%, launcher"
         "blur, rofi"
-        "blur, logout_dialog"
+        "blur, launcher"
       ];
 
       plugin = {

@@ -5,6 +5,7 @@
 in {
   home.packages = [
     pkgs.gtk-engine-murrine
+    pkgs.gnome-themes-extra
     pkgs.gtk3
     pkgs.gtk4
     future-cyan-hyprcursor
@@ -51,10 +52,6 @@ in {
       #configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";
       extraConfig = ''
         gtk-application-prefer-dark-theme = 1
-        gtk-toolbar-style = GTK_TOOLBAR_ICONS
-        gtk-toolbar-icon-size = GTK_ICON_SIZE_LARGE_TOOLBAR
-        gtk-button-images = 0
-        gtk-menu-images = 0
         gtk-enable-event-sounds = 1
         gtk-enable-input-feedback-sounds = 0
         gtk-xft-antialias = 1
@@ -67,10 +64,6 @@ in {
       #configLocation = "${config.xdg.configHome}/gtk-3.0/settings.ini";
       extraConfig = {
         "gtk-application-prefer-dark-theme" = 1;
-        "gtk-toolbar-style" = "GTK_TOOLBAR_ICONS";
-        "gtk-toolbar-icon-size" = "GTK_ICON_SIZE_LARGE_TOOLBAR";
-        "gtk-button-images" = 0;
-        "gtk-menu-images" = 0;
         "gtk-enable-event-sounds" = 1;
         "gtk-enable-input-feedback-sounds" = 0;
         "gtk-xft-antialias" = 1;
