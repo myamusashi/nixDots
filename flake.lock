@@ -1562,15 +1562,15 @@
         "systems": "systems_8"
       },
       "locked": {
-        "lastModified": 1741083255,
-        "narHash": "sha256-SY6X1UIjlpTAQ60/wZDYcnzqj2iHQiwEDzhR1C3M2Uc=",
-        "owner": "myamusashi",
+        "lastModified": 1740889006,
+        "narHash": "sha256-A1iyKVvZrLdLwqWPC9OvPjC85ADQn2R1EGfCzJBl+wI=",
+        "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "a01b049f4d898a4aaa2dfe9783d4d6329de1b159",
+        "rev": "f8d3757d4ae3af2175a631fb9598a42d30ee75fc",
         "type": "github"
       },
       "original": {
-        "owner": "myamusashi",
+        "owner": "Gerg-L",
         "repo": "spicetify-nix",
         "type": "github"
       }
