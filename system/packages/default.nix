@@ -13,6 +13,8 @@
     libGL
     libGLU
     pciutils
+		blesh
+    onlyoffice-desktopeditors
     ffmpeg
     vulkan-tools
     (

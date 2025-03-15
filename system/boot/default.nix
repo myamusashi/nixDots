@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
+    initrd.verbose = false;
+    consoleLogLevel = 0;
     initrd.availableKernelModules = [
       "xhci_pci"
       "ahci"
@@ -14,6 +16,16 @@
       efi.canTouchEfiVariables = true;
     };
 
+    plymouth = {
+      enable = true;
+      theme = "cross_hud";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = ["cross_hud"];
+        })
+      ];
+    };
+
     supportedFilesystems = ["ntfs"];
     kernelModules = [
       "kvm-intel"
@@ -24,6 +36,13 @@
       "zram"
     ];
     kernelParams = [
+      "quiet"
+      "splash"
+      "loglevel=3"
+      "boot.shell_on_fail"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
       "console=tty1"
       "noibrs"
       "noibpb"
@@ -57,7 +76,7 @@
 
       "vm.vfs_cache_pressure" = 50;
       "vm.dirty_ratio" = 10;
-      "vm.swappiness" = 35;
+      "vm.swappiness" = 15;
     };
   };
 }
