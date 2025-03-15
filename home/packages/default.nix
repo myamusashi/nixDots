@@ -7,7 +7,6 @@
   home.packages = [
     pkgs.brightnessctl
     pkgs.wl-clipboard
-    pkgs.nwg-look
     pkgs.gh
     pkgs.zip
     pkgs.alejandra
@@ -31,21 +30,19 @@
     pkgs.viewnior
     pkgs.rich-cli
     pkgs.mpg123
-    pkgs.jetbrains.idea-community-bin
+    pkgs.zathura
     pkgs.kdePackages.qt6ct
     pkgs.libsForQt5.qt5ct
     (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)
     pkgs.nushell
-    pkgs.rquickshare
     pkgs.geogebra
     pkgs.wf-recorder
-    pkgs.brave
     pkgs.waypaper
     pkgs.nautilus
     pkgs.power-profiles-daemon
     pkgs.hyprsunset
     pkgs.hyprpicker
     pkgs.telegram-desktop
-    inputs.quickshell.packages.${pkgs.system}.default
+    # inputs.quickshell.packages.${pkgs.system}.default
   ];
 }

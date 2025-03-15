@@ -37,9 +37,9 @@ in {
     package = pkgs.hyprland;
     plugins = [
       "${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so"
-      "${
-        inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors
-      }/lib/libhypr-dynamic-cursors.so"
+      # "${
+      #   inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors
+      # }/lib/libhypr-dynamic-cursors.so"
       "${inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace}/lib/libHyprspace.so"
     ];
     settings = {
@@ -52,7 +52,7 @@ in {
         "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
       ];
 
-      monitor = ["eDP-1, 1366x768@60, 0x0, 1, vrr, 1, bitdepth, 10" "HDMI-A-2, 1920x1080@74.97, 0x768,1, vrr, 1, bitdepth, 10"];
+      monitor = ["eDP-1, 1366x768@60, 0x0, 1, vrr, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98" "HDMI-A-2, 1920x1080@74.97, 0x768,1, vrr, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98"];
 
       input = {
         kb_file = "";
@@ -124,12 +124,6 @@ in {
         middle_click_paste = true;
       };
 
-      experimental = {
-        wide_color_gamut = true;
-        hdr = true;
-        xx_color_management_v4 = true;
-      };
-
       cursor = {
         default_monitor = "LG Electronics";
         sync_gsettings_theme = true;
@@ -140,7 +134,7 @@ in {
       render = {
         explicit_sync = true;
         explicit_sync_kms = true;
-        direct_scanout = false;
+        cm_fs_passthrough = true;
       };
 
       xwayland = {

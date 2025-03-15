@@ -20,7 +20,6 @@
             tree-sitter-go
             tree-sitter-html
             tree-sitter-json
-            tree-sitter-latex
             tree-sitter-lua
             tree-sitter-nix
             tree-sitter-python

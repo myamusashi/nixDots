@@ -137,6 +137,13 @@ in {
             for = "unix";
           }
         ];
+        openPdf = [
+          {
+            run = ''${pkgs.zathura}/bin/zathura "$@" '';
+            block = true;
+            for = "unix";
+          }
+        ];
         extract = [
           {
             run = ''ouch d -y "$@" '';
@@ -151,6 +158,10 @@ in {
           {
             name = "*.{svg,png,jpg,jpeg,gif}";
             use = "openImage";
+          }
+          {
+            name = "*.pdf";
+            use = "openPdf";
           }
         ];
       };

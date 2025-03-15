@@ -7,7 +7,7 @@
         layer = "overlay";
       };
       colors = {
-        background = "171717";
+        background = "171717ff";
         text = "dcd7baff";
         border = "e6c384ff";
         match = "363646ff";
