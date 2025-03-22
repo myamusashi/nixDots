@@ -37,9 +37,7 @@ in {
     package = pkgs.hyprland;
     plugins = [
       "${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so"
-      # "${
-      #   inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors
-      # }/lib/libhypr-dynamic-cursors.so"
+      "${inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so"
       "${inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace}/lib/libHyprspace.so"
     ];
     settings = {
@@ -52,7 +50,7 @@ in {
         "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
       ];
 
-      monitor = ["eDP-1, 1366x768@60, 0x0, 1, vrr, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98" "HDMI-A-2, 1920x1080@74.97, 0x768,1, vrr, 1, bitdepth, 10, cm, hdr, sdrbrightness, 1.2, sdrsaturation, 0.98"];
+      monitor = ["eDP-1, 1366x768@60, 0x0, 1, sdrbrightness, 1.2, sdrsaturation, 0.98" "HDMI-A-2, 1920x1080@74.97, 0x768, 1, sdrbrightness, 1.2, sdrsaturation, 0.98"];
 
       input = {
         kb_file = "";
@@ -291,6 +289,7 @@ in {
         "float,class:^(confirmreset)$"
         "float,title:^(Open File)$"
         "float,title:^(branchdialog)$"
+        "float,title:^(Login - Akun Google — Zen Twilight)$"
         "float,title:^(Confirm to replace files)"
         "float,title:^(File Operation Progress)"
         "float,class:^(org.twosheds.iwgtk)$"
@@ -303,6 +302,8 @@ in {
         "move 40 44%,title:^(iwgtk)$"
         "move 40 44%,title:^(Volume Control)$"
         "move 40 58%,title:^(Bluetooth Devices)$"
+        "center,title:^(Starting Apache NetBeans IDE)$"
+        "center,title:^(Login - Akun Google — Zen Twilight)$"
         "center,title:^(Import Hyprpanel Theme)$"
         "center,title:^(hyprpanel-settings)$"
         "center,title:^(Hyprland Polkit Agent)$"
@@ -313,7 +314,9 @@ in {
         "center,title:^(Image Properties)$"
         "center,title:^(Enter name of file to save to…)$"
         "center,title:^(vesktop)$"
+        "size 480 300,title:^(Starting Apache NetBeans IDE)$"
         "size 300 350,title:^(vesktop)$"
+        "size 954 641,title:^(Login - Akun Google — Zen Twilight)$"
         "size 800 600,title:^(hyprpanel-settings)$"
         "size 800 600,title:^(Import Hyprpanel Theme)$"
         "size 800 600,title:^(Hyprland Polkit Agent)$"
@@ -328,6 +331,7 @@ in {
         "idleinhibit fullscreen,class:^(firefox)$"
         "opacity 0.90,title:^(Spotify)$"
         "opacity 1 override,class:^(zen|zen-twilight)$"
+        "opacity 0.95,class:^(Spotify)$"
         "opacity 0.95,class:^(nemo)$"
         "noblur,xwayland:1"
         "noborder,initialClass:^(Xdg-desktop-portal-gtk)$"

@@ -13,25 +13,25 @@
     libGL
     libGLU
     pciutils
-		blesh
+    blesh
     onlyoffice-desktopeditors
     ffmpeg
     vulkan-tools
     (
       vmware-workstation.overrideAttrs (e: {
         installPhase = ''
-          # Run the original install phase
-          ${e.installPhase}
+               ${e.installPhase}
 
-          # Create a wrapper script that sets the GTK theme
-          mv $out/bin/vmware $out/bin/vmware-bin
-          makeWrapper $out/bin/vmware-bin $out/bin/vmware \
-            --set GTK_THEME "Adwaita-dark"
+               mv $out/bin/vmware $out/bin/vmware-bin
+               makeWrapper $out/bin/vmware-bin $out/bin/vmware \
+                 --set GTK_THEME "Adwaita-dark"
 
-          # Update the desktop file to use the wrapper
-          if [ -f $out/share/applications/vmware-workstation.desktop ]; then
-            substituteInPlace $out/share/applications/vmware-workstation.desktop \
-              --replace "Exec=@@BINARY@@" "Exec=$out/bin/vmware"
+               if [ -f $out/share/applications/vmware-workstation.desktop ]; then
+                 substituteInPlace $out/share/applications/vmware-workstation.desktop \
+                   --replace "Exec=@@BINARY@@" "Exec=$out/bin/vmware"
+
+                 substituteInPlace $out/share/applications/vmware-player.desktop \
+                   --replace "Exec=@@BINARY@@" "Exec=$out/bin/vmware"
           fi
         '';
 

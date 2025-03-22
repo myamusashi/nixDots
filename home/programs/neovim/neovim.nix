@@ -22,8 +22,10 @@
             tree-sitter-json
             tree-sitter-lua
             tree-sitter-nix
+            tree-sitter-sql
             tree-sitter-python
             tree-sitter-r
+            tree-sitter-dockerfile
             tree-sitter-java
             tree-sitter-regex
             tree-sitter-rust
@@ -44,6 +46,8 @@
       mesonlsp
       sassc
       ccls
+      sqls
+      dockerfile-language-server-nodejs
       jdt-language-server
       google-java-format
       vscode-langservers-extracted

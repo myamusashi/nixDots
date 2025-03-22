@@ -17,6 +17,5 @@
     ./wofi/wofi.nix
     ./foot/foot.nix
     ./spicetify/spicetify.nix
-		./xonsh/xonsh.nix
   ];
 }
