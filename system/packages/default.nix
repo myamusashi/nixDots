@@ -16,6 +16,8 @@
     blesh
     onlyoffice-desktopeditors
     ffmpeg
+    pcsx2
+    apacheHttpd
     vulkan-tools
     (
       vmware-workstation.overrideAttrs (e: {

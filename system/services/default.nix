@@ -6,5 +6,6 @@
     ./modules/network
     ./modules/misc.nix
     ./modules/udev
+    ./modules/pma/phpmyadmin.nix
   ];
 }

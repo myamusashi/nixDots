@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  xonsh = {
+  programs.xonsh = {
     enable = true;
     package = pkgs.xonsh;
     config = ''

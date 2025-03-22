@@ -23,8 +23,8 @@
         $cfg['Servers'][1]['AllowNoPassword'] = false;
       '';
       phpmyadminPkg = pkgs.callPackage ./pkg.nix {inherit configFile;};
-      phpmyadmin = {
-        hostName = "phpmyadmin.tld";
+    in {
+      "goblok.com" = {
         documentRoot = phpmyadminPkg;
         extraConfig = ''
           <Directory "${phpmyadminPkg}">
@@ -32,6 +32,6 @@
           </Directory>
         '';
       };
-    in [phpmyadmin];
+    };
   };
 }
