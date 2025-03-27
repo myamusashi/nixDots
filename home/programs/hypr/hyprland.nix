@@ -160,9 +160,9 @@ in {
           "md2, 0.4, 0, 0.2, 1"
         ];
         animation = [
-          "windows, 1, 3, md3_decel, popin 60%"
-          "windowsIn, 1, 3, md3_decel, popin 60%"
-          "windowsOut, 1, 3, md3_accel, popin 60%"
+          "windows, 1, 3, hyprnostretch, gnomed"
+          "windowsIn, 1, 3, md3_standard, gnomed"
+          "windowsOut, 1, 3, md3_accel, gnomed"
           "border, 1, 10, default"
           "fade, 1, 3, md3_decel"
           "workspaces, 1, 7, menu_decel, slide"
@@ -300,8 +300,10 @@ in {
         "float,initialTitle:^(yaziFM)$"
         "float,title:^(Image Properties)$"
         "move 40 44%,title:^(iwgtk)$"
-        "move 40 44%,title:^(Volume Control)$"
+
         "move 40 58%,title:^(Bluetooth Devices)$"
+        "center,floating:1,title:^(Steam|Sign in to Steam)"
+        "center,title:^(Volume Control)$"
         "center,title:^(Starting Apache NetBeans IDE)$"
         "center,title:^(Login - Akun Google — Zen Twilight)$"
         "center,title:^(Import Hyprpanel Theme)$"
@@ -331,7 +333,6 @@ in {
         "idleinhibit fullscreen,class:^(firefox)$"
         "opacity 0.90,title:^(Spotify)$"
         "opacity 1 override,class:^(zen|zen-twilight)$"
-        "opacity 0.95,class:^(Spotify)$"
         "opacity 0.95,class:^(nemo)$"
         "noblur,xwayland:1"
         "noborder,initialClass:^(Xdg-desktop-portal-gtk)$"

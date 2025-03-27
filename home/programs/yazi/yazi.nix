@@ -26,6 +26,7 @@ in {
       git = "${plugin.official-plugins}/git.yazi";
       hide-preview = "${plugin.official-plugins}/hide-preview.yazi";
       mount = "${plugin.official-plugins}/mount.yazi";
+      office = "${plugin.office}";
       rich-preview = "${plugin.rich-preview}";
       eza-preview = "${plugin.eza-preview}";
       mediainfo = "${plugin.mediainfo}";
@@ -190,6 +191,30 @@ in {
             mime = "application/subrip";
             run = "mediainfo";
           }
+
+          {
+            mime = "application/openxmlformats-officedocument.*";
+            run = "office";
+          }
+
+          {
+            mime = "application/oasis.opendocument.*";
+            run = "office";
+          }
+          {
+            mime = "application/ms-*";
+            run = "office";
+          }
+
+          {
+            mime = "application/msword";
+            run = "office";
+          }
+
+          {
+            name = "*.docx";
+            run = "office";
+          }
         ];
         prepend_previewers = [
           {
@@ -235,6 +260,31 @@ in {
           {
             name = "*.json";
             run = "rich-preview";
+          }
+
+          {
+            mime = "application/openxmlformats-officedocument.*";
+            run = "office";
+          }
+
+          {
+            mime = "application/oasis.opendocument.*";
+            run = "office";
+          }
+
+          {
+            mime = "application/ms-*";
+            run = "office";
+          }
+
+          {
+            mime = "application/msword";
+            run = "office";
+          }
+
+          {
+            name = "*.docx";
+            run = "office";
           }
 
           {

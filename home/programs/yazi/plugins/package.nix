@@ -27,6 +27,13 @@
     hash = "sha256-LKO2kbpI8NnEnvIIAp01RefSlhGQV1BRDNO03eLQZoA=";
   };
 
+  office = pkgs.fetchFromGitHub {
+    owner = "macydnah";
+    repo = "office.yazi";
+    rev = "bcd9e9e78835c96eb2bb8b8841e4753704b99b17";
+    hash = "sha256-rZas/oMNI6H5lXOixDQcL/dQC+J9VCFrOOIIjjLDUc4=";
+  };
+
   eza-preview = pkgs.fetchFromGitHub {
     owner = "ahkohd";
     repo = "eza-preview.yazi";

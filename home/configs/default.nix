@@ -24,7 +24,7 @@
   programs.git = {
     enable = true;
     userName = "myamusashi";
-    userEmail = "jinxprogilang666@gmail.com";
+    userEmail = "myamusashi@proton.me";
     aliases = {
       ci = "commit";
       sw = "checkout";

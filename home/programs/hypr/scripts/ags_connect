@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-hyprpanel -q
+pkill -9 .hyprpanel-wrap
 hyprpanel

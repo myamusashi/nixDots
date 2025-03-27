@@ -9,8 +9,6 @@
           right = 0;
           top = 0;
         };
-        width = 25;
-        height = 12;
       };
       general = {
         multithreading = true;

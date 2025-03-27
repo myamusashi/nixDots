@@ -38,7 +38,6 @@
     pkgs.geogebra
     pkgs.wf-recorder
     pkgs.waypaper
-    pkgs.nautilus
     pkgs.power-profiles-daemon
     pkgs.hyprsunset
     pkgs.hyprpicker
