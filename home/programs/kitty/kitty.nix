@@ -1,12 +1,11 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }: {
   programs.kitty = lib.mkForce {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.kitty;
+		package = pkgs.kitty;
     themeFile = "kanagawa_dragon";
     keybindings = {
       "ctrl+g" = "lazygit";

@@ -1,0 +1,13 @@
+--- a/src/wl_window.c
++++ b/src/wl_window.c
+@@ -669,6 +669,10 @@
+         switch (*state) {
+             case XDG_TOPLEVEL_STATE_MAXIMIZED:
+             case XDG_TOPLEVEL_STATE_FULLSCREEN:
++            case XDG_TOPLEVEL_STATE_CONSTRAINED_LEFT:
++            case XDG_TOPLEVEL_STATE_CONSTRAINED_RIGHT:
++            case XDG_TOPLEVEL_STATE_CONSTRAINED_TOP:
++            case XDG_TOPLEVEL_STATE_CONSTRAINED_BOTTOM:
+             case XDG_TOPLEVEL_STATE_RESIZING:
+             case XDG_TOPLEVEL_STATE_ACTIVATED:
+                 break;
