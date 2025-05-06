@@ -46,7 +46,7 @@ in {
     enable = true;
 
     iconTheme = {name = "Kanagawa";};
-    theme = {name = "Kanagawa-B-LB";};
+    theme = {name = "Kanagawa-B";};
 
     gtk2 = {
       #configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";

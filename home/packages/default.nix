@@ -7,6 +7,8 @@
   home.packages = [
     pkgs.brightnessctl
     pkgs.wl-clipboard
+    pkgs.wayland-protocols
+		pkgs.rich-cli
     pkgs.gh
     pkgs.zip
     pkgs.alejandra
@@ -28,9 +30,10 @@
     pkgs.jq
     pkgs.hyprpanel
     pkgs.viewnior
-    pkgs.rich-cli
     pkgs.mpg123
     pkgs.zathura
+    pkgs.postman
+    pkgs.docker-compose
     pkgs.kdePackages.qt6ct
     pkgs.libsForQt5.qt5ct
     (config.lib.nixGL.wrap inputs.zen-browser.packages.${pkgs.system}.default)

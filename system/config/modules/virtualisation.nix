@@ -46,7 +46,10 @@
     #  };
     vmware = {
       host.enable = true;
-      guest.enable = true;
+      guest = {
+        enable = true;
+        package = pkgs.open-vm-tools;
+      };
     };
   };
 

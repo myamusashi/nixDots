@@ -8,6 +8,7 @@
     ./programs/default.nix
     ./security/default.nix
     ./services/default.nix
+    ./xdg/xdg.nix
     ./users/default.nix
   ];
 }

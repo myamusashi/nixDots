@@ -47,7 +47,7 @@
     };
 
     Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
+      url = "github:myamusashi/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -107,6 +107,7 @@
         inputs.hypridle.overlays.default
         inputs.hyprland.overlays.default
         nixgl.overlay
+        (import ./overlays/default.nix)
       ];
     };
   in {

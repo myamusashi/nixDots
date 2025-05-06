@@ -2,8 +2,8 @@
   official-plugins = pkgs.fetchFromGitHub {
     owner = "yazi-rs";
     repo = "plugins";
-    rev = "beb586aed0d41e6fdec5bba7816337fdad905a33";
-    hash = "sha256-enIt79UvQnKJalBtzSEdUkjNHjNJuKUWC4L6QFb3Ou4=";
+    rev = "864a0210d9ba1e8eb925160c2e2a25342031d8d3";
+    hash = "sha256-m3709h7/AHJAtoJ3ebDA40c77D+5dCycpecprjVqj/k=";
   };
 
   mime-preview = pkgs.fetchFromGitHub {
@@ -23,15 +23,15 @@
   mediainfo = pkgs.fetchFromGitHub {
     owner = "boydaihungst";
     repo = "mediainfo.yazi";
-    rev = "2c3f675d3722672eb3a3422590375d1145843a40";
-    hash = "sha256-LKO2kbpI8NnEnvIIAp01RefSlhGQV1BRDNO03eLQZoA=";
+    rev = "9629b1e85c3757c834ec83fb7d931982c55f4c3f";
+    hash = "sha256-EDEIiZJy/RfXVaLNsKDeklH4qY2h+js2m0y6VSAjPkk=";
   };
 
   office = pkgs.fetchFromGitHub {
     owner = "macydnah";
     repo = "office.yazi";
-    rev = "bcd9e9e78835c96eb2bb8b8841e4753704b99b17";
-    hash = "sha256-rZas/oMNI6H5lXOixDQcL/dQC+J9VCFrOOIIjjLDUc4=";
+    rev = "d1e3e51857c109fbfc707ab0f9f383dc98b9795f";
+    hash = "sha256-ORcexu1f7hb7G4IyzQIfGlCkH3OWlk4w5FtZrbXkR40=";
   };
 
   eza-preview = pkgs.fetchFromGitHub {
@@ -44,29 +44,29 @@
   glow = pkgs.fetchFromGitHub {
     owner = "Reledia";
     repo = "glow.yazi";
-    rev = "5ce76dc92ddd0dcef36e76c0986919fda3db3cf5";
-    hash = "sha256-UljcrXXO5DZbufRfavBkiNV3IGUNct31RxCujRzC9D4=";
+    rev = "2da96e3ffd9cd9d4dd53e0b2636f83ff69fe9af0";
+    hash = "sha256-4krck4U/KWmnl32HWRsblYW/biuqzDPysrEn76buRck=";
   };
 
   hexyl = pkgs.fetchFromGitHub {
     owner = "Reledia";
     repo = "hexyl.yazi";
-    rev = "39d3d4e23ad7cec8888f648ddf55af4386950ce7";
-    hash = "sha256-nsnnL3GluKk/p1dQZTZ/RwQPlAmTBu9mQzHz1g7K0Ww=";
+    rev = "main";
+    hash = "sha256-ly/cLKl2y3npoT2nX8ioGOFcRXI4UXbD9Es/5veUhOU=";
   };
 
   ouch = pkgs.fetchFromGitHub {
     owner = "ndtoan96";
     repo = "ouch.yazi";
-    rev = "ce6fb75431b9d0d88efc6ae92e8a8ebb9bc1864a";
-    hash = "sha256-oUEUGgeVbljQICB43v9DeEM3XWMAKt3Ll11IcLCS/PA=";
+    rev = "2496cd9ac2d1fb52597b22ae84f3af06c826a86d";
+    hash = "sha256-OsNfR7rtnq+ceBTiFjbz+NFMSV/6cQ1THxEFzI4oPJk=";
   };
 
   rich-preview = pkgs.fetchFromGitHub {
     owner = "AnirudhG07";
     repo = "rich-preview.yazi";
-    rev = "2559e5fa7c1651dbe7c5615ef6f3b5291347d81a";
-    hash = "sha256-dW2gAAv173MTcQdqMV32urzfrsEX6STR+oCJoRVGGpA=";
+    rev = "fdcf37320e35f7c12e8087900eebffcdafaee8cb";
+    hash = "sha256-HO9hTCfgGTDERClZaLnUEWDvsV9GMK1kwFpWNM1wq8I=";
   };
 
   yatline = pkgs.fetchFromGitHub {
@@ -107,7 +107,7 @@
   fzf = pkgs.fetchFromGitHub {
     owner = "DreamMaoMao";
     repo = "fg.yazi";
-    rev = "daf696065d65e61a1b3026ab8190351203513d51";
-    hash = "sha256-dcidPBhc0+NvPb80hK+kUoq+PxspceFCliyEc7K3OTk=";
+    rev = "46a5c16f62f415f691319f984b9548249b0edc96";
+    hash = "sha256-B6Feg8icshHQYv04Ee/Bo9PPaiDPRyt1HwpirI/yXj8=";
   };
 }

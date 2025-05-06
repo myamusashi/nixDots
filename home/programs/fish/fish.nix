@@ -21,17 +21,6 @@
       function imgcp
       	wl-copy < $argv[1]
       end
-         if set -q IN_NIX_SHELL
-             if test -f /home/myamusashi/.conda/bin/conda
-                 eval (/home/myamusashi/.conda/bin/conda "shell.fish" "hook" $argv)
-          			else
-              			if test -f "/home/myamusashi/.conda/etc/fish/conf.d/conda.fish"
-                     . "/home/myamusashi/.conda/etc/fish/conf.d/conda.fish"
-              			else
-                     set -x PATH "/home/myamusashi/.conda/bin" $PATH
-              			end
-          			end
-         end
     '';
   };
 }

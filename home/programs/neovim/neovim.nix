@@ -63,6 +63,7 @@
       nodejs_23
       dockerfile-language-server-nodejs
       fish-lsp
+      python312Packages.python-lsp-server
       pyright
       rust-analyzer
       marksman

@@ -5,7 +5,6 @@
 }: {
   programs.kitty = lib.mkForce {
     enable = true;
-		package = pkgs.kitty;
     themeFile = "kanagawa_dragon";
     keybindings = {
       "ctrl+g" = "lazygit";

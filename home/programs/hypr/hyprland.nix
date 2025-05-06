@@ -36,8 +36,8 @@ in {
     enable = true;
     package = pkgs.hyprland;
     plugins = [
-      "${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so"
-      "${inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so"
+      # "${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so"
+      # "${inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so"
       "${inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace}/lib/libHyprspace.so"
     ];
     settings = {
@@ -45,12 +45,12 @@ in {
         "hyprpanel"
         "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"
         "/tmp/scripts/start_boot"
-        "brightnessctl set 60%"
+        "swayosd-server"
         "udiskie --appindicator --menu-update-workaround --file-manager nautilus --tray --notify --automount"
         "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
       ];
 
-      monitor = ["eDP-1, 1366x768@60, 0x0, 1, sdrbrightness, 1.2, sdrsaturation, 0.98" "HDMI-A-2, 1920x1080@74.97, 0x768, 1, sdrbrightness, 1.2, sdrsaturation, 0.98"];
+      monitor = ["eDP-1, 1366x768@60, 0x0, 1" "HDMI-A-2, 1920x1080@74.97, 0x768, 1"];
 
       input = {
         kb_file = "";
@@ -187,7 +187,7 @@ in {
       "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
       "$spotify" = "spotify";
-      "$discord" = "${pkgs.vesktop}/bin/vesktop";
+      # "$discord" = "${pkgs.vesktop}/bin/vesktop";
       "$clipmanager" = "cliphist list | wofi --dmenu --allow-images -p copy --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist decode | wl-copy";
       "$wipeclip" = "cliphist list | wofi --dmenu --allow-images -p delete --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist delete";
       "$modalt" = "ALT";
@@ -269,7 +269,8 @@ in {
             (i: let ws = i + 1; in ["$mod, ${toString ws}, movetoworkspace, ${toString ws}"])
             9)
         );
-      bindm = ["$modalt, mouse:272, movewindow" "$modalt, mouse:273, resizewindow"];
+
+      bindm = ["$modalt, mouse:273, resizewindow" "$modalt, mouse:272, movewindow"];
       bindr = [
         "CAPS, Caps_Lock, exec, swayosd-client --caps-lock"
         ", toggle_numlock, exec, swayosd-client --num-lock"
@@ -288,6 +289,7 @@ in {
         "float,class:^(error)$"
         "float,class:^(confirmreset)$"
         "float,title:^(Open File)$"
+        "float,class:^(zen-twilight),title:^()"
         "float,title:^(branchdialog)$"
         "float,title:^(Login - Akun Google — Zen Twilight)$"
         "float,title:^(Confirm to replace files)"
@@ -299,13 +301,14 @@ in {
         "float,class:^(Rofi)$"
         "float,initialTitle:^(yaziFM)$"
         "float,title:^(Image Properties)$"
+        "float,class:^(zen|zen-twilight),title:^(Sign In - Google Accounts — Zen Twilight|Sign In - Google Accounts — Zen)"
         "move 40 44%,title:^(iwgtk)$"
-
         "move 40 58%,title:^(Bluetooth Devices)$"
+        "move 100%-w-20,class:^(zen|zen-twilight),title:^()"
         "center,floating:1,title:^(Steam|Sign in to Steam)"
         "center,title:^(Volume Control)$"
         "center,title:^(Starting Apache NetBeans IDE)$"
-        "center,title:^(Login - Akun Google — Zen Twilight)$"
+        "center,class:^(zen|zen-twilight),title:^(Sign In - Google Accounts — Zen Twilight|Sign In - Google Accounts — Zen)"
         "center,title:^(Import Hyprpanel Theme)$"
         "center,title:^(hyprpanel-settings)$"
         "center,title:^(Hyprland Polkit Agent)$"
@@ -316,6 +319,8 @@ in {
         "center,title:^(Image Properties)$"
         "center,title:^(Enter name of file to save to…)$"
         "center,title:^(vesktop)$"
+        "size 450 420,class:^(zen|zen-twilight),title:^(Sign In - Google Accounts — Zen Twilight|Sign In - Google Accounts — Zen)"
+        "size 351 113,class:^(zen|zen-twilight),title:^()"
         "size 480 300,title:^(Starting Apache NetBeans IDE)$"
         "size 300 350,title:^(vesktop)$"
         "size 954 641,title:^(Login - Akun Google — Zen Twilight)$"

@@ -2,11 +2,16 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    poppler_utils
+    libreoffice
     ntfs3g
+    protonmail-desktop
+    proton-pass
     vulkan-tools
     libgdiplus
     winetricks
     polkit
+    ciscoPacketTracer8
     tree-sitter
     proton-ge-custom
     libgcc
@@ -18,6 +23,7 @@
     ffmpeg
     pcsx2
     apacheHttpd
+    nemo-with-extensions
     vulkan-tools
     (
       vmware-workstation.overrideAttrs (e: {

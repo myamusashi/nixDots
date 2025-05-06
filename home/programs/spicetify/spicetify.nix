@@ -21,6 +21,6 @@ in {
     enabledCustomApps = with spicePkgs.apps; [
       lyricsPlus
     ];
-    colorScheme = "kanagawa";
+    colorScheme = "Kanagawa";
   };
 }
