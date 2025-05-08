@@ -3,11 +3,10 @@
     enable = true;
     settings = {
       logo = {
-        type = "kitty";
-        source = "~/.face";
+        type = "kitty-icat";
+        source = "~/Pictures/wallpapers/neko-cat.gif";
         padding = {
-          right = 0;
-          top = 0;
+          top = 3;
         };
       };
       general = {
@@ -18,10 +17,10 @@
         separator = " ➜ ";
       };
       modules = [
-        {
-          type = "title";
-          format = "                                 {6}{7}{8}";
-        }
+        # {
+        #   type = "title";
+        #   format = "                                 {6}{7}{8}";
+        # }
         {
           key = "     OS         ";
           keyColor = "white";

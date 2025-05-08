@@ -1,4 +1,4 @@
-final: prev: {
+{pkgs, ...}: final: prev: {
   kitty = prev.kitty.overrideAttrs (oldAttrs: {
     patches =
       (oldAttrs.patches or [])
@@ -6,12 +6,6 @@ final: prev: {
         ./patch/kitty-patch/fix_wl_platform_toplevel.patch
         ./patch/kitty-patch/fix_xdg_toplevel_switch.patch
       ];
-  });
-
-  vesktop = prev.vesktop.overrideAttrs (oldAttrs: {
-    env = {
-      ELECTRON_SKIP_BINARY_DOWNLOAD = "0";
-    };
   });
 
   vmware-workstation = prev.vmware-workstation.overrideAttrs (oldAttrs: let
@@ -31,6 +25,25 @@ final: prev: {
         stripRoot = false;
       }
       + "/VMware-Workstation-${version}-${build}.x86_64.bundle";
+    installPhase = ''
+      ${oldAttrs.installPhase}
+
+      mv $out/bin/vmware $out/bin/vmware-bin
+      makeWrapper $out/bin/vmware-bin $out/bin/vmware \
+        --set GTK_THEME "Adwaita-dark"
+
+      if [ -f $out/share/applications/vmware-workstation.desktop ]; then
+        substituteInPlace $out/share/applications/vmware-workstation.desktop \
+          --replace "Exec=@@BINARY@@" "Exec=$out/bin/vmware"
+
+        substituteInPlace $out/share/applications/vmware-player.desktop \
+          --replace "Exec=@@BINARY@@" "Exec=$out/bin/vmware"
+      fi
+    '';
+
+    # Make sure makeWrapper is available
+    nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [pkgs.makeWrapper];
+
     unpackPhase = ''
       ${vmware-unpack-env}/bin/vmware-unpack-env -c "sh ${final.vmware-workstation.src} --extract unpacked"
     '';

@@ -38,12 +38,13 @@ in {
     plugins = [
       # "${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so"
       # "${inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so"
+      "${inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling}/hyprscrolling.so"
       "${inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace}/lib/libHyprspace.so"
     ];
     settings = {
       exec-once = [
         "hyprpanel"
-        "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"
+        "clipse -listen"
         "/tmp/scripts/start_boot"
         "swayosd-server"
         "udiskie --appindicator --menu-update-workaround --file-manager nautilus --tray --notify --automount"
@@ -83,7 +84,7 @@ in {
         "col.active_border" = "rgba(C0A36Ee7) rgba(DCD7BAff) 45deg";
         "col.inactive_border" = "0x3636462E";
         no_border_on_floating = false;
-        layout = "hy3";
+        layout = "scrolling";
         snap = {
           enabled = true;
           window_gap = 35;
@@ -98,7 +99,7 @@ in {
 
         blur = {
           enabled = true;
-          size = 2;
+          size = 6;
           passes = 2;
           new_optimizations = true;
           input_methods = 1;
@@ -187,9 +188,8 @@ in {
       "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
       "$spotify" = "spotify";
-      # "$discord" = "${pkgs.vesktop}/bin/vesktop";
-      "$clipmanager" = "cliphist list | wofi --dmenu --allow-images -p copy --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist decode | wl-copy";
-      "$wipeclip" = "cliphist list | wofi --dmenu --allow-images -p delete --pre-display-cmd \"${cliphist-img-display}/bin/cliphist-wofi-img %s\" | cliphist delete";
+      "$discord" = "/nix/store/b93q9w5dqwbwql38djf3dz8b0n6z3mjd-vesktop-1.5.6/bin/vesktop";
+      "$clipmanager" = "kitty --class clipse -e clipse";
       "$modalt" = "ALT";
       "$mod" = "SUPER";
 
@@ -202,7 +202,6 @@ in {
           "SHIFT $modalt, E, exec, /tmp/scripts/ags_connect"
           "SHIFT $modalt, D, exec, $discord"
           "$modalt, SPACE, exec, $launcher"
-          "$modalt, C, exec, $wipeclip"
           "$modalt, S, exec, $spotify"
           "$mod, P, exec, $dashboard"
           "SuperShift, C, exec, $calendar"
@@ -230,17 +229,15 @@ in {
           "$modalt, down, movefocus, d"
 
           # Alternative Movefocus
-          "$mod CTRL, left, exec, hyprctl dispatch hy3:movefocus l"
-          "$mod CTRL, right, exec, hyprctl dispatch hy3:movefocus r"
-          "$mod CTRL, up, exec, hyprctl dispatch hy3:movefocus u"
-          "$mod CTRL, down, exec, hyprctl dispatch hy3:movefocus d"
+          "$mod CTRL, left, exec, hyprctl dispatch movefocus l"
+          "$mod CTRL, right, exec, hyprctl dispatch movefocus r"
+          "$mod CTRL, up, exec, hyprctl dispatch movefocus u"
+          "$mod CTRL, down, exec, hyprctl dispatch movefocus d"
 
-          "SHIFT $modalt, G, exec, hyprctl dispatch hy3:makegroup tab"
-
-          "$mod, left, exec, hyprctl dispatch hy3:movewindow l, once"
-          "$mod, right, exec, hyprctl dispatch hy3:movewindow r, once"
-          "$mod, up, exec, hyprctl dispatch hy3:movewindow u, once"
-          "$mod, down, exec, hyprctl dispatch hy3:movewindow d, once"
+          "$mod, left, exec, hyprctl dispatch movewindow l"
+          "$mod, right, exec, hyprctl dispatch movewindow r"
+          "$mod, up, exec, hyprctl dispatch movewindow u"
+          "$mod, down, exec, hyprctl dispatch movewindow d"
           "$modalt CTRL, left, resizeactive, -20 0"
           "$modalt CTRL, right, resizeactive, 20 0"
           "$modalt CTRL, up, resizeactive, 0 -20"
@@ -281,6 +278,7 @@ in {
         "float,title:^(Media viewer)$"
         "float,title:^(Volume Control)$"
         "float,title:^(Picture-in-Picture)$"
+        "float,class:^(clipse)"
         "float,class:^(file_progress)$"
         "float,class:^(confirm)$"
         "float,class:^(dialog)$"
@@ -304,7 +302,6 @@ in {
         "float,class:^(zen|zen-twilight),title:^(Sign In - Google Accounts — Zen Twilight|Sign In - Google Accounts — Zen)"
         "move 40 44%,title:^(iwgtk)$"
         "move 40 58%,title:^(Bluetooth Devices)$"
-        "move 100%-w-20,class:^(zen|zen-twilight),title:^()"
         "center,floating:1,title:^(Steam|Sign in to Steam)"
         "center,title:^(Volume Control)$"
         "center,title:^(Starting Apache NetBeans IDE)$"
@@ -319,6 +316,7 @@ in {
         "center,title:^(Image Properties)$"
         "center,title:^(Enter name of file to save to…)$"
         "center,title:^(vesktop)$"
+        "size 622 652,class:^(clipse)"
         "size 450 420,class:^(zen|zen-twilight),title:^(Sign In - Google Accounts — Zen Twilight|Sign In - Google Accounts — Zen)"
         "size 351 113,class:^(zen|zen-twilight),title:^()"
         "size 480 300,title:^(Starting Apache NetBeans IDE)$"
@@ -334,6 +332,7 @@ in {
         "size 505 600,title:^(iwgtk)$"
         "size 885 463,title:^(Enter name of file to save to…)$"
         "size 652 310,title:^(Bluetooth Devices)$"
+        "stayfocused,class:^(clipse)"
         "idleinhibit focus,class:^(mpv)$"
         "idleinhibit fullscreen,class:^(firefox)$"
         "opacity 0.90,title:^(Spotify)$"

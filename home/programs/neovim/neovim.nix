@@ -19,6 +19,7 @@
             tree-sitter-fish
             tree-sitter-go
             tree-sitter-html
+            tree-sitter-svelte
             tree-sitter-json
             tree-sitter-lua
             tree-sitter-nix
@@ -40,6 +41,7 @@
       alejandra
       lemminx
       nil # nix lsp
+      svelte-language-server
       gopls
       nixd
       gnumake

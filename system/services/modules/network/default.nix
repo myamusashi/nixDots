@@ -10,7 +10,8 @@
       DNSStubListenerExtra=127.0.0.1
     '';
   };
-
+  
+	# Enable hostpot
   services.create_ap = {
     enable = false;
     settings = {

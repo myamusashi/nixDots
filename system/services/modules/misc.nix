@@ -17,7 +17,7 @@
     flatpak.enable = false;
 
     blueman.enable = true;
-    upower.enable = false;
+    upower.enable = true;
     power-profiles-daemon.enable = true;
     openssh.enable = true;
 
