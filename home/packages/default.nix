@@ -8,7 +8,7 @@
     pkgs.brightnessctl
     pkgs.wl-clipboard
     pkgs.wayland-protocols
-		pkgs.rich-cli
+    pkgs.rich-cli
     pkgs.gh
     pkgs.zip
     pkgs.alejandra

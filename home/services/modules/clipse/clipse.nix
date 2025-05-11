@@ -2,7 +2,7 @@
   services.clipse = {
     enable = true;
     historySize = 250;
-		allowDuplicates = true;
+    allowDuplicates = true;
     keyBindings = {
       "choose" = "enter";
       "clearSelected" = "S";

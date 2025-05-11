@@ -120,7 +120,7 @@ in {
         mouse_move_focuses_monitor = true;
         enable_swallow = true;
         animate_mouse_windowdragging = true;
-        middle_click_paste = true;
+        middle_click_paste = false;
       };
 
       cursor = {
@@ -187,6 +187,7 @@ in {
       "$notifhistory" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t notificationsmenu";
       "$calendar" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t calendarmenu";
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
+      "$emoji" = "${pkgs.rofimoji}/bin/rofimoji --selector wofi";
       "$spotify" = "spotify";
       "$discord" = "/nix/store/b93q9w5dqwbwql38djf3dz8b0n6z3mjd-vesktop-1.5.6/bin/vesktop";
       "$clipmanager" = "kitty --class clipse -e clipse";
@@ -199,6 +200,7 @@ in {
           "$modalt, F, exec, $zen-browser"
           "$modalt, E, exec, $files"
           "SHIFT $modalt, C, exec, $clipmanager"
+          "$modalt, C, exec, $emoji"
           "SHIFT $modalt, E, exec, /tmp/scripts/ags_connect"
           "SHIFT $modalt, D, exec, $discord"
           "$modalt, SPACE, exec, $launcher"
@@ -375,7 +377,7 @@ in {
           workspaceBorderSize = 5;
           hideBackgroundLayers = false;
           hideTopLayers = true;
-          hideOverlayLayers = true;
+          hideOverlayLayers = false;
           hideRealLayers = false;
           onBottom = true;
           overrideGaps = true;

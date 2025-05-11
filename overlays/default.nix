@@ -1,4 +1,4 @@
-{pkgs, ...}: final: prev: {
+final: prev: {
   kitty = prev.kitty.overrideAttrs (oldAttrs: {
     patches =
       (oldAttrs.patches or [])
@@ -42,7 +42,7 @@
     '';
 
     # Make sure makeWrapper is available
-    nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [pkgs.makeWrapper];
+    # nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [pkgs.makeWrapper];
 
     unpackPhase = ''
       ${vmware-unpack-env}/bin/vmware-unpack-env -c "sh ${final.vmware-workstation.src} --extract unpacked"
