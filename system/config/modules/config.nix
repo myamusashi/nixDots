@@ -5,7 +5,7 @@
 }: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  nix.settings.trusted-users = ["root"];
+  nix.settings.trusted-users = ["root" "myamusashi"];
 
   nixpkgs.config.allowUnfree = true;
 
