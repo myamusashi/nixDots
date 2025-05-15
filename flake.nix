@@ -127,9 +127,9 @@
           sops-nix.nixosModules.sops
         ];
         specialArgs = {
-						inherit inputs;
-						inherit pkgs-stable;
-					};
+          inherit inputs;
+          inherit pkgs-stable;
+        };
       };
 
       # NOTE: nixos dan myamusashi sama saja

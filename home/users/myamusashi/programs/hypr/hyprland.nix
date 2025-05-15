@@ -44,9 +44,7 @@ in {
     settings = {
       exec-once = [
         "hyprpanel"
-        "${pkgs.clipse}/bin/clipse -listen"
         "/tmp/scripts/start_boot"
-        "swayosd-server"
         "udiskie --appindicator --menu-update-workaround --file-manager nautilus --tray --notify --automount"
         "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
       ];
