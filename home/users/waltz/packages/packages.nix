@@ -71,7 +71,9 @@
     cmake
     ninja
     ntfs3g
+    forgejo-runner
     libgdiplus
+    wl-clipboard
     ripgrep
     polkit
     tree-sitter

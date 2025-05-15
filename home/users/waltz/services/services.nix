@@ -1,11 +1,19 @@
-{
-  lib,
-  pkgs-stable,
-  config,
-  ...
-}: {
+{config, ...}: {
   services.cloudflared = {
     enable = true;
+    tunnels = {
+      "7549a153-4952-488e-8056-711737089bf4" = {
+        default = "http_status:404";
+        certificateFile = "/home/waltz/.cloudflared/cert.pem";
+        credentialsFile = config.sops.secrets.cloudflare_creds.path;
+        ingress = {
+          "git.myamusashi.space" = "unix:/run/forgejo/forgejo.sock";
+        };
+        originRequest = {
+          proxyType = "socks";
+        };
+      };
+    };
   };
 
   services.nginx = {

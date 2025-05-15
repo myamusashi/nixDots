@@ -6,4 +6,8 @@
     shell = pkgs-stable.fish;
     extraGroups = ["networkmanager" "wheel" "vsftpd"];
   };
+	
+	users.users.cloudflared.isNormalUser = true;
+  users.users.cloudflared.group = "cloudflared";
+  users.groups.cloudflared = {};
 }

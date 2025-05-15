@@ -92,7 +92,6 @@
     chaotic,
     nixgl,
     home-manager,
-    sops-nix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -124,7 +123,6 @@
           ./home/common/programs/htop.nix
           ./home/common/programs/lazygit.nix
           ./home/common/services.nix
-          sops-nix.nixosModules.sops
         ];
         specialArgs = {
           inherit inputs;

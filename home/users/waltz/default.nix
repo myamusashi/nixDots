@@ -8,6 +8,7 @@
     ./boot/boot.nix
     ./programs/programs.nix
     ./security/security.nix
-    ./systemd/duckdns.nix
+		./sops/sops.nix
+    # ./systemd/cloudflare_tunnel.nix
   ];
 }
