@@ -4,6 +4,6 @@
     ./programs/default.nix
     ./packages/default.nix
     ./settings/default.nix
-		./services/default.nix
+    ./services/default.nix
   ];
 }

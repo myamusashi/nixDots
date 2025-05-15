@@ -4,6 +4,6 @@
     ./rules/battery-low.rules
     ./rules/bt-connected.rules
     ./rules/charged-battery-connected.rules
-		./rules/wireshark-group.rules
+    ./rules/wireshark-group.rules
   ]);
 }
