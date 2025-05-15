@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs-stable, ...}: {
   systemd.timers.duckdns = {
     wantedBy = ["timers.target"];
     timerConfig = {
@@ -11,8 +11,8 @@
     description = "Duck DNS configuration";
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.writeShellScript "duck.sh" ''
-        ${pkgs.bash}/bin/bash /home/waltz/scripts/duck.sh
+      ExecStart = "${pkgs-stable.writeShellScript "duck.sh" ''
+        ${pkgs-stable.bash}/bin/bash /home/waltz/scripts/duck.sh
       ''}";
     };
   };

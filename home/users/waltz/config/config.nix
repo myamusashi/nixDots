@@ -3,6 +3,15 @@
     ./hardware-configuration.nix
   ];
 
+  nixpkgs.overlays = [
+    (self: super: {
+      tree-sitter-bundled-vendor = super.tree-sitter-bundled-vendor.overrideAttrs (oldAttrs: {
+        # Update hash untuk vendor bundle
+        vendorHash = "sha256-ie+/48dVU3r+tx/sQBWRIZEWSNWwMBANCqQLnv96JXs=";
+      });
+    })
+  ];
+
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
 
