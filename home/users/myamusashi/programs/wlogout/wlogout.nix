@@ -1,41 +1,43 @@
-{
+let
+  path = "$HOME/.dots/home/users/myamusashi/programs/wlogout/confirm.sh";
+in {
   programs.wlogout = {
     enable = true;
     style = ./style.css;
     layout = [
       {
         label = "shutdown";
-        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh shutdown";
+        action = "bash ${path} shutdown";
         text = "Mati";
         keybind = "s";
       }
       {
         label = "reboot";
-        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh reboot";
+        action = "bash ${path} reboot";
         text = "Reboot";
         keybind = "r";
       }
       {
         label = "sleep";
-        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh suspend";
+        action = "bash ${path} suspend";
         text = "Turu";
         keybind = "t";
       }
       {
         label = "hibernate";
-        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh hibernate";
+        action = "bash ${path} hibernate";
         text = "Hibernate";
         keybind = "h";
       }
       {
         label = "lock";
-        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh lock";
+        action = "bash ${path} lock";
         text = "konci";
         keybind = "l";
       }
       {
         label = "logout";
-        action = "bash $HOME/.dots/home/programs/wlogout/confirm.sh logout";
+        action = "bash ${path} logout";
         text = "keluar";
         keybind = "e";
       }
