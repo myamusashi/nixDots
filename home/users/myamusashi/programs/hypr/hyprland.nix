@@ -44,7 +44,7 @@ in {
     settings = {
       exec-once = [
         "hyprpanel"
-        "${pkgs.clipse} -listen"
+        "${pkgs.clipse}/bin/clipse -listen"
         "/tmp/scripts/start_boot"
         "swayosd-server"
         "udiskie --appindicator --menu-update-workaround --file-manager nautilus --tray --notify --automount"
@@ -189,7 +189,7 @@ in {
       "$dashboard" = "${pkgs.astal.io}/bin/astal -i hyprpanel -t dashboardmenu";
       "$emoji" = "${pkgs.rofimoji}/bin/rofimoji --selector wofi";
       "$spotify" = "spotify";
-      "$discord" = "/nix/store/b93q9w5dqwbwql38djf3dz8b0n6z3mjd-vesktop-1.5.6/bin/vesktop";
+      "$discord" = "vesktop";
       "$clipmanager" = "kitty --class clipse -e clipse";
       "$modalt" = "ALT";
       "$mod" = "SUPER";

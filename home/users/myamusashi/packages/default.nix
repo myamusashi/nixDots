@@ -11,6 +11,7 @@
     pkgs.rich-cli
     pkgs.gh
     pkgs.zip
+		pkgs.vesktop
     pkgs.alejandra
     pkgs.statix
     pkgs.nixfmt-classic
