@@ -1,5 +1,4 @@
 {
-  nix.settings.trusted-users = ["root" "myamusashi"];
   imports = [
     ./boot/default.nix
     ./config/default.nix

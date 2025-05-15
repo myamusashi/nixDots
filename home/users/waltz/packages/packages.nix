@@ -72,6 +72,7 @@
     ninja
     ntfs3g
     libgdiplus
+    ripgrep
     polkit
     tree-sitter
     pciutils

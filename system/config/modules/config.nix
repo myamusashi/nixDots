@@ -5,6 +5,8 @@
 }: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  nix.settings.trusted-users = ["root"];
+
   nixpkgs.config.allowUnfree = true;
 
   # Nuh uh, don't fucking changing it

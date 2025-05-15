@@ -3,6 +3,8 @@
     ./hardware-configuration.nix
   ];
 
+  nix.settings.trusted-users = ["waltz"];
+
   nixpkgs.overlays = [
     (self: super: {
       tree-sitter-bundled-vendor = super.tree-sitter-bundled-vendor.overrideAttrs (oldAttrs: {
