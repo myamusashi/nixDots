@@ -5,7 +5,6 @@
       "https://nix-community.cachix.org"
       "https://chaotic-nyx.cachix.org"
       "https://ezkea.cachix.org"
-      "https://yazi.cachix.org"
       "https://hyprland.cachix.org"
     ];
     extra-trusted-public-keys = [
@@ -13,7 +12,6 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
       "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
-      "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
@@ -101,7 +99,6 @@
     pkgs-stable = import nixpkgs-stable {
       inherit system;
       config.allowUnfree = true;
-      overlays = [inputs.neovim-nightly-overlay.overlays.default];
     };
     pkgs = import nixpkgs {
       inherit system;
@@ -121,17 +118,18 @@
     nixosConfigurations = {
       waltz = nixpkgs.lib.nixosSystem {
         inherit system;
-        inherit pkgs-stable;
 
         modules = [
           ./home/users/waltz/default.nix
-          ./home/common/programs/git.nix
           ./home/common/programs/htop.nix
           ./home/common/programs/lazygit.nix
           ./home/common/services.nix
           sops-nix.nixosModules.sops
         ];
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+						inherit inputs;
+						inherit pkgs-stable;
+					};
       };
 
       # NOTE: nixos dan myamusashi sama saja
@@ -140,7 +138,6 @@
         modules = [
           chaotic.nixosModules.default
           ./system/default.nix
-          ./home/common/programs/git.nix
           ./home/common/programs/htop.nix
           ./home/common/programs/lazygit.nix
           ./home/common/services.nix
@@ -159,6 +156,7 @@
         };
 
         modules = [
+          ./home/common/programs/git.nix
           ./home/users/myamusashi/default.nix
           ./scripts/symlinks/symlinks.nix
         ];

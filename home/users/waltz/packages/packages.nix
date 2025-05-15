@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
+{pkgs-stable, ...}: {
+  environment.systemPackages = with pkgs-stable; [
     (vimPlugins.nvim-treesitter.withPlugins (plugins: [
       # Combine allGrammars with explicitly listed plugins if needed
       # (tree-sitter.allGrammars) ++ [ ... ]
@@ -91,8 +91,8 @@
     openssl
     gh
     lftp
-		cloudflared
-		sops
-		age
+    cloudflared
+    sops
+    age
   ];
 }

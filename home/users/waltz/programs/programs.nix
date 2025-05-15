@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{pkgs-stable, ...}: {
   programs.starship = {
     enable = true;
-    settings = pkgs.lib.importTOML ./starship.toml;
+    settings = pkgs-stable.lib.importTOML ./starship.toml;
   };
 
   programs.fish = {
@@ -10,7 +10,7 @@
       set -gx EDITOR 'nvim -u $HOME/.config/nvim/init.lua'
       set -g fish_greeting
 
-      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+      ${pkgs-stable.any-nix-shell}/bin/any-nix-shell fish --info-right | source
       function imgcp
         wl-copy < $argv[1]
       end
