@@ -1,4 +1,8 @@
 final: prev: {
+  upower = prev.upower.overrideAttrs (oldAttrs: {
+    doCheck = false;
+  });
+
   kitty = prev.kitty.overrideAttrs (oldAttrs: {
     patches =
       (oldAttrs.patches or [])

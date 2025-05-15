@@ -36,15 +36,15 @@ in {
     enable = true;
     package = pkgs.hyprland;
     plugins = [
-      # "${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so"
-      # "${inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so"
+      "${inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3}/lib/libhy3.so"
+      "${inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors}/lib/libhypr-dynamic-cursors.so"
       "${inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling}/hyprscrolling.so"
       "${inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace}/lib/libHyprspace.so"
     ];
     settings = {
       exec-once = [
         "hyprpanel"
-        "clipse -listen"
+        "${pkgs.clipse} -listen"
         "/tmp/scripts/start_boot"
         "swayosd-server"
         "udiskie --appindicator --menu-update-workaround --file-manager nautilus --tray --notify --automount"
@@ -84,7 +84,7 @@ in {
         "col.active_border" = "rgba(C0A36Ee7) rgba(DCD7BAff) 45deg";
         "col.inactive_border" = "0x3636462E";
         no_border_on_floating = false;
-        layout = "scrolling";
+        layout = "hy3";
         snap = {
           enabled = true;
           window_gap = 35;
@@ -231,15 +231,17 @@ in {
           "$modalt, down, movefocus, d"
 
           # Alternative Movefocus
-          "$mod CTRL, left, exec, hyprctl dispatch movefocus l"
-          "$mod CTRL, right, exec, hyprctl dispatch movefocus r"
-          "$mod CTRL, up, exec, hyprctl dispatch movefocus u"
-          "$mod CTRL, down, exec, hyprctl dispatch movefocus d"
+          "$mod CTRL, left, exec, hyprctl dispatch hy3:movefocus l"
+          "$mod CTRL, right, exec, hyprctl dispatch hy3:movefocus r"
+          "$mod CTRL, up, exec, hyprctl dispatch hy3:movefocus u"
+          "$mod CTRL, down, exec, hyprctl dispatch hy3:movefocus d"
 
-          "$mod, left, exec, hyprctl dispatch movewindow l"
-          "$mod, right, exec, hyprctl dispatch movewindow r"
-          "$mod, up, exec, hyprctl dispatch movewindow u"
-          "$mod, down, exec, hyprctl dispatch movewindow d"
+          "SHIFT $modalt, G, exec, hyprctl dispatch hy3:makegroup tab"
+
+          "$mod, left, exec, hyprctl dispatch hy3:movewindow l"
+          "$mod, right, exec, hyprctl dispatch hy3:movewindow r"
+          "$mod, up, exec, hyprctl dispatch hy3:movewindow u"
+          "$mod, down, exec, hyprctl dispatch hy3:movewindow d"
           "$modalt CTRL, left, resizeactive, -20 0"
           "$modalt CTRL, right, resizeactive, 20 0"
           "$modalt CTRL, up, resizeactive, 0 -20"

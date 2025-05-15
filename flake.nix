@@ -19,6 +19,8 @@
   };
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?rev=f771eb401a46846c1aebd20552521b233dd7e18b";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-24.11";
+    sops-nix.url = "github:Mic92/sops-nix";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager = {
@@ -47,7 +49,7 @@
     };
 
     Hyprspace = {
-      url = "github:myamusashi/Hyprspace";
+      url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -81,27 +83,26 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    nixvim.url = "github:nix-community/nixvim";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/quickshell/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-
     nixgl.url = "github:nix-community/nixGL";
   };
 
   outputs = {
     nixpkgs,
+    nixpkgs-stable,
     chaotic,
     nixgl,
     home-manager,
+    sops-nix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    pkgs-stable = import nixpkgs-stable {
+      inherit system;
+      config.allowUnfree = true;
+      overlays = [inputs.neovim-nightly-overlay.overlays.default];
+    };
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
@@ -112,33 +113,56 @@
         inputs.hypridle.overlays.default
         inputs.hyprland.overlays.default
         nixgl.overlay
+        inputs.neovim-nightly-overlay.overlays.default
         (import ./overlays/default.nix)
       ];
     };
   in {
     nixosConfigurations = {
+      waltz = nixpkgs.lib.nixosSystem {
+        inherit system;
+        inherit pkgs-stable;
+
+        modules = [
+          ./home/users/waltz/default.nix
+          ./home/common/programs/git.nix
+          ./home/common/programs/htop.nix
+          ./home/common/programs/lazygit.nix
+          ./home/common/services.nix
+          sops-nix.nixosModules.sops
+        ];
+        specialArgs = {inherit inputs;};
+      };
+
+      # NOTE: nixos dan myamusashi sama saja
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           chaotic.nixosModules.default
           ./system/default.nix
+          ./home/common/programs/git.nix
+          ./home/common/programs/htop.nix
+          ./home/common/programs/lazygit.nix
+          ./home/common/services.nix
         ];
         specialArgs = {inherit inputs;};
       };
     };
 
-    homeConfigurations."myamusashi" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+    homeConfigurations = {
+      "myamusashi" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-      extraSpecialArgs = {
-        inherit system;
-        inherit inputs;
+        extraSpecialArgs = {
+          inherit system;
+          inherit inputs;
+        };
+
+        modules = [
+          ./home/default.nix
+          ./scripts/symlinks/symlinks.nix
+        ];
       };
-
-      modules = [
-        ./home/default.nix
-        ./scripts/symlinks/symlinks.nix
-      ];
     };
   };
 }

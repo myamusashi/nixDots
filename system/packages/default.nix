@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     vim
+    lftp
+    zed-editor-fhs
     wget
     poppler_utils
     libreoffice

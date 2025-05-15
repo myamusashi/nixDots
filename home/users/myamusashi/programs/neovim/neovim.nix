@@ -7,7 +7,6 @@
 
   programs.neovim = {
     enable = true;
-    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     plugins = with pkgs.vimPlugins; [
       (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
       (nvim-treesitter.withPlugins (
@@ -62,7 +61,7 @@
       lua54Packages.luarocks_bootstrap
       stylua
       typescript
-      nodejs_23
+      nodejs-slim_22
       dockerfile-language-server-nodejs
       fish-lsp
       python312Packages.python-lsp-server
