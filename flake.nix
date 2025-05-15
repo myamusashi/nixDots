@@ -159,7 +159,7 @@
         };
 
         modules = [
-          ./home/default.nix
+          ./home/users/myamusashi/default.nix
           ./scripts/symlinks/symlinks.nix
         ];
       };
